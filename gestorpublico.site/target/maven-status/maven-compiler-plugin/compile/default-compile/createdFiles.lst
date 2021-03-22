@@ -1,0 +1,5 @@
+org\gestorpublico\site\action\NaoLogadoAction.class
+org\gestorpublico\site\action\IndexAction.class
+org\gestorpublico\site\action\PrincipalAction.class
+org\gestorpublico\site\action\LoginAction.class
+org\gestorpublico\site\action\LogoutAction.class

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- <constant name="struts.devMode" value="false" /> -->
+	<constant name="struts.multipart.maxSize" value="10485760" /> <!-- TAMANHO MAXIMO PARA UPLOAD 10MB -->
+	
+	<package name="json" namespace="/" extends="struts-default, json-default"></package>
+	
+	<package name="gestao" namespace="/gestao" extends="struts-default, json-default">
+		<interceptors>
+			<!-- CRIAÇÃO DO INTERCEPTADOR GESTORES -->
+			<interceptor name="gestores" class="org.gestorpublico.interceptor.Gestao" />
+			
+			<!-- CRIAÇÃO DA PILHA GESTAO -->
+			<interceptor-stack name="gestao">
+				<interceptor-ref name="gestores" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- DEFINIÇÃO DO INTERCEPTADOR PADRÃO -->
+		<default-interceptor-ref name="seguranca2" />
+		
+		<!-- DEFINIÇÃO DE RESULTADO GLOBAL -->
+		<global-results>
+			<result name="naoLogado">WEB-INF\content\pagina_inicial.jsp</result>
+			<result name="desautorizado">WEB-INF\content\acessoNegado.jsp</result>
+			<result name="gestaoNaoLogado" type="redirectAction">naoLogado</result>
+		</global-results>
+	</package>
+	
+	<package name="default" namespace="/site" extends="struts-default, json-default">
+		<interceptors>
+			<!-- CRIAÇÃO DO INTERCEPTADOR SITE -->
+			<interceptor name="principal" class="org.gestorpublico.interceptor.Site" />
+			
+			<!-- CRIAÇÃO DA PILHA SEGURANCA -->
+			<interceptor-stack name="site">
+				<interceptor-ref name="principal" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- DEFINIÇÃO DO INTERCEPTADOR PADRÃO -->
+		<default-interceptor-ref name="site" />
+		
+		<!-- DEFINIÇÃO DE RESULTADO GLOBAL -->
+		<global-results>
+			<result name="naoLogado" type="json">WEB-INF\content\index.jsp</result>
+			<result name="desautorizado" type="json">WEB-INF\content\acessoNegado.jsp</result>
+			<result name="siteNaoLogado" type="redirectAction">naoLogado</result>
+		</global-results>
+	</package>
+
+</struts>

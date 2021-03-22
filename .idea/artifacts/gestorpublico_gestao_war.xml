@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="gestorpublico.gestao:war">
+    <output-path>$PROJECT_DIR$/gestorpublico.gestao/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>gestorpublico.gestao</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="gestorpublico.gestao-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="gestorpublico.gestao:war exploded" />
+    </root>
+  </artifact>
+</component>
