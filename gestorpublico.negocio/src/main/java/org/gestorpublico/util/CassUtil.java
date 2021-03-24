@@ -601,7 +601,7 @@ public class CassUtil {
 	}
 	
 	public static String removerMascara(String valor) {
-		if (valor == null || valor.length() == 0) return "";
+		if (valor == null || valor.trim().isEmpty()) return null;
 		valor = valor.replaceAll("\\:", "");
 		valor = valor.replaceAll("\\.", "");
 		valor = valor.replaceAll("\\/", "");

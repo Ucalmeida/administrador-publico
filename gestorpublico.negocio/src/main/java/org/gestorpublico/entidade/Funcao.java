@@ -4,19 +4,17 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(
-    indexes = {
-        @Index(columnList = "nm_nome", name = "nome"),
-        @Index(columnList = "nm_sigla", name = "sigla")
+    uniqueConstraints = {
+        @UniqueConstraint(name="nm_nome", columnNames="nm_nome")
     }
 )
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 @EqualsAndHashCode @ToString
-public class Sexo implements Serializable, Comparable<Sexo> {
+public class Funcao implements Serializable, Comparable<Funcao> {
 
     private static final long serialVersionUID = 1L;
 
@@ -24,21 +22,17 @@ public class Sexo implements Serializable, Comparable<Sexo> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nm_nome", length = 10,nullable = false)
+    @Column(name = "nm_nome", length = 100,nullable = false)
     private String nome;
 
-    @Column(name = "nm_sigla", length = 1, nullable = false)
-    private String sigla;
-
     // **************************** RELACIONAMENTOS *************************
-    @OneToMany(mappedBy = "sexo")
-    private List<Pessoa> pessoas;
+
     // **************************** CONTRUTORES *****************************
 
     // ****************** HASH, EQUALS, COMPARETO, TOSTRING *****************
-
     @Override
-    public int compareTo(Sexo o) {
+    public int compareTo(Funcao o) {
         return nome.compareTo(o.getNome());
     }
+
 }

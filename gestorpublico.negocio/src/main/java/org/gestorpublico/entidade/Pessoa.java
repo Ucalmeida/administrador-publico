@@ -62,13 +62,13 @@ public class Pessoa implements Serializable, Comparable<Pessoa> {
 	
 	@Column(name="bl_postsMidiaLiberados", nullable=false, columnDefinition="tinyint default 1")
 	private boolean postsMidiaLiberados;
-	
+
 	@Column(name="bl_acessaSistema", nullable=false, columnDefinition="tinyint default 1")
 	private boolean acessaSistema;
 
 	// **************************** RELACIONAMENTOS *************************
 	@ManyToOne
-	@JoinColumn(name = "fk_sexo")
+	@JoinColumn(name = "fk_sexo", foreignKey = @ForeignKey(name="FK_Sexo_Pessoa"))
 	private Sexo sexo;
 	// **************************** CONTRUTORES *****************************
 

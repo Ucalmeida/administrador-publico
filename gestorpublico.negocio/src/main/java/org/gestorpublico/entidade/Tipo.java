@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(
@@ -16,7 +15,7 @@ import java.util.List;
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 @EqualsAndHashCode @ToString
-public class Sexo implements Serializable, Comparable<Sexo> {
+public class Tipo implements Serializable, Comparable<Tipo> {
 
     private static final long serialVersionUID = 1L;
 
@@ -24,21 +23,26 @@ public class Sexo implements Serializable, Comparable<Sexo> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nm_nome", length = 10,nullable = false)
+    @Column(name = "nm_nome", length = 100, nullable = false)
     private String nome;
 
-    @Column(name = "nm_sigla", length = 1, nullable = false)
-    private String sigla;
-
     // **************************** RELACIONAMENTOS *************************
-    @OneToMany(mappedBy = "sexo")
-    private List<Pessoa> pessoas;
+    @ManyToOne
+    @JoinColumn(name="fk_objeto", nullable=false, foreignKey=@ForeignKey(name="FK_Objeto_Tipo"))
+    private Objeto objeto;
+
     // **************************** CONTRUTORES *****************************
 
     // ****************** HASH, EQUALS, COMPARETO, TOSTRING *****************
-
     @Override
-    public int compareTo(Sexo o) {
-        return nome.compareTo(o.getNome());
+    public int compareTo(Tipo o) {
+        int compare = this.objeto.getId().compareTo(o.getObjeto().getId());
+        return compare != 0 ? compare : nome.compareTo(o.getNome());
     }
+
+    // ****************** GETs e SETs ***************************************
+    public void setNome(String nome) {
+        this.nome = nome == null || nome.trim().isEmpty() ? null : nome.trim();
+    }
+
 }

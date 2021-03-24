@@ -20,7 +20,10 @@ public class BancoGerar {
 			
 			// Executa no banco
 			schemaExport.execute(EnumSet.of(TargetType.DATABASE), Action.BOTH, metadata);
-			
+			// Exibe no Console
+			schemaExport.execute(EnumSet.of(TargetType.STDOUT), Action.BOTH, metadata);
+
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
