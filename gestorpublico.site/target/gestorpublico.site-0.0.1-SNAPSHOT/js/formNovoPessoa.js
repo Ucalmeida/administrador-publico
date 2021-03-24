@@ -88,14 +88,6 @@ $(document).ready(function() {
             $("#ckAcessaSistema").attr('disabled', 'disabled');
             $("#dependente").show();
 
-            // let appElement = document.querySelector("#dependentes");
-            // let button = document.createElement('button');
-            // button.setAttribute('id', 'btnDependentes');
-            // button.setAttribute('type', 'button');
-            // button.setAttribute('class', 'btn btn-success right');
-            // button.appendChild(document.createTextNode('Dependentes'));
-            // appElement.appendChild(button);
-
             // let result = enviar(form, true, true, true)
             // return false;
         }
@@ -111,16 +103,14 @@ $(document).ready(function() {
             // 'pessoa.senha': {required: true},
         },
         submitHandler: function(form) {
-            $("#btnSalvarDep").click(function(){
-                oTable.clear().draw();
-                let aData = {"0": '<p>FILHO</p>',
-                    "1": '<p>FULANO JUNIOR</p>',
-                    "2": '<p>06/02/2004</p>',
-                    "3": '<p>999.888.777-66</p>',
-                    "4": '<button id="edicao" class="btn btn-warning">Editar</button>' + ' ' + '<button id="excluir" class="btn btn-danger">Excluir</button>',
-                    "DT_RowId": "ln"+1};
-                oTable.rows.add([aData]).draw();
-            });
+            oTable.clear().draw();
+            let aData = {"0": '<p>FILHO</p>',
+                "1": '<p>FULANO JUNIOR</p>',
+                "2": '<p>06/02/2004</p>',
+                "3": '<p>999.888.777-66</p>',
+                "4": '<button id="edicao" class="btn btn-warning">Editar</button>' + ' ' + '<button id="excluir" class="btn btn-danger">Excluir</button>',
+                "DT_RowId": "ln"+1};
+            oTable.rows.add([aData]).draw();
 
             $('#tbDependentes tbody').on( 'click', '.btn-danger', function() {
                 oTable
