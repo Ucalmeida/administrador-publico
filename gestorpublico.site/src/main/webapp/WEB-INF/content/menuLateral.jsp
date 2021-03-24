@@ -49,19 +49,34 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-target="beneficios"
-                                           onclick="javascript:verBeneficios()">
-                                            <i class="nav-icon mr-1 fa fa-handshake"></i>
-                                            <p class="">Benefícios</p>
-<%--                                            <span class="badge badge-primary right">055</span>--%>
+                                        <a class="nav-link" data-target="pessoaFormLocalizar"
+                                           onclick="javascript:execute('pessoaFormLocalizar')">
+                                            <i class="nav-icon mr-1 far fa-file-alt"></i>
+                                            <p class="">Localizar Pessoa</p>
                                         </a>
                                     </li>
-<%--                                    <li class="nav-item">--%>
-<%--                                        <a class="nav-link" data-target="ultimoBOL" onclick="javascript:verUltimoBol()">--%>
-<%--                                            <i class="nav-icon mr-1 fas fa-passport"></i>--%>
-<%--                                            <p class="">Último BOL<span class="badge badge-primary right">049</span></p>--%>
-<%--                                        </a>--%>
-<%--                                    </li>--%>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a class="nav-link" href="#" onclick="javascript:void(0)">
+                                    <i class="nav-icon fa fa-handshake"></i>
+                                    <p class="">Benefícios<i class="right fas fa-angle-down"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-target="beneficioNovoFormCadastro"
+                                           onclick="javascript:execute('beneficioNovoFormCadastro')">
+                                            <i class="nav-icon mr-1 fa fa-handshake"></i>
+                                            <p class="">Novo</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-target="beneficioFormLocalizar"
+                                           onclick="javascript:execute('beneficioFormLocalizar')">
+                                            <i class="nav-icon mr-1 far fa-file-alt"></i>
+                                            <p class="">Localizar Benefício</p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 <%--                            <li class="nav-item"><a class="nav-link" href="#" role="button" data-target="escalas"--%>

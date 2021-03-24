@@ -28,8 +28,12 @@ function downloadDocumento(tipo, nome) {
 	window.open("docDownload?tipo="+tipo+"&fileName="+nome);
 }
 
-function verBeneficios() {
+function cadastrarNovoBeneficio() {
 	window.open("beneficios", "_blank");
+}
+
+function verBeneficiosPorPessoa() {
+	window.open("beneficiosPorPessoa", "_blank");
 }
 
 function abrir(id) {
@@ -619,6 +623,33 @@ function requerimentoSolicitarDespacho(id) {
 	});
 	$(".bootbox-body").load('requerimentoFormModalDespachoSolicitar', {"id": id});
 //	boot.bind('shown.bs.modal', function(){boot.find(".focus").focus();});
+}
+
+function cadastrarBeneficio() {
+	let cBeneficio = bootbox.dialog({
+		message: 'Aguarde...',
+		title: "Cadastrar Benefício",
+		size: "large",
+		onEscape: true,
+		buttons: {
+			success: {
+				label: "Adicionar",
+				className: "btn-primary",
+				callback: function() {
+					$("#formModalCadastrarBeneficio").submit();
+					return false;
+				}
+			},
+			danger: {
+				label: "Fechar",
+				className: "btn-danger",
+				callback: function(){
+					// location.reload();
+				}
+			}
+		}
+	});
+	cBeneficio.find(".bootbox-body").load('cadastrarBeneficio');
 }
 
 function requerimentoNovo() {
