@@ -8,6 +8,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -73,6 +74,18 @@ public class Pessoa implements Serializable, Comparable<Pessoa> {
 	private boolean bolsaFamilia;
 
 	// **************************** RELACIONAMENTOS *************************
+	@ManyToMany
+	@JoinTable(name="Pessoa_Acao_Extra",
+			joinColumns = {@JoinColumn(name = "fk_pessoa", foreignKey = @ForeignKey(name = "FK_Pessoa_Pessoa_Acao_Extra"))},
+			inverseJoinColumns = {@JoinColumn(name = "fk_moduloAcao", foreignKey = @ForeignKey(name = "FK_Modulo_Acao_Pessoa_ACao_Extra"))})
+	private List<Modulo_Acao> acoesExtras;
+
+	@ManyToMany
+	@JoinTable(name="Pessoa_Acao_Negar",
+			joinColumns = {@JoinColumn(name = "fk_pessoa", foreignKey = @ForeignKey(name = "FK_Pessoa_Pessoa_Acao_Negar"))},
+			inverseJoinColumns = {@JoinColumn(name = "fk_moduloAcao", foreignKey = @ForeignKey(name = "FK_Modulo_Acao_Pessoa_ACao_Negar"))})
+	private List<Modulo_Acao> acoesNegadas;
+
 	@ManyToOne
 	@JoinColumn(name = "fk_sexo", foreignKey = @ForeignKey(name="FK_Sexo_Pessoa"))
 	private Sexo sexo;
