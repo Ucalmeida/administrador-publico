@@ -50,11 +50,11 @@ public class Poder_Setor_Funcao implements Serializable, Comparable<Poder_Setor_
     private List<Modulo_Acao> acoes;
 
     @ManyToOne
-    @JoinColumn(name="fk_poderSetor", nullable=false, foreignKey=@ForeignKey(name="FK_Poder_Setor_Poder_Setor_Pessoa"))
+    @JoinColumn(name="fk_poderSetor", nullable=false, foreignKey=@ForeignKey(name="FK_Poder_Setor_Poder_Setor_Funcao"))
     private Poder_Setor poderSetor;
 
     @ManyToOne
-    @JoinColumn(name="fk_funcao", nullable = false, foreignKey=@ForeignKey(name="FK_Funcao_Poder_Setor_Pessoa"))
+    @JoinColumn(name="fk_funcao", nullable = false, foreignKey=@ForeignKey(name="FK_Funcao_Poder_Setor_Funcao"))
     private Funcao funcao;
 
     // **************************** CONTRUTORES *****************************

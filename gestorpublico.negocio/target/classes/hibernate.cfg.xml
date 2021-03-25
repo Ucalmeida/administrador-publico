@@ -42,9 +42,12 @@
 		<mapping class="org.gestorpublico.entidade.Objeto" />
 		<mapping class="org.gestorpublico.entidade.Pais" />
 		<mapping class="org.gestorpublico.entidade.Pessoa" />
+		<mapping class="org.gestorpublico.entidade.Pessoa_Beneficio" />
 		<mapping class="org.gestorpublico.entidade.Pessoa_Endereco" />
+		<mapping class="org.gestorpublico.entidade.Pessoa_Servico" />
 		<mapping class="org.gestorpublico.entidade.Poder" />
 		<mapping class="org.gestorpublico.entidade.Poder_Setor" />
+		<mapping class="org.gestorpublico.entidade.Poder_Setor_Funcao" />
 		<mapping class="org.gestorpublico.entidade.Poder_Setor_Pessoa" />
 		<mapping class="org.gestorpublico.entidade.Ponto_Referencia" />
 		<mapping class="org.gestorpublico.entidade.Rua" />
