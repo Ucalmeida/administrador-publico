@@ -30,10 +30,26 @@
 <!--		<property name="hibernate.c3p0.max_statements">20</property> &lt;!&ndash; 50 &ndash;&gt;				&lt;!&ndash; Statements que serão adicionados no cache &ndash;&gt;-->
 <!--		<property name="hibernate.c3p0.numHelperThreads">4</property>							&lt;!&ndash; Quantidade de Threads simultaneas&ndash;&gt;-->
 
+		<mapping class="org.gestorpublico.entidade.Bairro" />
+		<mapping class="org.gestorpublico.entidade.Condominio" />
+		<mapping class="org.gestorpublico.entidade.Edificio" />
+		<mapping class="org.gestorpublico.entidade.Funcao" />
 		<mapping class="org.gestorpublico.entidade.Log_Alteracao" />
 		<mapping class="org.gestorpublico.entidade.Log_Erro_Execucao" />
+		<mapping class="org.gestorpublico.entidade.Municipio" />
+		<mapping class="org.gestorpublico.entidade.Objeto" />
+		<mapping class="org.gestorpublico.entidade.Pais" />
 		<mapping class="org.gestorpublico.entidade.Pessoa" />
+		<mapping class="org.gestorpublico.entidade.Pessoa_Endereco" />
+		<mapping class="org.gestorpublico.entidade.Poder" />
+		<mapping class="org.gestorpublico.entidade.Poder_Setor" />
+		<mapping class="org.gestorpublico.entidade.Poder_Setor_Pessoa" />
+		<mapping class="org.gestorpublico.entidade.Ponto_Referencia" />
+		<mapping class="org.gestorpublico.entidade.Rua" />
 		<mapping class="org.gestorpublico.entidade.Sequencial" />
+		<mapping class="org.gestorpublico.entidade.Setor" />
 		<mapping class="org.gestorpublico.entidade.Sexo" />
+		<mapping class="org.gestorpublico.entidade.Tipo" />
+		<mapping class="org.gestorpublico.entidade.UF" />
 	</session-factory>
 </hibernate-configuration>
