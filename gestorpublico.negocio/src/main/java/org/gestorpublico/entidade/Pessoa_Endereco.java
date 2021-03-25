@@ -28,6 +28,12 @@ public class Pessoa_Endereco implements Serializable, Comparable<Pessoa_Endereco
     @Column(name = "nm_complemento", length = 50)
     private String complemento;
 
+    @Column(name = "nm_latitude", length = 45)
+    private String latitude;
+
+    @Column(name = "nm_longitude", length = 45)
+    private String longitude;
+
     // **************************** RELACIONAMENTOS *************************
     @ManyToOne
     @JoinColumn(name="fk_pessoa", nullable=false, foreignKey=@ForeignKey(name="FK_Pessoa_Pessoa_Endereco"))
