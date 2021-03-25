@@ -77,4 +77,11 @@ public class Pessoa_Endereco implements Serializable, Comparable<Pessoa_Endereco
         this.complemento = complemento == null || complemento.trim().isEmpty() ? null : complemento.trim();
     }
 
+    public void setLatitude(String latitude) {
+        this.latitude = latitude == null || latitude.trim().isEmpty() ? null : latitude.trim();
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude == null || longitude.trim().isEmpty() ? null : longitude.trim();
+    }
 }
