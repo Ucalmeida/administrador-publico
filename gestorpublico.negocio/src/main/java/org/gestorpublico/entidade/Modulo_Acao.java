@@ -9,7 +9,11 @@ import java.util.List;
 @Entity
 @Table(
     indexes = {
-        @Index(columnList = "nm_nome", name = "nome")
+        @Index(columnList = "nm_nome", name = "nome"),
+        @Index(columnList = "nm_link", name = "link"),
+        @Index(columnList = "bl_menu", name = "menu"),
+        @Index(columnList = "bl_padrao", name = "padrao"),
+        @Index(columnList = "bl_liberavel", name = "liberavel")
     }
 )
 @Getter @Setter
@@ -25,6 +29,21 @@ public class Modulo_Acao implements Serializable, Comparable<Modulo_Acao> {
 
     @Column(name = "nm_nome", length = 100, nullable = false)
     private String nome;
+
+    @Column(name = "nm_link", length = 150)
+    private String link;
+
+    @Column(name = "nm_icone", length = 50, nullable = false, columnDefinition = "varchar(50) default 'fas fa-caret-right'")
+    private String icone;
+
+    @Column(name = "bl_menu", nullable = false, columnDefinition = "tinyint(1) default 0")
+    private boolean menu;
+
+    @Column(name = "bl_padrao", nullable = false, columnDefinition = "tinyint(1) default 0")
+    private boolean padrao;
+
+    @Column(name = "bl_liberavel", nullable = false, columnDefinition = "tinyint(1) default 0")
+    private boolean liberavel;
 
     // **************************** RELACIONAMENTOS *************************
     @ManyToMany
@@ -51,4 +70,7 @@ public class Modulo_Acao implements Serializable, Comparable<Modulo_Acao> {
         this.nome = nome == null || nome.trim().isEmpty() ? null : nome.trim();
     }
 
+    public void setLink(String link) {
+        this.link = link == null || link.trim().isEmpty() ? null : link.trim();
+    }
 }

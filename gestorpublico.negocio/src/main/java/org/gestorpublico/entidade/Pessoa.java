@@ -81,9 +81,9 @@ public class Pessoa implements Serializable, Comparable<Pessoa> {
 	private List<Modulo_Acao> acoesExtras;
 
 	@ManyToMany
-	@JoinTable(name="Pessoa_Acao_Negar",
-			joinColumns = {@JoinColumn(name = "fk_pessoa", foreignKey = @ForeignKey(name = "FK_Pessoa_Pessoa_Acao_Negar"))},
-			inverseJoinColumns = {@JoinColumn(name = "fk_moduloAcao", foreignKey = @ForeignKey(name = "FK_Modulo_Acao_Pessoa_ACao_Negar"))})
+	@JoinTable(name="Pessoa_Acao_Negada",
+			joinColumns = {@JoinColumn(name = "fk_pessoa", foreignKey = @ForeignKey(name = "FK_Pessoa_Pessoa_Acao_Negada"))},
+			inverseJoinColumns = {@JoinColumn(name = "fk_moduloAcao", foreignKey = @ForeignKey(name = "FK_Modulo_Acao_Pessoa_ACao_Negada"))})
 	private List<Modulo_Acao> acoesNegadas;
 
 	@ManyToOne
