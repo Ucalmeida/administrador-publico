@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Table(
     indexes = {
         @Index(columnList = "nm_nome", name = "nome"),
-        @Index(columnList = "nm_sigla", name = "sigla")
+        @Index(columnList = "nm_codigoIBGE", name = "codigoIBGE")
     }
 )
 @Getter @Setter
@@ -55,8 +55,4 @@ public class Municipio implements Serializable, Comparable<Municipio> {
         this.nome = nome == null || nome.trim().isEmpty() ? null : nome.trim();
     }
 
-    public void setSigla(String codigoIBGE) {
-        this.codigoIBGE = codigoIBGE == null || codigoIBGE.trim().isEmpty() ? null : codigoIBGE.trim();
-    }
-    
 }

@@ -9,8 +9,7 @@ import java.util.List;
 @Entity
 @Table(
     indexes = {
-        @Index(columnList = "nm_nome", name = "nome"),
-        @Index(columnList = "nm_sigla", name = "sigla")
+        @Index(columnList = "nm_nome", name = "nome")
     }
 )
 @Getter @Setter
@@ -27,9 +26,6 @@ public class Pais implements Serializable, Comparable<Pais> {
     @Column(name = "nm_nome", length = 100, nullable = false)
     private String nome;
 
-    @Column(name = "nm_sigla", length = 3, nullable = false)
-    private String sigla;
-
     // **************************** RELACIONAMENTOS *************************
 
     // **************************** CONTRUTORES *****************************
@@ -44,9 +40,4 @@ public class Pais implements Serializable, Comparable<Pais> {
     public void setNome(String nome) {
         this.nome = nome == null || nome.trim().isEmpty() ? null : nome.trim();
     }
-
-    public void setSigla(String sigla) {
-        this.sigla = sigla == null || sigla.trim().isEmpty() ? null : sigla.trim();
-    }
-
 }

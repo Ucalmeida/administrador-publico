@@ -24,7 +24,9 @@ public class BancoUpdate {
 			schemaUpdate.execute(EnumSet.of(TargetType.STDOUT), metadata);
 			
 			// Salva no arquivo
-			schemaUpdate.execute(EnumSet.of(TargetType.SCRIPT), metadata);
+//			schemaUpdate.execute(EnumSet.of(TargetType.SCRIPT), metadata);
+
+			System.out.println("Atualização finalizada!");
 
 		} catch (Exception e) {
 			e.printStackTrace();

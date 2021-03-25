@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Entity
 @Table(
     uniqueConstraints = {
-        @UniqueConstraint(name="nm_nome", columnNames="nm_nome")
+        @UniqueConstraint(columnNames="nm_nome", name="nome")
     }
 )
 @Getter @Setter

@@ -12,10 +12,10 @@ import java.time.LocalDate;
 @Entity
 @Table(
     uniqueConstraints = {
-        @UniqueConstraint(name="nm_nome", columnNames="nm_nome")
+        @UniqueConstraint(columnNames="nm_nome", name="nome")
     },
     indexes = {
-        @Index(columnList = "nu_valor", name = "nu_valor")
+        @Index(columnList = "nu_valor", name = "valor")
     }
 )
 @Getter @Setter
@@ -29,7 +29,7 @@ public class Beneficio implements Serializable, Comparable<Beneficio> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nm_nome", nullable = false)
+    @Column(name = "nm_nome", length = 100, nullable = false)
     private String nome;
 
     @Type(type = "text")
@@ -41,7 +41,7 @@ public class Beneficio implements Serializable, Comparable<Beneficio> {
 
     // **************************** RELACIONAMENTOS *************************
     @ManyToOne
-    @JoinColumn(name="fk_poderSetor", nullable=false, foreignKey=@ForeignKey(name="FK_Poder_Setor_Poder_Setor_Pessoa"))
+    @JoinColumn(name="fk_poderSetor", nullable=false, foreignKey=@ForeignKey(name="FK_Poder_Setor_Beneficio"))
     private Poder_Setor poderSetor;
 
     // **************************** CONTRUTORES *****************************
@@ -50,28 +50,23 @@ public class Beneficio implements Serializable, Comparable<Beneficio> {
     @Override
     public int compareTo(Beneficio o) {
         int compare = this.poderSetor.getId().compareTo(o.getPoderSetor().getId());
-        return compare != 0 ? compare : nome.compareTo(o.getFuncao().getNome());
+        return compare != 0 ? compare : nome.compareTo(o.getNome());
     }
 
     // ****************** GETs e SETs ***************************************
-    public String getDataAlocacaoFormatada() {
-        return CassUtil.getDataFormatada(dataAlocacao);
+    public void setNome(String nome) {
+        this.nome = nome == null || nome.trim().isEmpty() ? null : nome.trim();
     }
 
-    public void setDataAlocacao(String dataAlocacao) {
-        this.dataAlocacao = CassUtil.converterDataStringParaLocalDate(dataAlocacao);
+    public void setDescricao(String descricao) {
+        this.descricao = descricao == null || descricao.trim().isEmpty() ? null : descricao.trim();
     }
 
-    public String getDataDesalocacaoFormatada() {
-        return CassUtil.getDataFormatada(dataDesalocacao);
+    public String getValorFormatado() {
+        return CassUtil.converterBigDecimalParaNumeroStringPtBr(valor);
     }
 
-    public void setDataDesalocacao(String dataDesalocacao) {
-        this.dataDesalocacao = CassUtil.converterDataStringParaLocalDate(dataDesalocacao);
+    public void setValor(String valor) {
+        this.valor = CassUtil.converterNumeroStringPtBrParaBigDecimal(valor);
     }
-
-    public String getAcumuloFormatado() {
-        return acumulo ? "Sim" : "Não";
-    }
-
 }

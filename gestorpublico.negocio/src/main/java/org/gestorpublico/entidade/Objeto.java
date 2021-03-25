@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Table(
     uniqueConstraints = {
-        @UniqueConstraint(name="nm_nome", columnNames="nm_nome")
+        @UniqueConstraint(columnNames="nm_nome", name="nome")
     }
 )
 @Getter @Setter
@@ -23,7 +23,7 @@ public class Objeto implements Serializable, Comparable<Objeto> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nm_nome", length = 100,nullable = false)
+    @Column(name = "nm_nome", length = 100, nullable = false)
     private String nome;
 
     // **************************** RELACIONAMENTOS *************************

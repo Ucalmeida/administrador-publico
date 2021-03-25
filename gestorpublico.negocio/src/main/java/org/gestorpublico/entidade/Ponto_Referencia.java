@@ -8,9 +8,9 @@ import java.io.Serializable;
 @Entity
 @Table(
     indexes = {
-        @Index(columnList = "nm_nome", name = "nm_nome"),
-        @Index(columnList = "nm_latitude", name = "nm_latitude"),
-        @Index(columnList = "nm_longitude", name = "nm_longitude")
+        @Index(columnList = "nm_nome", name = "nome"),
+        @Index(columnList = "nm_latitude", name = "latitude"),
+        @Index(columnList = "nm_longitude", name = "longitude")
     }
 )
 @Getter @Setter

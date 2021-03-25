@@ -66,6 +66,12 @@ public class Pessoa implements Serializable, Comparable<Pessoa> {
 	@Column(name="bl_acessaSistema", nullable=false, columnDefinition="tinyint default 1")
 	private boolean acessaSistema;
 
+	@Column(name="bl_auxilioAluguel", nullable=false, columnDefinition="tinyint default 0")
+	private boolean auxilioAluguel;
+
+	@Column(name="bl_bolsaFamilia", nullable=false, columnDefinition="tinyint default 0")
+	private boolean bolsaFamilia;
+
 	// **************************** RELACIONAMENTOS *************************
 	@ManyToOne
 	@JoinColumn(name = "fk_sexo", foreignKey = @ForeignKey(name="FK_Sexo_Pessoa"))
