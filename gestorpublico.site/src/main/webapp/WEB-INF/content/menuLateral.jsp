@@ -38,21 +38,28 @@
                             <li class="nav-item has-treeview">
                                 <a class="nav-link" href="#" onclick="javascript:void(0)">
                                     <i class="nav-icon fas fa-users"></i>
-                                    <p class="">Pessoas<i class="right fas fa-angle-down"></i></p>
+                                    <p class="">Serviço<i class="right fas fa-angle-down"></i></p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a class="nav-link" data-target="pessoaNovoFormCadastro"
-                                           onclick="javascript:execute('pessoaNovoFormCadastro')">
+                                        <a class="nav-link" data-target="pessoaFormSolicita"
+                                           onclick="javascript:execute('servico')">
                                             <i class="nav-icon mr-1 far fa-file-alt"></i>
-                                            <p class="">Nova</p>
+                                            <p class="">Solicitar</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-target="pessoaFormLocalizar"
-                                           onclick="javascript:execute('pessoaFormLocalizar')">
+                                        <a class="nav-link" data-target="servicoFormLocaliza"
+                                           onclick="javascript:execute('servicoLocalizar')">
                                             <i class="nav-icon mr-1 far fa-file-alt"></i>
-                                            <p class="">Localizar Pessoa</p>
+                                            <p class="">Localizar</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-target="servicoFormLista"
+                                           onclick="javascript:execute('servicoListar')">
+                                            <i class="nav-icon mr-1 far fa-file-alt"></i>
+                                            <p class="">Minhas solicitações</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -65,16 +72,16 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a class="nav-link" data-target="beneficioNovoFormCadastro"
-                                           onclick="javascript:execute('beneficioNovoFormCadastro')">
+                                           onclick="javascript:execute('beneficio')">
                                             <i class="nav-icon mr-1 fa fa-handshake"></i>
-                                            <p class="">Novo</p>
+                                            <p class="">Solicitar</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-target="beneficioFormLocalizar"
-                                           onclick="javascript:execute('beneficioFormLocalizar')">
+                                        <a class="nav-link" data-target="beneficioFormListar"
+                                           onclick="javascript:execute('beneficioListar')">
                                             <i class="nav-icon mr-1 far fa-file-alt"></i>
-                                            <p class="">Localizar Benefício</p>
+                                            <p class="">Meus Benefícios</p>
                                         </a>
                                     </li>
                                 </ul>

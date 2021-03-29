@@ -3,11 +3,11 @@ package org.gestorpublico.site.action;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
-import org.gestorpublico.util.PortalAction;
+import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
 @ParentPackage("default")
-public class BeneficiosAction extends PortalAction {
+public class BeneficiosAction extends PadraoAction {
 
     @Action(value = "beneficiosPorPessoa",
             results = {

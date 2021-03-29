@@ -6,11 +6,11 @@ import org.apache.struts2.convention.annotation.Result;
 import org.gestorpublico.dao.PessoaDAO;
 import org.gestorpublico.entidade.Pessoa;
 import org.gestorpublico.entidade.Sexo;
-import org.gestorpublico.util.PortalAction;
+import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
 @ParentPackage("default")
-public class CadastrarPessoaAction extends PortalAction {
+public class CadastrarPessoaAction extends PadraoAction {
 
     private Pessoa pessoa;
     private Sexo sexo;

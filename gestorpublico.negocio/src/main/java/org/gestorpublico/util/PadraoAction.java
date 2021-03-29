@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.logging.Logger;
 
-public class PortalAction extends ActionSupport {
+public class PadraoAction extends ActionSupport {
     
     private static final long serialVersionUID = 1L;
     protected Logger logger = Logger.getLogger(getClass().getName());
@@ -21,7 +21,7 @@ public class PortalAction extends ActionSupport {
     protected final String SUCESSO = "ok";
     protected final String ERRO = "erro";
 
-    public PortalAction() {
+    public PadraoAction() {
         super();
     }
 

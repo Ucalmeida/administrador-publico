@@ -7,13 +7,13 @@ import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
 @ParentPackage("default")
-public class BeneficioFormLocalizarAction extends PadraoAction {
+public class BeneficioAction extends PadraoAction {
 
-    @Action(value = "beneficioFormLocalizar",
-            results = {
-                    @Result(name = "ok", location = "formLocalizarBeneficio.jsp"),
-                    @Result(name = "erro", type = "httpheader", params = {"status", "409"})
-            }
+    @Action(value = "beneficio",
+        results = {
+            @Result(name = "ok", location = "beneficioFormSolicita.jsp"),
+            @Result(name = "erro", type = "httpheader", params = {"status", "409"})
+        }
     )
     public String execute() {
         try {
@@ -23,7 +23,7 @@ public class BeneficioFormLocalizarAction extends PadraoAction {
 
         } catch (Exception e) {
             e.printStackTrace();
-            response.addHeader("erro", e.getMessage());
+            addErro(e.getMessage());
             return ERRO;
         }
     }

@@ -5,14 +5,14 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.gestorpublico.dao.SexoDAO;
 import org.gestorpublico.entidade.Sexo;
-import org.gestorpublico.util.PortalAction;
+import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @ParentPackage("default")
-public class PessoaNovoFormCadastroAction extends PortalAction {
+public class PessoaNovoFormCadastroAction extends PadraoAction {
 
     private List<Sexo> sexos = new ArrayList<>();
 
