@@ -28,9 +28,6 @@ public class BeneficioAction extends PadraoAction {
         try {
             Session session = getSession();
             servicos = new BeneficioDAO(session).listeBeneficiosPorAtivo(true);
-            for (Tuple t: servicos) {
-                System.out.println(t.get("nome"));
-            }
 
             return "ok";
 

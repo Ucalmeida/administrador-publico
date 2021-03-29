@@ -42,7 +42,7 @@
         </div>
     </section>
 </div>
-<jsp:include page="importacaoScripts.jsp" />
+<script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
 <script src="plugins/jquery/jquery.dataTables.js" type="text/javascript"></script>
 <script type='text/javascript' charset='utf-8' src='js/formLocalizarBeneficio.js'></script>
 </body>

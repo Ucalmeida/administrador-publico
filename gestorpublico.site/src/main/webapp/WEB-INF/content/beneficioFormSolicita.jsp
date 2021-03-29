@@ -21,6 +21,6 @@
             </section>
         </div>
         <jsp:include page="rodape.jsp" />
-        <jsp:include page="importacaoScripts.jsp" />
+        <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
     </body>
 </html>
