@@ -22,7 +22,6 @@ import java.security.NoSuchAlgorithmException;
 
 import static org.gestorpublico.util.Constantes.SENHA_EMAIL_PORTAL;
 
-@ParentPackage("default")
 public class LoginAction extends ActionSupport {
 
 	private static final long serialVersionUID = 3619440897616238220L;
@@ -35,7 +34,7 @@ public class LoginAction extends ActionSupport {
 
 	@Action(value="login",
 			results={
-					@Result(name="ok", type="redirectAction", params = {"actionName", "principal"}),
+					@Result(name="ok", type="redirectAction", params = {"actionName", "dashboard"}),
 					@Result(name="erro", type="httpheader", params={"status", "409"}),
 					@Result(name="naoAutorizado", type="redirectAction", params={"actionName", "naoLogado"}),
 			}

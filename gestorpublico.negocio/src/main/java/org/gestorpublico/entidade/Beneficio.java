@@ -36,6 +36,9 @@ public class Beneficio implements Serializable, Comparable<Beneficio> {
     @Column(name = "tx_descricao")
     private String descricao;
 
+    @Column(name = "bl_ativo", nullable = false, columnDefinition = "tinyint(1) default 1")
+    private boolean ativo;
+
     @Column(name = "nu_valor", nullable = false, columnDefinition = "decimal(10,2) default 0.00")
     private BigDecimal valor;
 

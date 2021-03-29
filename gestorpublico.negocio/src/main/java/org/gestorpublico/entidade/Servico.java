@@ -32,6 +32,9 @@ public class Servico implements Serializable, Comparable<Servico> {
     @Column(name = "tx_descricao")
     private String descricao;
 
+    @Column(name = "bl_ativo", nullable = false, columnDefinition = "tinyint(1) default 1")
+    private boolean ativo;
+
     // **************************** RELACIONAMENTOS *************************
     @ManyToOne
     @JoinColumn(name="fk_poderSetor", nullable=false, foreignKey=@ForeignKey(name="FK_Poder_Setor_Servico"))

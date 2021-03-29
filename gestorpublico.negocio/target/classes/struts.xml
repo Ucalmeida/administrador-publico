@@ -5,9 +5,30 @@
 <struts>
 	<!-- <constant name="struts.devMode" value="false" /> -->
 	<constant name="struts.multipart.maxSize" value="10485760" /> <!-- TAMANHO MAXIMO PARA UPLOAD 10MB -->
-	
-	<package name="json" namespace="/" extends="struts-default, json-default"></package>
-	
+
+	<package name="default" namespace="/" extends="struts-default, json-default">
+		<interceptors>
+			<!-- CRIAÇÃO DO INTERCEPTADOR SITE -->
+			<interceptor name="principal" class="org.gestorpublico.interceptor.Site" />
+
+			<!-- CRIAÇÃO DA PILHA SEGURANCA -->
+			<interceptor-stack name="sites">
+				<interceptor-ref name="principal" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- DEFINIÇÃO DO INTERCEPTADOR PADRÃO -->
+		<default-interceptor-ref name="sites" />
+
+		<!-- DEFINIÇÃO DE RESULTADO GLOBAL -->
+		<global-results>
+			<result name="naoLogado" type="json">WEB-INF\content\index.jsp</result>
+			<result name="desautorizado" type="json">WEB-INF\content\acessoNegado.jsp</result>
+			<result name="siteNaoLogado" type="redirectAction">naoLogado</result>
+		</global-results>
+	</package>
+
 	<package name="gestao" namespace="/gestao" extends="struts-default, json-default">
 		<interceptors>
 			<!-- CRIAÇÃO DO INTERCEPTADOR GESTORES -->
@@ -31,27 +52,4 @@
 		</global-results>
 	</package>
 	
-	<package name="default" namespace="/site" extends="struts-default, json-default">
-		<interceptors>
-			<!-- CRIAÇÃO DO INTERCEPTADOR SITE -->
-			<interceptor name="principal" class="org.gestorpublico.interceptor.Site" />
-			
-			<!-- CRIAÇÃO DA PILHA SEGURANCA -->
-			<interceptor-stack name="site">
-				<interceptor-ref name="principal" />
-				<interceptor-ref name="defaultStack" />
-			</interceptor-stack>
-		</interceptors>
-		
-		<!-- DEFINIÇÃO DO INTERCEPTADOR PADRÃO -->
-		<default-interceptor-ref name="site" />
-		
-		<!-- DEFINIÇÃO DE RESULTADO GLOBAL -->
-		<global-results>
-			<result name="naoLogado" type="json">WEB-INF\content\index.jsp</result>
-			<result name="desautorizado" type="json">WEB-INF\content\acessoNegado.jsp</result>
-			<result name="siteNaoLogado" type="redirectAction">naoLogado</result>
-		</global-results>
-	</package>
-
 </struts>
