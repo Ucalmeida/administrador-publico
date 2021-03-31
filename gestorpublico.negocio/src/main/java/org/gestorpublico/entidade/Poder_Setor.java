@@ -16,7 +16,7 @@ import java.io.Serializable;
 )
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
-@EqualsAndHashCode @ToString
+@EqualsAndHashCode
 public class Poder_Setor implements Serializable, Comparable<Poder_Setor> {
 
     private static final long serialVersionUID = 1L;
@@ -65,6 +65,11 @@ public class Poder_Setor implements Serializable, Comparable<Poder_Setor> {
         int compare = this.poder.compareTo(o.getPoder());
         compare = compare != 0 ? compare : setor.compareTo(o.getSetor());
         return compare != 0 ? compare : (setorPai == null ? 0 : setorPai.getId().compareTo(o.getSetorPai().getId()));
+    }
+
+    @Override
+    public String toString() {
+        return (setorPai == null ? "" : setorPai.toString() + "|") + setor.getNome();
     }
 
     // ****************** GETs e SETs ***************************************
