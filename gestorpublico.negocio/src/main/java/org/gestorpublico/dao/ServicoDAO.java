@@ -83,8 +83,15 @@ public class ServicoDAO extends DAO<Servico> {
 			List<Selection<?>> columns = new ArrayList<Selection<?>>();
 			columns.add(rootTuple.<Integer>get("id").alias("id"));
 			columns.add(rootTuple.<String>get("nome").alias("nome"));
+			columns.add(rootTuple.join("poderSetor").join("setor").<String>get("nome").alias("setor"));
+//			columns.add(builder.concat(rootTuple.join("poderSetor").join("setor").get("nome"), builder.selectCase()
+//					.when(builder.isNull(rootTuple.join("poderSetor").get("setorPai")), "")
+//					.otherwise(builder.concat(rootTuple.join("poderSetor").join("setorPai").join("setor").get("nome"),"|"))));
 
-			return getSession().createQuery(query2.multiselect(columns).where(predicates.toArray(new Predicate[0])).orderBy(builder.asc(rootTuple.get("nome"))))
+			return getSession().createQuery(
+					query2.multiselect(columns)
+							.where(predicates.toArray(new Predicate[0]))
+							.orderBy(builder.asc(rootTuple.get("nome"))))
 					.getResultList();
 
 		} catch (Exception e) {

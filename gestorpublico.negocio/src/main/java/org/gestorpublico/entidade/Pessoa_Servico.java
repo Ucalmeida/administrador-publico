@@ -14,7 +14,8 @@ import java.time.LocalDateTime;
     indexes = {
             @Index(columnList = "dh_cadastro", name = "dataHoraCadastro"),
             @Index(columnList = "dt_inicio", name = "inicio"),
-            @Index(columnList = "dt_termino", name = "termino")
+            @Index(columnList = "dt_termino", name = "termino"),
+            @Index(columnList = "bl_autorizado", name = "autorizado")
     }
 )
 @Getter @Setter
@@ -43,6 +44,9 @@ public class Pessoa_Servico implements Serializable, Comparable<Pessoa_Servico> 
     @Column(name = "nu_valorFinal", columnDefinition = "decimal(10,2)")
     private BigDecimal valorFinal;
 
+    @Column(name = "bl_autorizado", columnDefinition = "tinyint(1)")
+    private Boolean autorizado;
+
     @Column(name = "nm_observacao")
     private String observacao;
 
@@ -52,7 +56,7 @@ public class Pessoa_Servico implements Serializable, Comparable<Pessoa_Servico> 
     private Pessoa solicitante;
 
     @ManyToOne
-    @JoinColumn(name="fk_servico", foreignKey=@ForeignKey(name="FK_Servico_Pessoa_Servico"))
+    @JoinColumn(name="fk_servico", nullable=false, foreignKey=@ForeignKey(name="FK_Servico_Pessoa_Servico"))
     private Servico servico;
 
     // **************************** CONTRUTORES *****************************
@@ -88,5 +92,9 @@ public class Pessoa_Servico implements Serializable, Comparable<Pessoa_Servico> 
 
     public void setObservacao(String observacao) {
         this.observacao = observacao == null || observacao.trim().isEmpty() ? null : observacao.trim();
+    }
+
+    public String getAutorizadoFormatado() {
+        return autorizado == null ? "" : (autorizado ? "Sim" : "Não");
     }
 }

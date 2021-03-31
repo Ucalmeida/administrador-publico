@@ -5,7 +5,7 @@
     <head>
         <jsp:include page="head.jsp" />
 
-        <title>Dashboard</title>
+        <title>Painel</title>
     </head>
     <body>
         <jsp:include page="menuLateral.jsp" />
