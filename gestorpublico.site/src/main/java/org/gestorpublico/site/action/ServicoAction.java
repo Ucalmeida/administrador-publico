@@ -9,25 +9,23 @@ import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
 import javax.persistence.Tuple;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @ParentPackage("default")
-public class BeneficioAction extends PadraoAction {
+public class ServicoAction extends PadraoAction {
 
-    private List<Tuple> beneficios;
+    private List<Tuple> servicos;
 
-    @Action(value = "beneficio",
+    @Action(value = "servico",
         results = {
-            @Result(name = "ok", location = "beneficioFormSolicita.jsp"),
+            @Result(name = "ok", location = "servicoFormSolicita.jsp"),
             @Result(name = "erro", type = "httpheader", params = {"status", "409"})
         }
     )
     public String execute() {
         try {
             Session session = getSession();
-            beneficios = new BeneficioDAO(session).listeBeneficiosPorAtivo(true);
+            servicos = new ServicoDAO(session).listeServicosPorAtivo(true);
 
             return "ok";
 
@@ -39,7 +37,7 @@ public class BeneficioAction extends PadraoAction {
     }
 
     // ****************************** GETs e SETs ******************************
-    public List<Tuple> getBeneficios() {
-        return beneficios;
+    public List<Tuple> getServicos() {
+        return servicos;
     }
 }

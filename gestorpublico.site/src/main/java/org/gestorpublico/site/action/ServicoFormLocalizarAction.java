@@ -3,31 +3,28 @@ package org.gestorpublico.site.action;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
-import org.gestorpublico.dao.BeneficioDAO;
 import org.gestorpublico.dao.ServicoDAO;
 import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
 import javax.persistence.Tuple;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @ParentPackage("default")
-public class BeneficioAction extends PadraoAction {
+public class ServicoFormLocalizarAction extends PadraoAction {
 
-    private List<Tuple> beneficios;
+    private List<Tuple> servicos;
 
-    @Action(value = "beneficio",
+    @Action(value = "servicoLocalizar",
         results = {
-            @Result(name = "ok", location = "beneficioFormSolicita.jsp"),
+            @Result(name = "ok", location = "servicoFormLocaliza.jsp"),
             @Result(name = "erro", type = "httpheader", params = {"status", "409"})
         }
     )
     public String execute() {
         try {
             Session session = getSession();
-            beneficios = new BeneficioDAO(session).listeBeneficiosPorAtivo(true);
+            servicos = new ServicoDAO(session).listeServicosPorAtivo(true);
 
             return "ok";
 
@@ -39,7 +36,7 @@ public class BeneficioAction extends PadraoAction {
     }
 
     // ****************************** GETs e SETs ******************************
-    public List<Tuple> getBeneficios() {
-        return beneficios;
+    public List<Tuple> getServicos() {
+        return servicos;
     }
 }

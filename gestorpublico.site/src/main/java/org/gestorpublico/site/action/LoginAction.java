@@ -34,7 +34,7 @@ public class LoginAction extends ActionSupport {
 
 	@Action(value="login",
 			results={
-					@Result(name="ok", type="redirectAction", params = {"actionName", "dashboard"}),
+					@Result(name="ok", type="redirectAction", params = {"actionName", "painel"}),
 					@Result(name="erro", type="httpheader", params={"status", "409"}),
 					@Result(name="naoAutorizado", type="redirectAction", params={"actionName", "naoLogado"}),
 			}

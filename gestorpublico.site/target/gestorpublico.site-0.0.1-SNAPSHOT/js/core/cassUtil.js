@@ -116,16 +116,28 @@ function downloadArquivo(idArquivoUpload) {
 
 function aguarde(mensagem) {
 	if (mensagem == undefined) mensagem = "Aguarde...";
-
-	$.blockUI({ message: '<div id="loader-wrapper"><div id="loader-logo"><div id="loader-engrenagem"></div><div id="loader-garrucha"></div><div id="loader"></div></div> &nbsp <p id="loader-text" class="text-center" id="msgAguarde">'+mensagem+'</p></div>' });
-	// window.aguardeModal = bootbox.dialog({
-	// 	closeButton: false,
-	// 	size: "small",
-	// 	className: "loader-modal",
-	// 	message: '<div id="loader-wrapper"><div id="loader-logo"><div id="loader-engrenagem"></div><div id="loader-garrucha"></div><div id="loader"></div></div></div> &nbsp <p id="loader-text" class="text-center" id="msgAguarde">'+mensagem+'</p>',
-	// });
-	// return window.aguardeModal;
+	md = bootbox.dialog({
+		closeButton: false,
+		size: "small",
+		message: '<div id="msgAguarde"><img height="20px" src="svg/aguarde.svg"/> '+mensagem+'</div>',
+	});
+	$(".modal-content").css("border-radius", "31px");
+	$(".modal-content").bind(".bootbox-body").css("text-align", "center");
+	return md;
 }
+
+// function aguarde(mensagem) {
+// 	if (mensagem == undefined) mensagem = "Aguarde...";
+//
+// 	$.blockUI({ message: '<div id="loader-wrapper"><div id="loader-logo"><div id="loader-engrenagem"></div><div id="loader-garrucha"></div><div id="loader"></div></div> &nbsp <p id="loader-text" class="text-center" id="msgAguarde">'+mensagem+'</p></div>' });
+// 	// window.aguardeModal = bootbox.dialog({
+// 	// 	closeButton: false,
+// 	// 	size: "small",
+// 	// 	className: "loader-modal",
+// 	// 	message: '<div id="loader-wrapper"><div id="loader-logo"><div id="loader-engrenagem"></div><div id="loader-garrucha"></div><div id="loader"></div></div></div> &nbsp <p id="loader-text" class="text-center" id="msgAguarde">'+mensagem+'</p>',
+// 	// });
+// 	// return window.aguardeModal;
+// }
 
 function fecharAguarde() {
 	$.unblockUI();

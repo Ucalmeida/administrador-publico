@@ -22,15 +22,15 @@ import java.time.format.DateTimeFormatter;
 import static org.gestorpublico.hibernate.HibernateUtil.getSession;
 
 @ParentPackage("default")
-public class DashboardAction {
+public class PainelAction {
     private Pessoa pessoaLogada;
 
     private HttpServletRequest request = ServletActionContext.getRequest();
     private HttpServletResponse response = ServletActionContext.getResponse();
 
-    @Action(value="dashboard",
+    @Action(value="painel",
             results={
-                    @Result(name="ok", location="interfaceGestao.jsp"),
+                    @Result(name="ok", location="interfacePainel.jsp"),
                     @Result(name="erro", type="httpheader", params={"status", "409"})
             }
     )
