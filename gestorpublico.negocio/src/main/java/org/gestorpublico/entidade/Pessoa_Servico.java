@@ -38,7 +38,7 @@ public class Pessoa_Servico implements Serializable, Comparable<Pessoa_Servico> 
     @Column(name = "dt_termino")
     private LocalDate dataTermino;
 
-    @Column(name = "nu_valorInicial", nullable = false, columnDefinition = "decimal(10,2) default 0.00")
+    @Column(name = "nu_valorInicial", columnDefinition = "decimal(10,2)")
     private BigDecimal valorInicial;
 
     @Column(name = "nu_valorFinal", columnDefinition = "decimal(10,2)")
@@ -94,7 +94,7 @@ public class Pessoa_Servico implements Serializable, Comparable<Pessoa_Servico> 
     }
 
     public String getAutorizadoFormatado() {
-        return autorizado == null ? "" : (autorizado ? "Sim" : "Não");
+        return autorizado == null ? "Aguardando despacho" : (autorizado ? "Sim" : "Não");
     }
 
     public void setDespacho(String despacho) {
@@ -104,4 +104,5 @@ public class Pessoa_Servico implements Serializable, Comparable<Pessoa_Servico> 
     public void setObservacao(String observacao) {
         this.observacao = observacao == null || observacao.trim().isEmpty() ? null : observacao.trim();
     }
+
 }

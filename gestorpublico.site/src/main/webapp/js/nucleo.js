@@ -10,7 +10,7 @@ document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="p
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="plugins/jquery/jquery-validate/jquery.validate.defaults.js"%3E%3C/script%3E'));
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="plugins/jquery/jquery.easing.min.js"%3E%3C/script%3E'));
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="plugins/jquery/jquery-ui/jquery-ui.min.js"%3E%3C/script%3E'));
-document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="plugins/jquery/jquery.blockUI.js"%3E%3C/script%3E'));
+document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="js/blockUI.js"%3E%3C/script%3E'));
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="js/core/adminlte.min.js"%3E%3C/script%3E'));
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="plugins/overlayScrollbars/jquery.overlayScrollbars.min.js"%3E%3C/script%3E'));
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="js/core/cassUtil.js"%3E%3C/script%3E'));

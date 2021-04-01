@@ -73,8 +73,8 @@ body {
   outline: 0 !important;
 }
 
-.btn-top {
-  top: 15px;
+.btn-bottom {
+  margin-top: 31px;
 }
 
 hr {

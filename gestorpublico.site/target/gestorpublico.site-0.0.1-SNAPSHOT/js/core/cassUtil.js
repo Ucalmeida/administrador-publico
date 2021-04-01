@@ -431,12 +431,12 @@ function enviar(form, limpar, exibirMensagem, reload, msgAguarde) {
 	var result = [false, "", ""];
 	var dados = new FormData($(form)[0]);
 	var url = $(form).attr("action");
-	aguarde(msgAguarde);
+	$.blockUI();
 	$.ajax({async: false, cache: false, type: 'post', contentType: false, processData: false,
 		url: url,
 		data: dados,
 		success: function (data, textStatus, XMLHttpRequest) {
-		fecharAguarde();
+			$.unblockUI();
 			var interceptador = XMLHttpRequest.getResponseHeader('interceptador');
 			if (interceptador === "ok") {
 				if (exibirMensagem == true) {
@@ -454,7 +454,7 @@ function enviar(form, limpar, exibirMensagem, reload, msgAguarde) {
 			}
 		},
 		error: function (data) {
-			fecharAguarde();
+			$.unblockUI();
 			switch (data.status) {
 			case 409:
 				exibaMensagem("", '<i class="text-danger far fa-times-circle"></i> '+data.getResponseHeader('erro'));
