@@ -1,17 +1,17 @@
 package org.gestorpublico.site.action;
 
-import org.apache.struts2.convention.annotation.ParentPackage;
-import org.gestorpublico.dao.*;
-import org.gestorpublico.entidade.Log_Erro_Execucao;
-import org.gestorpublico.entidade.Pessoa;
-import org.gestorpublico.hibernate.HibernateUtil;
-import org.gestorpublico.util.CassUtil;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
+import org.gestorpublico.dao.Log_Erro_ExecucaoDAO;
+import org.gestorpublico.dao.PessoaDAO;
+import org.gestorpublico.entidade.Log_Erro_Execucao;
+import org.gestorpublico.entidade.Pessoa;
+import org.gestorpublico.hibernate.HibernateUtil;
+import org.gestorpublico.util.CassUtil;
 import org.hibernate.Session;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import static org.gestorpublico.util.Constantes.SENHA_EMAIL_PORTAL;
 
 public class LoginAction extends ActionSupport {
 

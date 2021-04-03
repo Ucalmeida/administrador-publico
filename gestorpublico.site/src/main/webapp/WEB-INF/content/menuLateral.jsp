@@ -14,7 +14,7 @@
     </ul>
 </nav>
 <aside class="main-sidebar sidebar-dark-info elevation-4">
-    <a href="dashboard" class="brand-link border-bottom-info">
+    <a href="painel" class="brand-link border-bottom-amareloriachuelo">
         <img src="images/brasoes/brasao_riachuelo_se_100_100.png" alt="GESTOR" class="brand-image">
         <span class="brand-text font-weight-bold">Gestão<span class="ml-5">
             <i class="fas fa-home nav-icon-modulo"></i>

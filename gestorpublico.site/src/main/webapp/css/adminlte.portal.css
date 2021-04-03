@@ -230,9 +230,9 @@ ul > li > a > img.active {
 }
 
 [class*='sidebar-dark-'] {
-    background-color: #1e7a86;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #1e7a86), to(#2d4457));
-    background-image: linear-gradient(180deg, #1e7a86 10%, #2d4457 100%);
+    background-color: #3d6f36;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #3d6f36), to(#3d5036));
+    background-image: linear-gradient(180deg, #3d6f36 10%, #3d5036 100%);
 }
 .menu-open {
     background: #001315;
@@ -489,6 +489,10 @@ a.btn, a.nav-link, span.btn {
 
 .border-bottom-verdepetroleo {
     border-bottom: 0.25rem solid #1a4d54 !important;
+}
+
+.border-bottom-amareloriachuelo {
+    border-bottom: 0.25rem solid #f39800 !important;
 }
 
 /* ----------------------------------------  COMPLEMENTOS --------------------------------------------*/

@@ -1,8 +1,6 @@
 package org.gestorpublico.site.action;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.opensymphony.xwork2.ActionContext;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
@@ -12,7 +10,8 @@ import org.gestorpublico.entidade.Log_Erro_Execucao;
 import org.gestorpublico.hibernate.HibernateUtil;
 import org.hibernate.Session;
 
-import com.opensymphony.xwork2.ActionContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class IndexAction {
 	
