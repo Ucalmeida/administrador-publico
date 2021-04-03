@@ -41,9 +41,6 @@ public class Pessoa implements Serializable, Comparable<Pessoa> {
 	@Column(name = "nm_nome", length=150, nullable = false)
 	private String nome;
 
-	@Column(name = "bl_teste")
-	private boolean teste;
-
 	@Column(name = "nm_cpf", length=11, nullable = false, unique=true)
 	private String cpf;
 

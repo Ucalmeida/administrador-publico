@@ -10,6 +10,8 @@ import org.gestorpublico.entidade.Servico;
 import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
+import java.math.BigDecimal;
+
 @ParentPackage("default")
 public class PessoaServicoCadastrarAction extends PadraoAction {
 
@@ -46,6 +48,7 @@ public class PessoaServicoCadastrarAction extends PadraoAction {
 
             Pessoa_Servico pessoaServico = new Pessoa_Servico();
             pessoaServico.setServico(servico);
+            pessoaServico.setValorInicial("0.00");
             pessoaServico.setSolicitante(getPessoaLogada());
             pessoaServico.setObservacao(observacao);
             new Pessoa_ServicoDAO(session).salvar(pessoaServico);
