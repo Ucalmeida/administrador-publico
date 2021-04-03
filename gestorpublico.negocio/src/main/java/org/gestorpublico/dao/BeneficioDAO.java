@@ -33,7 +33,7 @@ public class BeneficioDAO extends DAO<Beneficio> {
 		return getServicoPorPoderSetorNomeBeneficio(poderSetor, nomeBeneficio) != null;
 	}
 
-	public Beneficio getServico(Beneficio beneficio) {
+	public Beneficio getBeneficio(Beneficio beneficio) {
 		return (Beneficio) localizar(beneficio.getId());
 	}
 
