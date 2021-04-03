@@ -12,10 +12,10 @@ import java.time.LocalDateTime;
 @Entity
 @Table(
     indexes = {
-            @Index(columnList = "dh_cadastro", name = "dataHoraCadastro"),
-            @Index(columnList = "dt_inicio", name = "inicio"),
-            @Index(columnList = "dt_termino", name = "termino"),
-            @Index(columnList = "bl_autorizado", name = "autorizado")
+        @Index(columnList = "dh_cadastro", name = "dataHoraCadastro"),
+        @Index(columnList = "dt_inicio", name = "inicio"),
+        @Index(columnList = "dt_termino", name = "termino"),
+        @Index(columnList = "bl_autorizado", name = "autorizado")
     }
 )
 @Getter @Setter
@@ -38,7 +38,7 @@ public class Pessoa_Servico implements Serializable, Comparable<Pessoa_Servico> 
     @Column(name = "dt_termino")
     private LocalDate dataTermino;
 
-    @Column(name = "nu_valorInicial", nullable = false, columnDefinition = "decimal(10,2) default 0.00")
+    @Column(name = "nu_valorInicial", columnDefinition = "decimal(10,2)")
     private BigDecimal valorInicial;
 
     @Column(name = "nu_valorFinal", columnDefinition = "decimal(10,2)")
@@ -47,7 +47,10 @@ public class Pessoa_Servico implements Serializable, Comparable<Pessoa_Servico> 
     @Column(name = "bl_autorizado", columnDefinition = "tinyint(1)")
     private Boolean autorizado;
 
-    @Column(name = "nm_observacao")
+    @Column(name = "tx_despacho")
+    private String despacho;
+
+    @Column(name = "tx_observacao")
     private String observacao;
 
     // **************************** RELACIONAMENTOS *************************
@@ -90,11 +93,16 @@ public class Pessoa_Servico implements Serializable, Comparable<Pessoa_Servico> 
         this.valorFinal = CassUtil.converterNumeroStringPtBrParaBigDecimal(valorFinal);
     }
 
+    public String getAutorizadoFormatado() {
+        return autorizado == null ? "Aguardando despacho" : (autorizado ? "Sim" : "Não");
+    }
+
+    public void setDespacho(String despacho) {
+        this.despacho = despacho == null || despacho.trim().isEmpty() ? null : despacho.trim();
+    }
+
     public void setObservacao(String observacao) {
         this.observacao = observacao == null || observacao.trim().isEmpty() ? null : observacao.trim();
     }
 
-    public String getAutorizadoFormatado() {
-        return autorizado == null ? "" : (autorizado ? "Sim" : "Não");
-    }
 }

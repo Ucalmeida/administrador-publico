@@ -1,0 +1,104 @@
+package org.gestorpublico.dao;
+
+import org.gestorpublico.entidade.Pessoa;
+import org.gestorpublico.entidade.Pessoa_Servico;
+import org.gestorpublico.entidade.Poder_Setor;
+import org.gestorpublico.entidade.Servico;
+import org.gestorpublico.util.CassUtil;
+import org.hibernate.Session;
+
+import javax.persistence.Tuple;
+import javax.persistence.criteria.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Pessoa_ServicoDAO extends DAO<Pessoa_Servico> {
+
+	private CriteriaBuilder builder;
+	private CriteriaQuery<Pessoa_Servico> query;
+	private CriteriaQuery<Tuple> query2;
+	private Root<Pessoa_Servico> root;
+	private Root<Pessoa_Servico> rootTuple;
+
+	public Pessoa_ServicoDAO() {}
+
+	public Pessoa_ServicoDAO(Session session) {
+		super(session, Pessoa_Servico.class);
+		builder = session.getCriteriaBuilder();
+		query = builder.createQuery(Pessoa_Servico.class);
+		query2 = builder.createQuery(Tuple.class);
+		root = query.from(Pessoa_Servico.class);
+		rootTuple = query2.from(Pessoa_Servico.class);
+	}
+
+	public Pessoa_Servico getServico(Pessoa_Servico pessoaServico) {
+		return (Pessoa_Servico) localizar(pessoaServico.getId());
+	}
+
+	public boolean jaExistePorServicoSolicitanteDataSemDespacho(Servico servico, Pessoa solicitante, LocalDate data) {
+		return getServicoPorServicoSolicitanteDataSemDespacho(servico, solicitante, data) != null;
+	}
+
+	public Pessoa_Servico getServicoPorServicoSolicitanteDataSemDespacho(Servico servico, Pessoa solicitante, LocalDate data) {
+		try {
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.equal(root.get("servico"), servico));
+			predicates.add(builder.equal(root.get("solicitante"), solicitante));
+			predicates.add(builder.between(root.get("dataHoraCadastro"), CassUtil.getDataComHoraZerada(data), CassUtil.getDataHoraUltimoMinutoDoDia(data)));
+
+			return getSession().createQuery(query.select(root).where(predicates.toArray(new Predicate[0])))
+					.getSingleResult();
+			
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	public List<Pessoa_Servico> listarAtivosPorSolicitanteAutorizacao(Pessoa solicitante, Boolean autorizacao) {
+		try {
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.equal(root.get("solicitante"), solicitante));
+			if (autorizacao == null) {
+				predicates.add(builder.isNull(root.get("autorizado")));
+			} else {
+				predicates.add(builder.equal(root.get("autorizado"), autorizacao));
+			}
+
+			return getSession().createQuery(query.select(root).where(predicates.toArray(new Predicate[0])))
+					.getResultList();
+
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	public List<Pessoa_Servico> listarPorSolicitantePeriodo(Pessoa solicitante, LocalDate inicio, LocalDate termino) {
+		try {
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.equal(root.get("solicitante"), solicitante));
+			predicates.add(builder.between(root.get("dataHoraCadastro"), CassUtil.getDataComHoraZerada(inicio), CassUtil.getDataHoraUltimoMinutoDoDia(termino)));
+
+			return getSession().createQuery(query.select(root).where(predicates.toArray(new Predicate[0])))
+					.getResultList();
+
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	public List<Pessoa_Servico> listarPorServicoPeriodo(Servico servico, LocalDate inicio, LocalDate termino) {
+		try {
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.equal(root.get("servico"), servico));
+			predicates.add(builder.between(root.get("dataHoraCadastro"), CassUtil.getDataComHoraZerada(inicio), CassUtil.getDataHoraUltimoMinutoDoDia(termino)));
+
+			return getSession().createQuery(query.select(root).where(predicates.toArray(new Predicate[0])))
+					.getResultList();
+
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+}

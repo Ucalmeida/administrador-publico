@@ -73,6 +73,10 @@ body {
   outline: 0 !important;
 }
 
+.btn-bottom {
+  margin-top: 31px;
+}
+
 hr {
   box-sizing: content-box;
   height: 0;
