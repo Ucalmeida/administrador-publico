@@ -8,6 +8,10 @@ $(document).ready(function() {
             {"sTitle": "Observação"},
             {"sTitle": "Situação"},
             {"sTitle": "Despacho"},
-            {"sTitle": "Ação"}]
+            {"sTitle": "Ação"}],
+        "order": [[1, 'desc' ]],
+        columnDefs: [
+            {type: 'dataHoraBR', targets: [1]}/*,
+            {className: "dt-body-right", targets: [7]}*/]
     });
 })

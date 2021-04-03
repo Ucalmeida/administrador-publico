@@ -43,6 +43,7 @@
 		<mapping class="org.gestorpublico.entidade.Pais" />
 		<mapping class="org.gestorpublico.entidade.Pessoa" />
 		<mapping class="org.gestorpublico.entidade.Pessoa_Beneficio" />
+		<mapping class="org.gestorpublico.entidade.Pessoa_Dependente" />
 		<mapping class="org.gestorpublico.entidade.Pessoa_Endereco" />
 		<mapping class="org.gestorpublico.entidade.Pessoa_Servico" />
 		<mapping class="org.gestorpublico.entidade.Poder" />

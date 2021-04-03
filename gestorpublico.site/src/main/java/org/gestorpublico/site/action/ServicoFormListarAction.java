@@ -8,7 +8,6 @@ import org.gestorpublico.entidade.Pessoa_Servico;
 import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
-import javax.persistence.Tuple;
 import java.util.List;
 
 @ParentPackage("default")

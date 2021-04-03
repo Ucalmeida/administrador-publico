@@ -743,7 +743,7 @@ public class CassUtil {
 	}
 	
 	public static String getDataFormatada(LocalDate data) {
-		return data == null ? "" : data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")); 
+		return data == null ? "" : data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	}
 	
 	public static String getDataFormatadaPorFormato(LocalDate data, String formato) {

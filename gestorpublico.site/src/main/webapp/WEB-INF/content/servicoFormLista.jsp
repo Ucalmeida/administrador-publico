@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-lg-12 table-responsive">
                         <table id="tbServicos" class="table table-striped table-bordered" width="100%"><c:forEach items="${servicos}" var="o">
-                            <tr>
+                            <tr id="ln${o.id}">
                                 <td>${o.servico.nome}</td>
                                 <td>${o.dataHoraCadastroFormatada}</td>
                                 <td>${o.observacao}</td>

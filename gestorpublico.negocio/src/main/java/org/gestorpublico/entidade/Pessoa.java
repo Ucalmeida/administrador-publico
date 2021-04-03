@@ -1,6 +1,7 @@
 package org.gestorpublico.entidade;
 
 import lombok.*;
+import org.gestorpublico.util.CassUtil;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -31,8 +32,11 @@ public class Pessoa implements Serializable, Comparable<Pessoa> {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(name = "dt_nascimento", nullable=false, columnDefinition="date")
+	@Column(name = "dt_nascimento", nullable=false)
 	private LocalDate dataNascimento;
+
+	@Column(name = "dt_falecimento", columnDefinition="date")
+	private LocalDate dataFalecimento;
 
 	@Column(name = "nm_nome", length=150, nullable = false)
 	private String nome;
@@ -73,6 +77,9 @@ public class Pessoa implements Serializable, Comparable<Pessoa> {
 	@Column(name="bl_bolsaFamilia", nullable=false, columnDefinition="tinyint default 0")
 	private boolean bolsaFamilia;
 
+	@Column(name="bl_vivo", nullable=false, columnDefinition="tinyint default 1")
+	private boolean vivo;
+
 	// **************************** RELACIONAMENTOS *************************
 	@ManyToMany
 	@JoinTable(name="Pessoa_Acao_Extra",
@@ -87,8 +94,20 @@ public class Pessoa implements Serializable, Comparable<Pessoa> {
 	private List<Modulo_Acao> acoesNegadas;
 
 	@ManyToOne
-	@JoinColumn(name = "fk_sexo", foreignKey = @ForeignKey(name="FK_Sexo_Pessoa"))
+	@JoinColumn(name = "fk_mae", foreignKey = @ForeignKey(name="FK_Pessoa_Pessoa_mae"))
+	private Pessoa mae;
+
+	@ManyToOne
+	@JoinColumn(name = "fk_pai", foreignKey = @ForeignKey(name="FK_Pessoa_Pessoa_pai"))
+	private Pessoa pai;
+
+	@ManyToOne
+	@JoinColumn(name = "fk_sexo", nullable = false, foreignKey = @ForeignKey(name="FK_Sexo_Pessoa"))
 	private Sexo sexo;
+
+	@OneToMany(mappedBy = "ascendente")
+	private List<Pessoa_Dependente> dependentes;
+
 	// **************************** CONTRUTORES *****************************
 
 	// ****************** HASH, EQUALS, COMPARETO, TOSTRING *****************
@@ -128,5 +147,25 @@ public class Pessoa implements Serializable, Comparable<Pessoa> {
 	private static String camelCase(String in) {
 		String substring = in.substring(0, 1);
 		return substring.toUpperCase()+in.substring(1);
+	}
+
+	public String getDataNascimentoFormatada() {
+		return CassUtil.getDataFormatada(dataNascimento);
+	}
+
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public void setDataNascimento(String dataNascimento) {
+		this.dataNascimento = CassUtil.converterDataStringParaLocalDate(dataNascimento);
+	}
+
+	public String getDataFalecimentoFormatada() {
+		return CassUtil.getDataFormatada(dataFalecimento);
+	}
+
+	public void setDataFalecimento(String dataFalecimento) {
+		this.dataFalecimento = CassUtil.converterDataStringParaLocalDate(dataFalecimento);
 	}
 }

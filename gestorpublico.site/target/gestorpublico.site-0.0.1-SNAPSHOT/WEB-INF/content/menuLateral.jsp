@@ -37,28 +37,50 @@
                             role="menu" data-accordion="false">
                             <li class="nav-item has-treeview">
                                 <a class="nav-link" href="#" onclick="javascript:void(0)">
-                                    <i class="nav-icon fas fa-users"></i>
+                                    <i class="nav-icon fas fa-clinic-medical"></i>
+                                    <p class="">Saúde<i class="right fas fa-angle-down"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-target="consultaFormAgenda"
+                                           onclick="javascript:execute('consulta')">
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
+                                            <p class="">Agendar consulta</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-target="consultaFormLista"
+                                           onclick="javascript:execute('consultas')">
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
+                                            <p class="">Minhas consultas</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a class="nav-link" href="#" onclick="javascript:void(0)">
+                                    <i class="nav-icon fas fa-cog"></i>
                                     <p class="">Serviço<i class="right fas fa-angle-down"></i></p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a class="nav-link" data-target="pessoaFormSolicita"
                                            onclick="javascript:execute('servico')">
-                                            <i class="nav-icon mr-1 far fa-file-alt"></i>
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Solicitar</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" data-target="servicoFormLocaliza"
                                            onclick="javascript:execute('servicoLocalizar')">
-                                            <i class="nav-icon mr-1 far fa-file-alt"></i>
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Localizar</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" data-target="servicoFormLista"
                                            onclick="javascript:execute('servicoListar')">
-                                            <i class="nav-icon mr-1 far fa-file-alt"></i>
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Minhas solicitações</p>
                                         </a>
                                     </li>
@@ -73,87 +95,26 @@
                                     <li class="nav-item">
                                         <a class="nav-link" data-target="beneficioNovoFormCadastro"
                                            onclick="javascript:execute('beneficio')">
-                                            <i class="nav-icon mr-1 fa fa-handshake"></i>
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Solicitar</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" data-target="beneficioFormListar"
                                            onclick="javascript:execute('beneficioListar')">
-                                            <i class="nav-icon mr-1 far fa-file-alt"></i>
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Meus Benefícios</p>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-<%--                            <li class="nav-item"><a class="nav-link" href="#" role="button" data-target="escalas"--%>
-<%--                                                    onclick="javascript:execute('escalas')"><i--%>
-<%--                                    class="nav-icon far fa-calendar-alt"></i>--%>
-<%--                                <p class="">Escalas</p></a>--%>
-<%--                            </li>--%>
-<%--                            <li class="nav-item"><a class="nav-link" href="#" role="button"--%>
-<%--                                                    data-target="docenciaFormCadastrar"--%>
-<%--                                                    onclick="javascript:execute('docenciaFormCadastrar')"><i--%>
-<%--                                    class="nav-icon fas fa-user-graduate"></i>--%>
-<%--                                <p class="text-sm d-inline-flex">Cadastro de Docência</p></a>--%>
-<%--                            </li>--%>
-<%--                            <li class="nav-item"><a class="nav-link" href="#" role="button" data-target="modulos"--%>
-<%--                                                    onclick="javascript:execute('modulos')"><i--%>
-<%--                                    class="nav-icon fas fa-server"></i>--%>
-<%--                                <p class="">Módulos</p></a>--%>
-<%--                            </li>--%>
-<%--                            <li class="nav-item"><a class="nav-link" href="#" role="button" data-target="cursos"--%>
-<%--                                                    onclick="javascript:execute('cursos')"><i--%>
-<%--                                    class="nav-icon fab fa-leanpub"></i>--%>
-<%--                                <p class="">Cursos</p></a></li>--%>
-<%--                            <li class="nav-item"><a class="nav-link" href="#" role="button" data-target="ficha"--%>
-<%--                                                    onclick="javascript:execute('ficha')"><i--%>
-<%--                                    class="nav-icon fas fa-address-card"></i>--%>
-<%--                                <p class="">Minha ficha</p></a></li>--%>
-<%--                            <li class="nav-item"><a class="nav-link" href="#" role="button"--%>
-<%--                                                    data-target="policialAntiguidadeListar"--%>
-<%--                                                    onclick="javascript:execute('policialAntiguidadeListar')"><i--%>
-<%--                                    class="nav-icon fas fa-sort-numeric-up"></i>--%>
-<%--                                <p class="">Listar Antiguidade</p></a></li>--%>
-<%--                            <li class="nav-item"><a class="nav-link" href="#" role="button" data-target="solicitacoes"--%>
-<%--                                                    onclick="javascript:execute('solicitacoes')"><i--%>
-<%--                                    class="nav-icon fas fa-retweet"></i>--%>
-<%--                                <p class="">Solicitações</p></a></li>--%>
-<%--                            <li class="nav-item"><a class="nav-link" href="#" role="button" data-target="formDownloadMp"--%>
-<%--                                                    onclick="javascript:execute('formDownloadMp')"><i--%>
-<%--                                    class="nav-icon fas fa-book"></i>--%>
-<%--                                <p class="">Biblioteca Virtual</p></a></li>--%>
-<%--                            <li class="nav-item"><a class="nav-link" href="#" role="button" data-target="requerimento"--%>
-<%--                                                    onclick="javascript:execute('requerimento')"><i--%>
-<%--                                    class="nav-icon fas fa-hand-rock"></i>--%>
-<%--                                <p class="">Requerimento</p></a></li>--%>
-<%--                            <li class="nav-item"><a class="nav-link" href="#" role="button"--%>
-<%--                                                    data-target="pesquisaAvancada"--%>
-<%--                                                    onclick="javascript:execute('pesquisaAvancada')"><i--%>
-<%--                                    class="nav-icon fab fa-searchengin"></i>--%>
-<%--                                <p class="">Pesquisa Avançada</p></a></li>--%>
-<%--                            <li class="nav-item"><a class="nav-link" href="#" role="button" data-target="downloadForm"--%>
-<%--                                                    onclick="javascript:execute('downloadForm')"><i--%>
-<%--                                    class="nav-icon fas fa-file-download"></i>--%>
-<%--                                <p class="">Download Úteis</p></a></li>--%>
-<%--                            <li class="nav-item has-treeview"><a class="nav-link" href="#" onclick="javascript:void(0)"><i--%>
-<%--                                    class="nav-icon fas fa-search"></i>--%>
-<%--                                <p class="">Consultas<i class="right fas fa-angle-down"></i></p></a>--%>
-<%--                                <ul class="nav nav-treeview">--%>
-<%--                                    <li class="nav-item"><a class="nav-link" data-target="consultaVeiculo"--%>
-<%--                                                            onclick="javascript:execute('consultaVeiculo')"><i--%>
-<%--                                            class="nav-icon mr-1 fas fa-car"></i>--%>
-<%--                                        <p class="text-sm d-inline-flex">Consulta Veicular</p></a></li>--%>
-<%--                                    <li class="nav-item"><a class="nav-link" data-target="consultaIndividuo"--%>
-<%--                                                            onclick="javascript:execute('consultaIndividuo')"><i--%>
-<%--                                            class="nav-icon mr-1 far fa-user"></i>--%>
-<%--                                        <p class="text-sm d-inline-flex">Consulta Indivíduo</p></a></li>--%>
-<%--                                    <li class="nav-item"><a class="nav-link" data-target="incluirRestricaoVeicular"--%>
-<%--                                                            onclick="javascript:execute('incluirRestricaoVeicular')"><i--%>
-<%--                                            class="nav-icon mr-1 fas fa-car"></i>--%>
-<%--                                        <p class="text-sm d-inline-flex">Incluir Restrição</p></a></li>--%>
-<%--                                </ul>--%>
-<%--                            </li>--%>
+                            <li class="nav-item">
+                                <a class="nav-link" data-target="dependenteLista"
+                                   onclick="javascript:execute('dependentes')">
+                                    <i class="nav-icon fas fa-users"></i>
+                                    <p class="">Dependentes</p>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>

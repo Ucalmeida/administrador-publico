@@ -2,7 +2,6 @@ package org.gestorpublico.dao;
 
 import org.gestorpublico.entidade.Pessoa;
 import org.gestorpublico.entidade.Pessoa_Servico;
-import org.gestorpublico.entidade.Poder_Setor;
 import org.gestorpublico.entidade.Servico;
 import org.gestorpublico.util.CassUtil;
 import org.hibernate.Session;
@@ -40,6 +39,24 @@ public class Pessoa_ServicoDAO extends DAO<Pessoa_Servico> {
 		return getServicoPorServicoSolicitanteDataSemDespacho(servico, solicitante, data) != null;
 	}
 
+	public boolean jaExistePorServicoSolicitanteSemDespacho(Servico servico, Pessoa solicitante) {
+		return getServicoPorServicoSolicitanteSemDespacho(servico, solicitante) != null;
+	}
+
+	public Pessoa_Servico getServicoPorServicoSolicitanteSemDespacho(Servico servico, Pessoa solicitante) {
+		try {
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.equal(root.get("servico"), servico));
+			predicates.add(builder.equal(root.get("solicitante"), solicitante));
+
+			return getSession().createQuery(query.select(root).where(predicates.toArray(new Predicate[0])))
+					.getSingleResult();
+
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
 	public Pessoa_Servico getServicoPorServicoSolicitanteDataSemDespacho(Servico servico, Pessoa solicitante, LocalDate data) {
 		try {
 			List<Predicate> predicates = new ArrayList<Predicate>();
@@ -49,7 +66,7 @@ public class Pessoa_ServicoDAO extends DAO<Pessoa_Servico> {
 
 			return getSession().createQuery(query.select(root).where(predicates.toArray(new Predicate[0])))
 					.getSingleResult();
-			
+
 		} catch (Exception e) {
 			return null;
 		}
