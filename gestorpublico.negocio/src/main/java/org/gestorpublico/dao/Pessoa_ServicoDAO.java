@@ -74,6 +74,7 @@ public class Pessoa_ServicoDAO extends DAO<Pessoa_Servico> {
 
 	public List<Pessoa_Servico> listarAtivosPorSolicitanteAutorizacao(Pessoa solicitante, Boolean autorizacao) {
 		try {
+			
 			List<Predicate> predicates = new ArrayList<Predicate>();
 			predicates.add(builder.equal(root.get("solicitante"), solicitante));
 			if (autorizacao == null) {

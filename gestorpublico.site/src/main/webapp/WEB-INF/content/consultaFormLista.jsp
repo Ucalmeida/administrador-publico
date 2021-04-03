@@ -17,7 +17,15 @@
                         <h4 class="titulo">Minhas consultas</h4>
                     </div>
                     <div class="col-lg-12 table-responsive">
-                        <table id="tbConsultas" class="table table-striped table-bordered" width="100%">
+                        <table id="tbConsultas" class="table table-striped table-bordered" width="100%"><%--<c:forEach items="${servicos}" var="o">
+                            <tr id="ln${o.id}">
+                                <td>${o.servico.nome}</td>
+                                <td>${o.dataHoraCadastroFormatada}</td>
+                                <td>${o.observacao}</td>
+                                <td>${o.autorizadoFormatado}</td>
+                                <td>${o.despacho}</td>
+                                <td><c:if test="${o.autorizado eq null}"><a onclick="javascript:excluir('pessoaServico',${o.id})" class="btn btn-default"><i class="red fa fa-trash"></i> Excluir</a></c:if></td>
+                            </tr></c:forEach>--%>
                         </table>
                     </div>
                 </div>

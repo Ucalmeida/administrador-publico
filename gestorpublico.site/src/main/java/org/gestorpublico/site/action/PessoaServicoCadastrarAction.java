@@ -48,7 +48,6 @@ public class PessoaServicoCadastrarAction extends PadraoAction {
 
             Pessoa_Servico pessoaServico = new Pessoa_Servico();
             pessoaServico.setServico(servico);
-            pessoaServico.setValorInicial("0.00");
             pessoaServico.setSolicitante(getPessoaLogada());
             pessoaServico.setObservacao(observacao);
             new Pessoa_ServicoDAO(session).salvar(pessoaServico);
