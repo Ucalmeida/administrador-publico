@@ -51,7 +51,7 @@ public class Pessoa_Beneficio implements Serializable, Comparable<Pessoa_Benefic
 
     // **************************** RELACIONAMENTOS *************************
     @ManyToOne
-    @JoinColumn(name="fk_responsavel", nullable=false, foreignKey=@ForeignKey(name="FK_Pessoa_Pessoa_Beneficio_responsavel"))
+    @JoinColumn(name="fk_responsavel", foreignKey=@ForeignKey(name="FK_Pessoa_Pessoa_Beneficio_responsavel"))
     private Pessoa responsavel;
 
     @ManyToOne
@@ -59,7 +59,7 @@ public class Pessoa_Beneficio implements Serializable, Comparable<Pessoa_Benefic
     private Pessoa beneficiado;
 
     @ManyToOne
-    @JoinColumn(name="fk_beneficio", foreignKey=@ForeignKey(name="FK_Beneficio_Pessoa_Endereco"))
+    @JoinColumn(name="fk_beneficio", nullable = false, foreignKey=@ForeignKey(name="FK_Beneficio_Pessoa_Endereco"))
     private Beneficio beneficio;
 
     // **************************** CONTRUTORES *****************************

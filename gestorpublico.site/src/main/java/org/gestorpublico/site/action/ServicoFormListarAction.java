@@ -15,7 +15,7 @@ public class ServicoFormListarAction extends PadraoAction {
 
     private List<Pessoa_Servico> servicos;
 
-    @Action(value = "servicoListar",
+    @Action(value = "servicos",
         results = {
             @Result(name = "ok", location = "servicoFormLista.jsp"),
             @Result(name = "erro", type = "httpheader", params = {"status", "409"})
