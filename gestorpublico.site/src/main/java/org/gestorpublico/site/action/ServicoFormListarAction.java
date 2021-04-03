@@ -24,6 +24,7 @@ public class ServicoFormListarAction extends PadraoAction {
     public String execute() {
         try {
             Session session = getSession();
+            
             servicos = new Pessoa_ServicoDAO(session).listarAtivosPorSolicitanteAutorizacao(getPessoaLogada(), null);
 
             return "ok";
