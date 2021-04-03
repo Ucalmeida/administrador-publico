@@ -8,6 +8,30 @@
     <title>Serviço</title>
 </head>
 <body>
+<<<<<<< HEAD
+    <div class="wrapper">
+        <jsp:include page="menuLateral.jsp" />
+        <div class="content-wrapper" style="min-height: 296px;">
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form id="frmServicoSolicitar" action="pessoaServicoCadastrar" method="post" class="form" role="form">
+                                <div class="row">
+                                    <div class="form-group col-lg-4 col-md-4">
+                                        <label for="idServico" class="control-label">Serviço</label>
+                                        <select id="idServico" name="servico.id" class="focus form-control form-control-select">
+                                            <option></option><c:forEach items="${servicos}" var="o">
+                                            <option value="${o.get('id')}" title="${o.get('setor')}">${o.get('nome')}</option>
+                                        </c:forEach></select>
+                                    </div>
+                                    <div class="form-group col-1" style="margin-top: auto">
+                                        <button type="submit" class="btn btn-primary">Solicitar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+=======
     <jsp:include page="menuLateral.jsp" />
     <div class="content-wrapper" style="min-height: 296px;">
         <section class="content">
@@ -35,15 +59,16 @@
                                 </div>
                             </div>
                         </form>
+>>>>>>> 16b83fbeed7ddbdaf8822b427554b6b5b04dd39f
                     </div>
                     <div class="col-lg-12 table-responsive">
                         <table id="tbServicos" class="table table-striped table-bordered" width="100%"></table>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
+        <jsp:include page="rodape.jsp" />
     </div>
-    <jsp:include page="rodape.jsp" />
     <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/datatables.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/dataTables.bootstrap4.js"></script>
