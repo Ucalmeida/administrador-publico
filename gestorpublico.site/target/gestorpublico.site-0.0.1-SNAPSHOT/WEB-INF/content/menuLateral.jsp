@@ -101,7 +101,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" data-target="beneficioFormListar"
-                                           onclick="javascript:execute('beneficios')">
+                                           onclick="javascript:execute('beneficioss')">
                                             <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Meus Benefícios</p>
                                         </a>
