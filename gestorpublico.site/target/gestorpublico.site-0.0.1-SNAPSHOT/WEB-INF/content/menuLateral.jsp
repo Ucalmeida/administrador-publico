@@ -79,7 +79,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" data-target="servicoFormLista"
-                                           onclick="javascript:execute('servicoListar')">
+                                           onclick="javascript:execute('servicos')">
                                             <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Minhas solicitações</p>
                                         </a>
@@ -101,7 +101,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" data-target="beneficioFormListar"
-                                           onclick="javascript:execute('beneficioListar')">
+                                           onclick="javascript:execute('beneficios')">
                                             <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Meus Benefícios</p>
                                         </a>
