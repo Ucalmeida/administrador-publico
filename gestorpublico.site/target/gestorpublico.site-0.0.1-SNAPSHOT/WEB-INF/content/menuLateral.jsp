@@ -100,10 +100,10 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-target="beneficioFormListar"
-                                           onclick="javascript:execute('beneficios')">
+                                        <a class="nav-link" data-target="beneficioNovoFormCadastro"
+                                           onclick="javascript:execute('beneficio')">
                                             <i class="nav-icon mr-1 fas fa-caret-right"></i>
-                                            <p class="">Meus Benefícios</p>
+                                            <p class="">Solicitar</p>
                                         </a>
                                     </li>
                                 </ul>

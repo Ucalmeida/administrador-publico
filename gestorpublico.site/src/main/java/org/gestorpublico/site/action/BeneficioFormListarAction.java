@@ -19,7 +19,7 @@ public class BeneficioFormListarAction extends PadraoAction {
 
     @Action(value = "beneficios",
         results = {
-            @Result(name = "ok", location = "beneficiosFormLista.jsp"),
+            @Result(name = "ok", location = "beneficioFormLista.jsp"),
             @Result(name = "erro", type = "httpheader", params = {"status", "409"})
         }
     )
