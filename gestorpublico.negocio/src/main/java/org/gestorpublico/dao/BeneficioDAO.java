@@ -82,8 +82,12 @@ public class BeneficioDAO extends DAO<Beneficio> {
 			List<Selection<?>> columns = new ArrayList<Selection<?>>();
 			columns.add(rootTuple.<Integer>get("id").alias("id"));
 			columns.add(rootTuple.<String>get("nome").alias("nome"));
+			columns.add(rootTuple.join("poderSetor").join("setor").<String>get("nome").alias("setor"));
 
-			return getSession().createQuery(query2.multiselect(columns).where(predicates.toArray(new Predicate[0])).orderBy(builder.asc(rootTuple.get("nome"))))
+			return getSession().createQuery(
+					query2.multiselect(columns)
+							.where(predicates.toArray(new Predicate[0]))
+							.orderBy(builder.asc(rootTuple.get("nome"))))
 					.getResultList();
 
 		} catch (Exception e) {

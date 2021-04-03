@@ -31,13 +31,13 @@ public class Pessoa_Beneficio implements Serializable, Comparable<Pessoa_Benefic
     @Column(name = "dh_cadastro", nullable = false)
     private LocalDateTime dataHoraCadastro = LocalDateTime.now();
 
-    @Column(name = "dt_concessao", nullable = false)
+    @Column(name = "dt_concessao")
     private LocalDate dataConcessao;
 
-    @Column(name = "nu_valorUnitario", nullable = false, columnDefinition = "decimal(10,2)")
+    @Column(name = "nu_valorUnitario", columnDefinition = "decimal(10,2)")
     private BigDecimal valorUnitario;
 
-    @Column(name = "in_quantidade", nullable = false)
+    @Column(name = "in_quantidade")
     private Integer quantidade;
 
     @Column(name = "bl_autorizado", columnDefinition = "tinyint(1)")
