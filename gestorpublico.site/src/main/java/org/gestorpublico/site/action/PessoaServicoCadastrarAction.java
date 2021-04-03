@@ -26,7 +26,7 @@ public class PessoaServicoCadastrarAction extends PadraoAction {
     )
     public String execute() {
         try {
-            Session session = getSession();;
+            Session session = getSession();
             servico = new ServicoDAO(session).getServico(servico);
 
             if (servico == null) {
