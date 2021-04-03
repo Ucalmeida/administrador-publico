@@ -39,7 +39,7 @@ public class Pessoa_Servico implements Serializable, Comparable<Pessoa_Servico> 
     private LocalDate dataTermino;
 
     @Column(name = "nu_valorInicial", columnDefinition = "decimal(10,2)")
-    private BigDecimal valorInicial;
+    private BigDecimal valorInicial;;
 
     @Column(name = "nu_valorFinal", columnDefinition = "decimal(10,2)")
     private BigDecimal valorFinal;
