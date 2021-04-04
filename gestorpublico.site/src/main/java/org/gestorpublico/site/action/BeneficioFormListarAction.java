@@ -4,9 +4,7 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.gestorpublico.dao.Pessoa_BeneficioDAO;
-import org.gestorpublico.dao.Pessoa_ServicoDAO;
 import org.gestorpublico.entidade.Pessoa_Beneficio;
-import org.gestorpublico.entidade.Pessoa_Servico;
 import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
@@ -26,7 +24,7 @@ public class BeneficioFormListarAction extends PadraoAction {
     public String execute() {
         try {
             Session session = getSession();
-            beneficios = new Pessoa_BeneficioDAO(session).listarAtivosPorSolicitanteAutorizacao(getPessoaLogada(), null);
+            beneficios = new Pessoa_BeneficioDAO(session).listarAtivosPorSolicitanteOuBeneficiadoAutorizacao(getPessoaLogada(), null);
 
             return "ok";
 

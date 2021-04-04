@@ -42,15 +42,15 @@ public class Pessoa_BeneficioDAO extends DAO<Pessoa_Beneficio> {
 		return getBeneficioPorBeneficioSolicitanteDataSemDespacho(beneficio, solicitante, data) != null;
 	}
 
-	public boolean jaExistePorBeneficioSolicitanteSemDespacho(Beneficio beneficio, Pessoa solicitante) {
-		return getBeneficioPorBeneficioSolicitanteSemDespacho(beneficio, solicitante) != null;
+	public boolean jaExistePorBeneficioBeneficiadoSemDespacho(Beneficio beneficio, Pessoa beneficiado) {
+		return getBeneficioPorBeneficioBeneficiadoSemDespacho(beneficio, beneficiado) != null;
 	}
 
-	public Pessoa_Beneficio getBeneficioPorBeneficioSolicitanteSemDespacho(Beneficio beneficio, Pessoa solicitante) {
+	public Pessoa_Beneficio getBeneficioPorBeneficioBeneficiadoSemDespacho(Beneficio beneficio, Pessoa beneficiado) {
 		try {
 			List<Predicate> predicates = new ArrayList<Predicate>();
 			predicates.add(builder.equal(root.get("beneficio"), beneficio));
-			predicates.add(builder.equal(root.get("solicitante"), solicitante));
+			predicates.add(builder.equal(root.get("beneficiado"), beneficiado));
 
 			return getSession().createQuery(query.select(root).where(predicates.toArray(new Predicate[0])))
 					.getSingleResult();
@@ -75,17 +75,22 @@ public class Pessoa_BeneficioDAO extends DAO<Pessoa_Beneficio> {
 		}
 	}
 
-	public List<Pessoa_Beneficio> listarAtivosPorSolicitanteAutorizacao(Pessoa solicitante, Boolean autorizacao) {
+	public List<Pessoa_Beneficio> listarAtivosPorSolicitanteOuBeneficiadoAutorizacao(Pessoa solicitante, Boolean autorizacao) {
 		try {
 			List<Predicate> predicates = new ArrayList<Predicate>();
-			predicates.add(builder.equal(root.get("solicitante"), solicitante));
+			predicates.add(builder.or(
+					builder.equal(root.get("solicitante"), solicitante),
+					builder.equal(root.get("beneficiado"), solicitante)));
 			if (autorizacao == null) {
 				predicates.add(builder.isNull(root.get("autorizado")));
 			} else {
 				predicates.add(builder.equal(root.get("autorizado"), autorizacao));
 			}
 
-			return getSession().createQuery(query.select(root).where(predicates.toArray(new Predicate[0])))
+			return getSession().createQuery(
+					query.select(root)
+							.where(predicates.toArray(new Predicate[0]))
+							.distinct(true))
 					.getResultList();
 
 		} catch (Exception e) {

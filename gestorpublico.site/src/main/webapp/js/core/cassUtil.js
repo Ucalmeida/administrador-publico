@@ -318,11 +318,7 @@ function popularSelect2(selectPai, select, url, dados, idSelected) {
 }
 
 function execute(parametro) {
-	if (parametro == 'beneficios') {
-		verBeneficios();
-	} else if (parametro == 'ultimoBOL') {
-		verUltimoBol();
-	} else if (typeof parametro === 'string') {
+	if (typeof parametro === 'string') {
 		// clearInterval(timerContador);
 		aguarde();
 		$.ajax({

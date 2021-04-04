@@ -3,6 +3,7 @@ $(document).ready(function() {
         "bPaginate" : true,
         "iDisplayLength": 10,
         "aoColumns": [
+            {"sTitle": "Beneficiado"},
             {"sTitle": "Benefício"},
             {"sTitle": "Solicitado em"},
             {"sTitle": "Observação"},
@@ -11,7 +12,7 @@ $(document).ready(function() {
             {"sTitle": "Ação"}],
         "order": [[1, 'desc' ]],
         columnDefs: [
-            {type: 'dataHoraBR', targets: [1]}/*,
+            {type: 'dataHoraBR', targets: [2]}/*,
             {className: "dt-body-right", targets: [7]}*/]
     });
 })
