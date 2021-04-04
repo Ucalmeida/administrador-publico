@@ -26,7 +26,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-12" style="text-align: center; top: 25px;">
-                                <img alt="USUARIO" height="480px" src="images/brasoes/brasao_riachuelo_se_100_100.png">
+                                <img alt="logomarca" src="../images/brasoes/brasao_riachuelo_se_100_100.png">
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,6 @@
             </div>
             <jsp:include page="rodape.jsp" />
             <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
-            <script type="text/javascript" charset="utf-8" src="js/interfacePainel.js"></script>
         </div>
     </body>
 </html>
