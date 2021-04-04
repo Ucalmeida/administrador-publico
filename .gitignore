@@ -1,3 +1,10 @@
 
-.idea/dictionaries/Urian.xml
 .idea/vcs.xml
+.project
+.idea/dictionaries/Urian.xml
+.settings/org.eclipse.core.resources.prefs
+gestorpublico.gestao/.project
+gestorpublico.gestao/.settings/org.eclipse.jdt.apt.core.prefs
+gestorpublico.gestao/.settings/org.eclipse.jdt.core.prefs
+gestorpublico.gestao/.classpath
+gestorpublico.gestao/.factorypath
