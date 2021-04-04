@@ -1,12 +1,13 @@
 $(document).ready(function() {
     let oTable = $("#tbServicos").DataTable({
-        "bPaginate" : true,
-        "iDisplayLength": 10,
-        "aoColumns": [
-            {"sTitle": "Serviço"},
-            {"sTitle": "Observação"},
-            {"sTitle": "Ação"}]
+        paginate : true,
+        iDisplayLength: 10,
+        columns: [
+            {title: "Serviço"},
+            {title: "Observação"},
+            {title: "Ação"}]
     });
+
     $("#frmServicoSolicitar").submit(function(e){e.preventDefault();}).validate({
         tooltip_options: {'_all_': { placement: 'top' }},
         rules: {
