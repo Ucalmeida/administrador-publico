@@ -7,7 +7,6 @@
 
     <title>Serviço</title>
 </head>
-<div>
     <div class="wrapper">
         <jsp:include page="menuLateral.jsp" />
         <div class="content-wrapper" style="min-height: 296px;">
@@ -41,10 +40,10 @@
                             <table id="tbServicos" class="table table-striped table-bordered" width="100%"></table>
                         </div>
                     </div>
-                </section>
-            </div>
-            <jsp:include page="rodape.jsp" />
+                </div>
+            </section>
         </div>
+        <jsp:include page="rodape.jsp" />
     </div>
     <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/tabela.js"></script>
