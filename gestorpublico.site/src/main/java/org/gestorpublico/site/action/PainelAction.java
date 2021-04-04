@@ -29,10 +29,10 @@ public class PainelAction {
     private HttpServletResponse response = ServletActionContext.getResponse();
 
     @Action(value="painel",
-            results={
-                    @Result(name="ok", location="interfacePainel.jsp"),
-                    @Result(name="erro", type="httpheader", params={"status", "409"})
-            }
+        results={
+            @Result(name="ok", location="interfacePainel.jsp"),
+            @Result(name="erro", type="httpheader", params={"status", "409"})
+        }
     )
     public String execute() {
         String action = ActionContext.getContext().getName();
