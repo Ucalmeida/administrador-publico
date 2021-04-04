@@ -5,7 +5,7 @@ $(document).ready(function() {
         "aoColumns": [
             {"sTitle": "Beneficiado"},
             {"sTitle": "Benefício"},
-            {"sTitle": "Solicitado em"},
+            {"sTitle": "Solicitado"},
             {"sTitle": "Observação"},
             {"sTitle": "Situação"},
             {"sTitle": "Despacho"},

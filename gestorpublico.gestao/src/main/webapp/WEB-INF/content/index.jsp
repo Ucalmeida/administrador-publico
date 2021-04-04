@@ -19,15 +19,15 @@
 	<meta http-equiv="pragma" content="no-cache" />
 	<!-- Fim tags nao salvar cache -->
 
-	<link rel="icon" href="images/brasoes/brasao_riachuelo_se_100_100.png" />
+	<link rel="icon" href="../images/brasoes/brasao_riachuelo_se_100_100.png" />
 
 	<!-- Font-->
-	<link href="plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+	<link href="../plugins/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
 	<!-- CSS-->
-	<link href="css/adminlte.min.css" rel="stylesheet">
-	<link href="css/adminlte.portal.css" rel="stylesheet">
+	<link href="../css/adminlte.min.css" rel="stylesheet">
+	<link href="../css/adminlte.portal.css" rel="stylesheet">
 
 	<title>PREFEITURA RIACHUELO</title>
 
@@ -43,7 +43,7 @@
 <div class="login-box">
 	<div class="login-logo">
 		<a href="index">
-			<img alt="Brasão" src="images/brasoes/brasao_riachuelo_se_100_100.png">
+			<img alt="Brasão" src="../images/brasoes/brasao_riachuelo_se_100_100.png">
 		</a>
 	</div>
 	<!-- /.login-logo -->
@@ -108,15 +108,15 @@
 	</footer>
 </div>
 <!-- /.login-box -->
-<script type="text/javascript" src="plugins/jquery/jquery.min.js" />
-<script type="text/javascript" src="plugins/bootstrap/bootstrap.bundle.min.js" />
-<script type="text/javascript" src="plugins/bootbox/bootbox.all.js" />
-<script type="text/javascript" src="plugins/jquery/jquery-validate/jquery.validate.min.js" />
-<script type="text/javascript" src="plugins/jquery/jquery-validate/jquery.validate.defaults.js" />
-<script type="text/javascript" src="plugins/jquery/jquery.mask.js" />
-<script type="text/javascript" src="plugins/jquery/jquery.blockUI.js" />
-<script type="text/javascript" src="js/core/adminlte.min.js" />
-<script type="text/javascript" src="js/core/cassUtil.js" />
+<script type="text/javascript" src="../plugins/jquery/jquery.min.js" />
+<script type="text/javascript" src="../plugins/bootstrap/bootstrap.bundle.min.js" />
+<script type="text/javascript" src="../plugins/bootbox/bootbox.all.js" />
+<script type="text/javascript" src="../plugins/jquery/jquery-validate/jquery.validate.min.js" />
+<script type="text/javascript" src="../plugins/jquery/jquery-validate/jquery.validate.defaults.js" />
+<script type="text/javascript" src="../plugins/jquery/jquery.mask.js" />
+<script type="text/javascript" src="../plugins/jquery/jquery.blockUI.js" />
+<script type="text/javascript" src="../js/core/adminlte.min.js" />
+<script type="text/javascript" src="../js/core/cassUtil.js" />
 <script type="text/javascript" src="js/index.js" />
 </body>
 </html>

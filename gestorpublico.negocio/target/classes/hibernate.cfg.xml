@@ -17,18 +17,6 @@
 		<property name="show_sql">false</property>
 		<property name="format_sql">false</property>
 
-<!-- 		<property name="hbm2ddl.import_files">import.sql</property> -->
-<!--		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>-->
-<!--		<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>				&lt;!&ndash; RESOLVE ERRO: Disabling contextual LOB creation as createClob() method threw error &ndash;&gt;-->
-<!--		<property name="hibernate.c3p0.statementCacheNumDeferredCloseThreads">1</property>		&lt;!&ndash; SOLUÇÂO: APPARENT DEADLOCK!!! &ndash;&gt;-->
-<!--		<property name="hibernate.c3p0.min_size">30</property>									&lt;!&ndash; Mínimo de conexão &ndash;&gt;-->
-<!--		<property name="hibernate.c3p0.max_size">300</property>									&lt;!&ndash; Máximo de conexão &ndash;&gt;-->
-<!--		<property name="hibernate.c3p0.acquire_increment">5</property>							&lt;!&ndash; Incremento de conexão &ndash;&gt;-->
-<!--		<property name="hibernate.c3p0.idle_test_period">650</property>							&lt;!&ndash; Broken pipe: Tempo de teste de inatividade para descartar conexão &ndash;&gt;-->
-<!--		<property name="hibernate.c3p0.timeout">1200</property>									&lt;!&ndash; Tempo máximo para conexão expirar &ndash;&gt;-->
-<!--		<property name="hibernate.c3p0.max_statements">20</property> &lt;!&ndash; 50 &ndash;&gt;				&lt;!&ndash; Statements que serão adicionados no cache &ndash;&gt;-->
-<!--		<property name="hibernate.c3p0.numHelperThreads">4</property>							&lt;!&ndash; Quantidade de Threads simultaneas&ndash;&gt;-->
-
 		<mapping class="org.gestorpublico.entidade.Bairro" />
 		<mapping class="org.gestorpublico.entidade.Beneficio" />
 		<mapping class="org.gestorpublico.entidade.Condominio" />
