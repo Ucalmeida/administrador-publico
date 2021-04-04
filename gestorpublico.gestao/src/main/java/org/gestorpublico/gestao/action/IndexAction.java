@@ -10,23 +10,24 @@ import org.apache.struts2.convention.annotation.Result;
 import org.gestorpublico.dao.Log_Erro_ExecucaoDAO;
 import org.gestorpublico.entidade.Log_Erro_Execucao;
 import org.gestorpublico.hibernate.HibernateUtil;
+import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
 import com.opensymphony.xwork2.ActionContext;
 
-public class IndexAction {
+public class IndexAction extends PadraoAction {
 	
 	private HttpServletRequest request = ServletActionContext.getRequest();
 	private HttpServletResponse response = ServletActionContext.getResponse();
 	
 	@Action(value="",
 		results={
-			@Result(name="ok", location="pagina_inicial.jsp"),
+			@Result(name="ok", location="index.jsp"),
 			@Result(name="erro", location="404.jsp"),
 		}
 	)
 	public String execute() {
-		Session session = (Session) request.getAttribute("sessao");
+		Session session = getSession();
 		try {
 			
 			return "ok";
@@ -48,7 +49,6 @@ public class IndexAction {
 			
 			return "erro";
 		}
-		
 	}
 	
 	// ****************************** GETs e SETs ******************************

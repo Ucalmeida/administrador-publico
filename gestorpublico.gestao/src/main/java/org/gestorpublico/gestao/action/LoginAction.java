@@ -11,11 +11,12 @@ import org.gestorpublico.dao.Log_Erro_ExecucaoDAO;
 import org.gestorpublico.entidade.Log_Erro_Execucao;
 import org.gestorpublico.hibernate.HibernateUtil;
 import org.gestorpublico.util.CassUtil;
+import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
 import com.opensymphony.xwork2.ActionContext;
 
-public class LoginAction {
+public class LoginAction extends PadraoAction {
 	
 	private HttpServletRequest request = ServletActionContext.getRequest();
 	private HttpServletResponse response = ServletActionContext.getResponse();
@@ -23,7 +24,7 @@ public class LoginAction {
 	private String login;
 	private String senha;
 	
-	@Action(value="logar",
+	@Action(value="login",
 		results={
 			@Result(name="ok", type="redirectAction", params={"actionName", "painel"}),
 			@Result(name="naoAutorizado", type="httpheader", params={"status", "408"}),
@@ -31,8 +32,12 @@ public class LoginAction {
 		}
 	)
 	public String execute() {
-		Session session = (Session) request.getAttribute("sessao");
+		Session session = getSession();
 		try {
+			if (CassUtil.validaRegexSenha(senha)) {
+				senha = CassUtil.criptografar(senha);
+			}
+
 //			PessoaDAO pessoaDAO = new PessoaDAO(session);
 //			
 //			Pessoa pessoa = pessoaDAO.getColaboradorAtivoPorLoginSenha(login, senha);

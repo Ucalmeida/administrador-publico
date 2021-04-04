@@ -21,7 +21,7 @@
 	<jsp:include page="cabecalho.jsp" />
 	
 	<div>
-	Bem-vindo a Gestão!
+	Olá!
 	</div>
 
 	<jsp:include page="rodape.jsp" />
