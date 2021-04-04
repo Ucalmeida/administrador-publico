@@ -33,8 +33,7 @@
                 </section>
             </div>
             <jsp:include page="rodape.jsp" />
-            <script type="text/javascript" charset="utf-8" src="../js/nucleo.js"></script>
-            <script type="text/javascript" charset="utf-8" src="js/interfacePainel.js"></script>
+            <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
         </div>
     </body>
 </html>
