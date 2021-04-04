@@ -13,3 +13,13 @@ gestorpublico.site/.settings/org.eclipse.jdt.apt.core.prefs
 gestorpublico.gestao/target/
 gestorpublico.negocio/target/
 gestorpublico.site/target/
+
+gestorpublico.gestao/.classpath
+gestorpublico.gestao/.project
+gestorpublico.gestao/.settings/org.eclipse.jdt.core.prefs
+gestorpublico.negocio/.classpath
+gestorpublico.negocio/.project
+gestorpublico.negocio/.settings/org.eclipse.jdt.core.prefs
+gestorpublico.site/.classpath
+gestorpublico.site/.project
+gestorpublico.site/.settings/org.eclipse.jdt.core.prefs
