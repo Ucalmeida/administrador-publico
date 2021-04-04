@@ -10,8 +10,7 @@ import org.gestorpublico.entidade.Servico;
 import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
-import javax.persistence.Tuple;
-import java.util.List;
+import java.math.BigDecimal;
 
 @ParentPackage("default")
 public class PessoaServicoCadastrarAction extends PadraoAction {
@@ -37,6 +36,13 @@ public class PessoaServicoCadastrarAction extends PadraoAction {
 
             if (!servico.isAtivo()) {
                 response.setHeader("erro", "Esse Serviço não está disponível no momento.");
+                return "erro";
+            }
+
+            Pessoa_ServicoDAO pessoaServicoDAO = new Pessoa_ServicoDAO(session);
+
+            if (pessoaServicoDAO.jaExistePorServicoSolicitanteSemDespacho(servico, getPessoaLogada())) {
+                response.setHeader("erro", "Você já solicitou esse serviço. Aguarde o despacho.");
                 return "erro";
             }
 

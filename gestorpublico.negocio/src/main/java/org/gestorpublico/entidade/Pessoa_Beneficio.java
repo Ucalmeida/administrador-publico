@@ -31,26 +31,39 @@ public class Pessoa_Beneficio implements Serializable, Comparable<Pessoa_Benefic
     @Column(name = "dh_cadastro", nullable = false)
     private LocalDateTime dataHoraCadastro = LocalDateTime.now();
 
-    @Column(name = "dt_concessao", nullable = false)
+    @Column(name = "dt_concessao")
     private LocalDate dataConcessao;
 
-    @Column(name = "nu_valorUnitario", nullable = false, columnDefinition = "decimal(10,2)")
+    @Column(name = "nu_valorUnitario", columnDefinition = "decimal(10,2)")
     private BigDecimal valorUnitario;
 
-    @Column(name = "in_quantidade", nullable = false)
+    @Column(name = "in_quantidade")
     private Integer quantidade;
+
+    @Column(name = "bl_autorizado", columnDefinition = "tinyint(1)")
+    private Boolean autorizado;
+
+    @Column(name = "tx_despacho")
+    private String despacho;
+
+    @Column(name = "tx_observacao")
+    private String observacao;
 
     // **************************** RELACIONAMENTOS *************************
     @ManyToOne
-    @JoinColumn(name="fk_responsavel", nullable=false, foreignKey=@ForeignKey(name="FK_Pessoa_Pessoa_Beneficio_responsavel"))
+    @JoinColumn(name="fk_responsavel", foreignKey=@ForeignKey(name="FK_Pessoa_Pessoa_Beneficio_responsavel"))
     private Pessoa responsavel;
+
+    @ManyToOne
+    @JoinColumn(name="fk_solicitante", nullable=false, foreignKey=@ForeignKey(name="FK_Pessoa_Pessoa_Beneficio_solicitante"))
+    private Pessoa solicitante;
 
     @ManyToOne
     @JoinColumn(name="fk_beneficiado", nullable=false, foreignKey=@ForeignKey(name="FK_Pessoa_Pessoa_Beneficio_beneficiado"))
     private Pessoa beneficiado;
 
     @ManyToOne
-    @JoinColumn(name="fk_beneficio", foreignKey=@ForeignKey(name="FK_Beneficio_Pessoa_Endereco"))
+    @JoinColumn(name="fk_beneficio", nullable = false, foreignKey=@ForeignKey(name="FK_Beneficio_Pessoa_Endereco"))
     private Beneficio beneficio;
 
     // **************************** CONTRUTORES *****************************
@@ -91,5 +104,17 @@ public class Pessoa_Beneficio implements Serializable, Comparable<Pessoa_Benefic
      */
     public String getValorTotalFormatado() {
         return CassUtil.converterBigDecimalParaNumeroStringPtBr(valorUnitario.multiply(new BigDecimal(quantidade)));
+    }
+
+    public String getAutorizadoFormatado() {
+        return autorizado == null ? "Aguardando despacho" : (autorizado ? "Sim" : "Não");
+    }
+
+    public void setDespacho(String despacho) {
+        this.despacho = despacho == null || despacho.trim().isEmpty() ? null : despacho.trim();
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao == null || observacao.trim().isEmpty() ? null : observacao.trim();
     }
 }

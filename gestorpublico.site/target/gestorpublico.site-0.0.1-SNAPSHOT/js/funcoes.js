@@ -1,4 +1,14 @@
 // Funcoes
+function getHorariosPorDataProfissional(id) {
+	let card = $("#card" + id);
+	if (card.find(".card-body").is(":visible")) {
+		card.find(".card-body").hide();
+	} else {
+		$(".card-body").hide();
+		card.find(".card-body").show(500);
+	}
+}
+
 function referenciaRemover(){
 	$("#idArquivoUpload").val("");
 	$("#documentoReferencia").val("");

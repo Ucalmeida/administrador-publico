@@ -8,7 +8,6 @@ import org.gestorpublico.entidade.Pessoa_Servico;
 import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
-import javax.persistence.Tuple;
 import java.util.List;
 
 @ParentPackage("default")
@@ -16,7 +15,7 @@ public class ServicoFormListarAction extends PadraoAction {
 
     private List<Pessoa_Servico> servicos;
 
-    @Action(value = "servicoListar",
+    @Action(value = "servicos",
         results = {
             @Result(name = "ok", location = "servicoFormLista.jsp"),
             @Result(name = "erro", type = "httpheader", params = {"status", "409"})

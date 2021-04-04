@@ -1,5 +1,16 @@
 @charset "UTF-8";
 
+.btn-bottom {
+    margin-top: 31px;
+}
+
+.card-header .spProfissional {
+    display: block !important;
+}
+
+.card-header .spEndereco {
+    font-size: small !important;
+}
 /* ------------------------------------ PALETA DE CORES -----------------------------------------*/
 :root {
     --amarelobrasao: #ffc107;
