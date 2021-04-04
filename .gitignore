@@ -8,4 +8,6 @@ gestorpublico.gestao/.settings/org.eclipse.jdt.apt.core.prefs
 gestorpublico.gestao/.settings/org.eclipse.jdt.core.prefs
 gestorpublico.gestao/.classpath
 gestorpublico.gestao/.factorypath
-gestorpublico.gestao/target/
+gestorpublico.gestao/target/*.*
+gestorpublico.negocio/target/*.*
+gestorpublico.site/target/*.*
