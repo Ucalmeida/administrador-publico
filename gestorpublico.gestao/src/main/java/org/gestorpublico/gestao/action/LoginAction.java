@@ -24,7 +24,7 @@ public class LoginAction extends PadraoAction {
 	private String login;
 	private String senha;
 	
-	@Action(value="logar",
+	@Action(value="login",
 		results={
 			@Result(name="ok", type="redirectAction", params={"actionName", "painel"}),
 			@Result(name="naoAutorizado", type="httpheader", params={"status", "408"}),
