@@ -3,7 +3,7 @@ $.extend( true, $.fn.dataTable.defaults, {
     processing: true,
     order: [[0,"desc"]],
     language: {
-        url: '/portal/plugins/dataTables/Portuguese-Brasil.json',
+        url: 'plugins/dataTables/Portuguese-Brasil.json',
     },
     lengthMenu: [
         [ 10, 25, 50, 100, -1 ],
