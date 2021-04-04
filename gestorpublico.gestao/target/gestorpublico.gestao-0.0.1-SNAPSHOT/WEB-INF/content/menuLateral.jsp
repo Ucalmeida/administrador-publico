@@ -37,6 +37,35 @@
                             role="menu" data-accordion="false">
                             <li class="nav-item has-treeview">
                                 <a class="nav-link" href="#" onclick="javascript:void(0)">
+                                    <i class="nav-icon fas fa-user-alt"></i>
+                                    <p class="">Cidadão<i class="right fas fa-angle-down"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-target="pessoaFormCadastro"
+                                           onclick="javascript:execute('cidadao')">
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
+                                            <p class="">Cadastrar</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-target="pessoaFormLocaliza"
+                                           onclick="javascript:execute('pessoaLocalizar')">
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
+                                            <p class="">Localizar</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-target="pessoaFormLista"
+                                           onclick="javascript:execute('pessoaListar')">
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
+                                            <p class="">Listar</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a class="nav-link" href="#" onclick="javascript:void(0)">
                                     <i class="nav-icon fas fa-briefcase-medical"></i>
                                     <p class="">Saúde<i class="right fas fa-angle-down"></i></p>
                                 </a>
@@ -86,34 +115,20 @@
                                             </li>
                                         </ul>
                                     </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item has-treeview">
-                                <a class="nav-link" href="#" onclick="javascript:void(0)">
-                                    <i class="nav-icon fas fa-cog"></i>
-                                    <p class="">Serviço<i class="right fas fa-angle-down"></i></p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-target="servicoFormCadatro"
-                                           onclick="javascript:execute('servico')">
-                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
-                                            <p class="">Novo</p>
+                                    <li class="nav-item has-treeview">
+                                        <a class="nav-link" href="#" onclick="javascript:void(0)">
+                                            <i class="nav-icon fas fa-ambulance"></i>
+                                            <p class="">Unidade Móvel<i class="right fas fa-angle-down"></i></p>
                                         </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-target="servicoFormLocaliza"
-                                           onclick="javascript:execute('servicoLocalizar')">
-                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
-                                            <p class="">Localizar</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-target="servicoFormLista"
-                                           onclick="javascript:execute('servicosListar')">
-                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
-                                            <p class="">Listar</p>
-                                        </a>
+                                        <ul class="nav nav-treeview">
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-target="servicoFormLocaliza"
+                                                   onclick="javascript:execute('servicoLocalizar')">
+                                                    <i class="nav-icon mr-1 fas fa-caret-right"></i>
+                                                    <p class="">Localizar</p>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </li>
@@ -172,6 +187,35 @@
                             </li>
                             <li class="nav-item has-treeview">
                                 <a class="nav-link" href="#" onclick="javascript:void(0)">
+                                    <i class="nav-icon fas fa-cog"></i>
+                                    <p class="">Serviço<i class="right fas fa-angle-down"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-target="servicoFormCadatro"
+                                           onclick="javascript:execute('servico')">
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
+                                            <p class="">Novo</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-target="servicoFormLocaliza"
+                                           onclick="javascript:execute('servicoLocalizar')">
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
+                                            <p class="">Localizar</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-target="servicoFormLista"
+                                           onclick="javascript:execute('servicosListar')">
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
+                                            <p class="">Listar</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a class="nav-link" href="#" onclick="javascript:void(0)">
                                     <i class="nav-icon fa fa-handshake"></i>
                                     <p class="">Benefícios<i class="right fas fa-angle-down"></i></p>
                                 </a>
@@ -193,35 +237,6 @@
                                     <li class="nav-item">
                                         <a class="nav-link" data-target="beneficioFormLista"
                                            onclick="javascript:execute('beneficioListar')">
-                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
-                                            <p class="">Listar</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item has-treeview">
-                                <a class="nav-link" href="#" onclick="javascript:void(0)">
-                                    <i class="nav-icon fas fa-user-alt"></i>
-                                    <p class="">Cidadão<i class="right fas fa-angle-down"></i></p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-target="pessoaFormCadastro"
-                                           onclick="javascript:execute('cidadao')">
-                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
-                                            <p class="">Cadastrar</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-target="pessoaFormLocaliza"
-                                           onclick="javascript:execute('pessoaLocalizar')">
-                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
-                                            <p class="">Localizar</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-target="pessoaFormLista"
-                                           onclick="javascript:execute('pessoaListar')">
                                             <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Listar</p>
                                         </a>
