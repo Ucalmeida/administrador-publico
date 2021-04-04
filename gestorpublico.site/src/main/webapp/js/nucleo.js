@@ -18,4 +18,7 @@ document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="j
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="js/core/scripts.js"%3E%3C/script%3E'));
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="js/funcoes.js"%3E%3C/script%3E'));
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="plugins/chart.js/Chart.min.js"%3E%3C/script%3E'));
+document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" async src="plugins/tinymce/tinymce.min.js"%3E%3C/script%3E'));
+document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" async src="plugins/select2/select2.full.min.js"%3E%3C/script%3E'));
+document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" async src="plugins/select2/i18n/pt-BR.js"%3E%3C/script%3E'));
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" async src="https://www.googletagmanager.com/gtag/js?id=UA-169908160-1"%3E%3C/script%3E'));

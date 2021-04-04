@@ -22,9 +22,13 @@
 
 <%--    <title>Prefeitura de Riachuelo</title>--%>
 <link rel='icon' href='images/brasoes/brasao_riachuelo_se_100_100.png' />
+<link rel='stylesheet' href='plugins/dataTables/datatables-bs4/css/dataTables.bootstrap4.css'/>
+<link rel='stylesheet' href='plugins/dataTables/datatables-buttons/css/buttons.bootstrap4.min.css'/>
 <link rel='stylesheet' href='plugins/fontawesome/css/all.min.css'>
 <link rel='stylesheet' href='plugins/jquery/jquery-ui/jquery-ui.css'/>
 <link rel='stylesheet' href='css/adminlte.min.css'>
 <link rel='stylesheet' href='plugins/overlayScrollbars/OverlayScrollbars.min.css'>
 <link rel='stylesheet' href='css/adminlte.portal.css'>
+<link rel='stylesheet' href='plugins/icheck-bootstrap/icheck-bootstrap.min.css'/>
+<link rel='stylesheet' href='plugins/select2/select2.min.css'/>
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=swap' rel='stylesheet'>
