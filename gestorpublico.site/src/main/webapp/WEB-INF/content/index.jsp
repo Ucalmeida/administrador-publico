@@ -43,7 +43,7 @@
 <div class="login-box">
 	<div class="login-logo">
 		<a href="index">
-			<img alt="Brasão NTI" src="images/brasoes/brasao_riachuelo_se_100_100.png">
+			<img alt="Brasão" src="images/brasoes/brasao_riachuelo_se_100_100.png">
 		</a>
 	</div>
 	<!-- /.login-logo -->
