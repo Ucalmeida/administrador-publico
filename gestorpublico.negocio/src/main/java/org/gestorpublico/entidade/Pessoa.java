@@ -18,7 +18,8 @@ import java.util.logging.Logger;
 	indexes = {
 		@Index(columnList = "nm_nome", name = "nome"),
 		@Index(columnList = "dt_nascimento", name = "dataNascimento"),
-		@Index(columnList = "nm_cpf", name = "cpf")
+		@Index(columnList = "nm_cpf", name = "cpf"),
+		@Index(columnList = "bl_acessoAdministrativo", name = "acessoAdministrativo")
 	}
 )
 @Getter @Setter
@@ -79,6 +80,9 @@ public class Pessoa implements Serializable, Comparable<Pessoa> {
 
 	@Column(name="bl_vivo", nullable=false, columnDefinition="tinyint default 1")
 	private boolean vivo;
+
+	@Column(name="bl_acessoAdministrativo", nullable=false, columnDefinition="tinyint default 0")
+	private boolean acessoAdministrativo;
 
 	// **************************** RELACIONAMENTOS *************************
 	@ManyToMany

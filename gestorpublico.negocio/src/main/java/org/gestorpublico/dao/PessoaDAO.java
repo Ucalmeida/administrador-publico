@@ -33,8 +33,24 @@ public class PessoaDAO extends DAO<Pessoa> {
 		return getPessoaPorCPF(cpf) != null;
 	}
 
-	public Pessoa getPessoa(Pessoa Pessoa) {
-		return (Pessoa) localizar(Pessoa.getId());
+	public Pessoa getPessoa(Pessoa pessoa) {
+		return (Pessoa) localizar(pessoa.getId());
+	}
+
+	public Pessoa getPessoaAcessoAdministrativoPermitidoPorLoginSenha(String login, String senha) {
+		try {
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.equal(root.get("acessaSistema"), true));
+			predicates.add(builder.equal(root.get("acessoAdministrativo"), true));
+			predicates.add(builder.equal(root.get("login"), login));
+			predicates.add(builder.equal(root.get("senha"), senha));
+
+			return getSession().createQuery(query.select(root).where(predicates.toArray(new Predicate[0])))
+					.getSingleResult();
+
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	public Pessoa getPessoaAcessoPermitidoPorLoginSenha(String login, String senha) {

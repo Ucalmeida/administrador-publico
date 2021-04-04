@@ -1,20 +1,21 @@
 package org.gestorpublico.gestao.action;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.opensymphony.xwork2.ActionContext;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.gestorpublico.dao.Log_Erro_ExecucaoDAO;
+import org.gestorpublico.dao.PessoaDAO;
 import org.gestorpublico.entidade.Log_Erro_Execucao;
+import org.gestorpublico.entidade.Pessoa;
 import org.gestorpublico.hibernate.HibernateUtil;
 import org.gestorpublico.util.CassUtil;
 import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
-import com.opensymphony.xwork2.ActionContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class LoginAction extends PadraoAction {
 	
@@ -37,20 +38,17 @@ public class LoginAction extends PadraoAction {
 			if (CassUtil.validaRegexSenha(senha)) {
 				senha = CassUtil.criptografar(senha);
 			}
+			PessoaDAO pessoaDAO = new PessoaDAO(session);
 
-//			PessoaDAO pessoaDAO = new PessoaDAO(session);
-//			
-//			Pessoa pessoa = pessoaDAO.getColaboradorAtivoPorLoginSenha(login, senha);
-//			
-//			if (pessoa == null) {
-//				return "naoAutorizado";
-//			}
-//			
-//			response.addHeader("saldo", pessoa.getSaldoFormatado());
-//			
-//			request.getSession().setAttribute("userName", pessoa.getNome());
-//			ActionContext.getContext().getSession().put("pessoaLogada", pessoa);
-//			ActionContext.getContext().getSession().put("logado", true);
+			Pessoa pessoa = pessoaDAO.getPessoaAcessoAdministrativoPermitidoPorLoginSenha(login, senha);
+
+			if (pessoa == null) {
+				return "naoAutorizado";
+			}
+
+			request.getSession().setAttribute("userName", pessoa.getNome());
+			ActionContext.getContext().getSession().put("pessoaLogada", pessoa);
+			ActionContext.getContext().getSession().put("logado", true);
 			
 			return "ok";
 			
