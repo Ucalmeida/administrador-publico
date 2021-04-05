@@ -1,8 +1,9 @@
+.idea/
+.settings/
 .idea/vcs.xml
 .idea/dictionaries/Urian.xml
 .project
 
-.settings/org.eclipse.core.resources.prefs
 gestorpublico.gestao/.factorypath
 gestorpublico.gestao/.settings/org.eclipse.jdt.apt.core.prefs
 gestorpublico.negocio/.factorypath
