@@ -19,12 +19,12 @@
                                 <div class="row">
                                     <div class="form-group col-lg-4 col-md-4">
                                         <label for="idServico" class="control-label">Serviço</label>
-                                        <select id="idServico" name="servico.id" class="focus form-control form-control-select">
+                                        <select id="idServico" name="servico.id" class="focus form-control form-control-select" required>
                                             <option></option><c:forEach items="${servicos}" var="o">
                                             <option value="${o.get('id')}" title="${o.get('setor')}">${o.get('nome')}</option>
                                         </c:forEach></select>
                                     </div>
-                                    <div class="form-group col-1" style="margin-top: auto">
+                                    <div class="form-group col-lg-1" style="margin-top: auto">
                                         <button type="submit" class="btn btn-primary right">Solicitar</button>
                                     </div>
                                 </div>

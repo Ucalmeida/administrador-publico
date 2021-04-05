@@ -103,8 +103,10 @@
 		<!-- /.login-card-body -->
 	</div>
 	<footer class="text-xs text-center">
-		<p>&copy; 2021 - Gestor Público - Todos os Direitos Reservados!</p>
-		<p>Riachuelo</p>
+		<div>
+			&copy; 2021 - Gestor Público - Todos os Direitos Reservados!<br/>
+			Riachuelo
+		</div>
 	</footer>
 </div>
 <!-- /.login-box -->

@@ -6,7 +6,7 @@ $(document).ready( function () {
     var uri = urlSeparada[urlSeparada.length-1];
     $el = $('a[data-target="'+uri+'"]');
 
-    if (uri == "gestao" || uri == "principal") { //Interface Gestão
+    if (uri == "gestao" || uri == "") { //Interface Gestão
         $('#tituloIcone').html('<i class="fas fa-home mr-2"></i>');
     } else {
         if ($el.attr('data-target') === undefined) {
