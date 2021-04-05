@@ -1,5 +1,5 @@
 // JavaScript Document
-document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="plugins/jquery/jquery.js"%3E%3C/script%3E'));
+document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="plugins/jquery/jquery.min.js"%3E%3C/script%3E'));
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="plugins/jquery/jquery-migrate.min.js"%3E%3C/script%3E'));
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="plugins/bootstrap/bootstrap.bundle.min.js"%3E%3C/script%3E'));
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="plugins/bootbox/bootbox.all.min.js"%3E%3C/script%3E'));

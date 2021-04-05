@@ -25,7 +25,7 @@
                                         </c:forEach></select>
                                     </div>
                                     <div class="form-group col-1" style="margin-top: auto">
-                                        <button type="submit" class="btn-bottom btn btn-primary">Solicitar</button>
+                                        <button type="submit" class="btn btn-primary right">Solicitar</button>
                                     </div>
                                 </div>
                                 <div class="row">
