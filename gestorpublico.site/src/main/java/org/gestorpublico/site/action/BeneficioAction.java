@@ -5,14 +5,11 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.gestorpublico.dao.BeneficioDAO;
 import org.gestorpublico.dao.Pessoa_DependenteDAO;
-import org.gestorpublico.dao.ServicoDAO;
 import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
 import javax.persistence.Tuple;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @ParentPackage("default")
 public class BeneficioAction extends PadraoAction {
