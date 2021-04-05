@@ -293,10 +293,10 @@ function atualizar(objeto, id, id2) {
 }
 
 function novoBairro() {
-	let idCidade = $("#nvCidade").val();
-	idCidade = idCidade == undefined ? $("#nCidade").val() : idCidade;
-	if (idCidade > 0) {
-		var nvBairro = bootbox.dialog({
+	let idMunicipio = $("#nvMunicipio").val();
+	idMunicipio = idMunicipio == undefined ? $("#idMunicipio").val() : idMunicipio;
+	if (idMunicipio > 0) {
+		let nvBairro = bootbox.dialog({
 			message: 'Aguarde...',
 			title: "Novo Bairro",
 			onEscape: true,
@@ -315,20 +315,20 @@ function novoBairro() {
 				}
 			}
 		});
-		nvBairro.find(".bootbox-body").load('bairroFormModalCadastrar', {'cidade.id': idCidade});
+		nvBairro.find(".bootbox-body").load('bairroFormModalCadastrar', {'municipio.id': idMunicipio});
 		nvBairro.bind('shown.bs.modal', function(){nvBairro.find(".focus").focus();});
 	} else {
-		exibaMensagem("", "Selecione a cidade");
+		exibaMensagem("", "Selecione o Município");
 	}
 }
 
-function novoLogradouro() {
+function novaRua() {
 	let idBairro = $("#nvBairro").val();
-	idBairro = idBairro == undefined ? $("#nBairro").val() : idBairro;
+	idBairro = idBairro == undefined ? $("#idBairro").val() : idBairro;
 	if (idBairro > 0) {
-		var nvLogra = bootbox.dialog({
+		let nvLogra = bootbox.dialog({
 			message: 'Aguarde...',
-			title: "Novo Logradouro",
+			title: "Nova Rua",
 			onEscape: true,
 			buttons: {
 				success: {
