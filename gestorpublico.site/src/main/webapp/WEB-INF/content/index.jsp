@@ -58,7 +58,8 @@
 
 	<div class="card card-outline card-danger">
 		<div class="card-body login-card-body">
-			<p class="login-box-msg">Bem-vindo ao <span class="font-weight-bold text-info">PORTAL</span> da <span class="font-weight-bold text-verdepetroleo">Gestão Pública</span></p>
+			<p class="login-box-msg">Bem-vindo ao </p>
+			<p class="login-box-msg"><span class="font-weight-bold text-info">PORTAL</span> da <span class="font-weight-bold text-verdepetroleo">Gestão Pública</span></p>
 <%--			<p class="login-box-msg">Insira abaixo suas credenciais de acesso.</p>--%>
 
 			<form id="formLogin" name="formLogin" action="login" method="post">

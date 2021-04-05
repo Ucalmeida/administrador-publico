@@ -46,7 +46,9 @@
         <jsp:include page="rodape.jsp" />
     </div>
     <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/tabela.js"></script>
+<%--    <script type="text/javascript" charset="utf-8" src="js/tabela.js"></script>--%>
+    <script type="text/javascript" charset="utf-8" src="js/datatables.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/dataTables.bootstrap4.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/servicoFormSolicita.js"></script>
 </body>
 </html>

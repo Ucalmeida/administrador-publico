@@ -1,6 +1,6 @@
 $(document).ready(function() {
     let oTable = $("#tbServicos").DataTable({
-        paginate : true,
+        paging: true,
         iDisplayLength: 10,
         columns: [
             {title: "Serviço"},
