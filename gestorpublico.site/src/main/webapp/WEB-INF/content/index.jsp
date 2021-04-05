@@ -60,7 +60,6 @@
 		<div class="card-body login-card-body">
 			<p class="login-box-msg">Bem-vindo ao </p>
 			<p class="login-box-msg"><span class="font-weight-bold text-info">PORTAL</span> da <span class="font-weight-bold text-verdepetroleo">Gestão Pública</span></p>
-<%--			<p class="login-box-msg">Insira abaixo suas credenciais de acesso.</p>--%>
 
 			<form id="formLogin" name="formLogin" action="login" method="post">
 				<div class="input-group mb-3">
@@ -88,26 +87,17 @@
 				</div>
 			</form>
 
-<%--			<div class="social-auth-links text-center mb-3">--%>
-<%--				<br>--%>
-<%--				<p>--%>
-<%--					<i class="fas fa-chevron-down"></i>--%>
-<%--				</p>--%>
-<%--			</div>--%>
+			<br/>
 
 			<p class="mb-0 text-center">
 				<a class="text-info" href="esqueciMinhaSenha">Esqueci a Senha</a>
-<%--				<br>--%>
-<%--				<a class="text-info" href="javascript:semUsuario()" class="text-center">Não tenho um usuário</a>--%>
 			</p>
 		</div>
 		<!-- /.login-card-body -->
 	</div>
-	<footer class="text-xs text-center">
-		<div>
-			&copy; 2021 - Gestor Público - Todos os Direitos Reservados!<br/>
-			Riachuelo
-		</div>
+	<footer class="text-xs text-center mt-5">
+		<p>&copy; 2021 - Gestor Público - Todos os Direitos Reservados!</p>
+		<p>Riachuelo</p>
 	</footer>
 </div>
 <!-- /.login-box -->
