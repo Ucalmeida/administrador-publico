@@ -102,7 +102,7 @@
 		</div>
 		<!-- /.login-card-body -->
 	</div>
-	<footer class="text-xs text-center mt-5">
+	<footer class="text-xs text-center">
 		<p>&copy; 2021 - Gestor Público - Todos os Direitos Reservados!</p>
 		<p>Riachuelo</p>
 	</footer>

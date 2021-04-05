@@ -27,7 +27,7 @@
         <div class="os-size-auto-observer" style="height: calc(100% + 1px); float: left;">
             <div class="os-resize-observer observed"></div>
         </div>
-        <div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: 352px;"></div>
+        <div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: 500px;"></div>
         <div class="os-padding">
             <div class="os-viewport os-viewport-native-scrollbars-invisible"
                  style="overflow-y: scroll; right: 0px; bottom: 0px;">

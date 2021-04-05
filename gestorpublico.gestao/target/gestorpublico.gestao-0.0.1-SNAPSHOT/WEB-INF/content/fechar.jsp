@@ -1,1 +1,0 @@
-<a id="btnFechar" onclick="javascript:window.location.href='.'" class="btn btn-danger btn-xs" style="float: right; margin-top: 10px; color: white !important"><i class="fa fa-times" ></i></a>

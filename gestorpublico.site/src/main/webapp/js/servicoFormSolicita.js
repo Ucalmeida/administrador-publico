@@ -8,7 +8,7 @@ $(document).ready(function() {
             {title: "Ação"}]
     });
 
-    $("#frmServicoSolicitar").submit(function(e){e.preventDefault();}).validate({
+    $('#frmServicoSolicitar').submit(function(e){e.preventDefault();}).validate({
         tooltip_options: {'_all_': { placement: 'top' }},
         rules: {
             'servico.id': {required: true}

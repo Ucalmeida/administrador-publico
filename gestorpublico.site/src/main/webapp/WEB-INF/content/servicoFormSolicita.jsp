@@ -7,7 +7,6 @@
 
     <title>Serviço</title>
 </head>
-<div>
     <div class="wrapper">
         <jsp:include page="menuLateral.jsp" />
         <div class="content-wrapper" style="min-height: 296px;">
@@ -26,7 +25,7 @@
                                         </c:forEach></select>
                                     </div>
                                     <div class="form-group col-1" style="margin-top: auto">
-                                        <button type="submit" class="btn-bottom btn btn-primary">Solicitar</button>
+                                        <button type="submit" class="btn btn-primary right">Solicitar</button>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -41,10 +40,10 @@
                             <table id="tbServicos" class="table table-striped table-bordered" width="100%"></table>
                         </div>
                     </div>
-                </section>
-            </div>
-            <jsp:include page="rodape.jsp" />
+                </div>
+            </section>
         </div>
+        <jsp:include page="rodape.jsp" />
     </div>
     <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/tabela.js"></script>
