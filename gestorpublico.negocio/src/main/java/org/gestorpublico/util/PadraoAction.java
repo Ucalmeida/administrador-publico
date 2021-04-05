@@ -69,9 +69,11 @@ public class PadraoAction extends ActionSupport {
         return (Pessoa) ActionContext.getContext().getSession().get("pessoaLogada");
     }
 
-    protected List<String> getAcoesPessoaLogada()   {return (List<String>) ActionContext.getContext().getSession().get("acoes");}
+    protected String getActionName() {
+        return ActionContext.getContext().getName();
+    }
 
-//    protected Modulo getModuloPessoaLogada() {return (Modulo) ActionContext.getContext().getSession().get("modulo");}
+    protected List<String> getAcoesPessoaLogada()   {return (List<String>) ActionContext.getContext().getSession().get("acoes");}
 
     protected HttpServletResponse getResponse() {
         return ServletActionContext.getResponse();
