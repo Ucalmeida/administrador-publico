@@ -12,7 +12,31 @@
             <i class="fas fa-bars"></i></a>
         </li>
     </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown user-menu">
+            <a class="nav-link d-flex cursor-pointer mt-n1 p-0" data-toggle="dropdown" aria-expanded="false">
+            <span class="d-lg-inline text-gray-600 text-center">URIAN DE<span class="text"> CASTRO</span><br>
+                ALMEIDA
+            </span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right animated--grow-in mt-2" style="left: inherit; right: 0px;">
+                <li class="user-body border-bottom-amareloriachuelo">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button class="btn btn-default btn-sm" onclick="alterarSenha()"> Alterar Senha</button>
+                        </div>
+                    </div>
+                </li>
+                <li class="user-footer">
+                    <button class="btn btn-danger float-right" onclick="sair()"><i
+                            class="fas fa-power-off fa-sm fa-fw mr-2"></i>Sair
+                    </button>
+                </li>
+            </ul>
+        </li>
+    </ul>
 </nav>
+
 <aside class="main-sidebar sidebar-dark-info elevation-4">
     <a href="painel" class="brand-link border-bottom-amareloriachuelo">
         <img src="../images/brasoes/brasao_riachuelo_se_100_100.png" alt="GESTOR" class="brand-image">
@@ -27,7 +51,7 @@
         <div class="os-size-auto-observer" style="height: calc(100% + 1px); float: left;">
             <div class="os-resize-observer observed"></div>
         </div>
-        <div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: 500px;"></div>
+        <div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: 590px;"></div>
         <div class="os-padding">
             <div class="os-viewport os-viewport-native-scrollbars-invisible"
                  style="overflow-y: scroll; right: 0px; bottom: 0px;">

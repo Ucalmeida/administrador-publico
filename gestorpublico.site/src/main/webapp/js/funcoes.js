@@ -131,14 +131,14 @@ function uploadAnexo(id) {
 }
 
 function alterarSenha() {
-	var mdAlterar = bootbox.dialog({
+	mdAlterar = bootbox.dialog({
 		message: 'Aguarde...',
-		title: "Alterar Senha",
+		title: "Alterar senha",
 		size: "small",
 		onEscape: true,
 		buttons: {
 			success: {
-				label: "<i class='far fa-check-circle mr-1'></i>Alterar",
+				label: "Alterar",
 				className: "btn-primary",
 				callback: function() {
 					$("#frmSenhaAlterar").submit();
@@ -146,7 +146,7 @@ function alterarSenha() {
 				}
 			},
 			danger: {
-				label: "<i class='far fa-times-circle mr-1'></i>Fechar",
+				label: "Fechar",
 				className: "btn-default",
 			}
 		}
