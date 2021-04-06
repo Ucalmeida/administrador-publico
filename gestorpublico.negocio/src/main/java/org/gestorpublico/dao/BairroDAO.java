@@ -52,7 +52,7 @@ public class BairroDAO extends DAO<Bairro> {
 	public List<Tuple> listeBairroPorMunicipio(Municipio municipio) {
 		try {
 			List<Predicate> predicates = new ArrayList<Predicate>();
-			predicates.add(builder.equal(root.get("municipio"), municipio));
+			predicates.add(builder.equal(rootTuple.get("municipio"), municipio));
 
 			List<Selection<?>> columns = new ArrayList<Selection<?>>();
 			columns.add(rootTuple.<Integer>get("id").alias("id"));

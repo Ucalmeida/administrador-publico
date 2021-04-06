@@ -15,9 +15,7 @@
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown user-menu">
             <a class="nav-link d-flex cursor-pointer mt-n1 p-0" data-toggle="dropdown" aria-expanded="false">
-            <span class="d-lg-inline text-gray-600 text-center">URIAN DE<span class="text"> CASTRO</span><br>
-                ALMEIDA
-            </span>
+            <span class="d-lg-inline text-gray-600 text-center">${pessoaLogada.nome} <i class="fas fa-user-circle"></i></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right animated--grow-in mt-2" style="left: inherit; right: 0px;">
                 <li class="user-body border-bottom-amareloriachuelo">

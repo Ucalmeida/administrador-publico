@@ -160,7 +160,7 @@ function popularSelect2(selectPai, select, url, dados, idSelected) {
 }
 
 function popularSelect(select, url, dados, idSelected) {
-	var agd = aguarde();
+	$.blockUI();
 	$(select).empty();
 	$.ajax({
 		url: url,
@@ -178,12 +178,88 @@ function popularSelect(select, url, dados, idSelected) {
 					else
 						$("#"+select.attr('id')+" option").filter(function() {return this.text == idSelected;}).attr('selected', true);
 				}
-				
+
 			}
-			agd.modal("hide");
+			$.unblockUI();
 		},
 		error: function(data) {
-			agd.modal("hide");
+			$.unblockUI();
+			exibaMensagem("", "Ocorreu o seguinte erro: " + data.getResponseHeader('erro'));
+		}
+	});
+}
+
+function popularRuasCondominiosEdificiosReferencias(selRua, selCond, selEdif, selRefe, url, dados, idSelected) {
+	$.blockUI();
+	$(selRua).empty();
+	$(selCond).empty();
+	$(selEdif).empty();
+	$(selRefe).empty();
+	$.ajax({
+		url: url,
+		type: 'post',
+		data: dados,
+		success: function(data) {
+			let select = selRua;
+			if (Object.keys(data.ruas).length > 0) {
+				$(select).append("<option></option>");
+				$.each(data.objetos, function(key, o) {
+					$(select).append('<option value="'+o.id+'">'+o.nome+'</option>');
+				});
+				if (idSelected !== undefined & idSelected != "") {
+					if (idSelected > 0)
+						$(select).val(idSelected)
+					else
+						$("#"+select.attr('id')+" option").filter(function() {return this.text == idSelected;}).attr('selected', true);
+				}
+
+			}
+			select = selCond;
+			if (Object.keys(data.condominios).length > 0) {
+				$(select).append("<option></option>");
+				$.each(data.condominios, function(key, o) {
+					$(select).append('<option value="'+o.id+'">'+o.nome+'</option>');
+				});
+				if (idSelected !== undefined & idSelected != "") {
+					if (idSelected > 0)
+						$(select).val(idSelected)
+					else
+						$("#"+select.attr('id')+" option").filter(function() {return this.text == idSelected;}).attr('selected', true);
+				}
+
+			}
+			select = selEdif;
+			if (Object.keys(data.edificios).length > 0) {
+				$(select).append("<option></option>");
+				$.each(data.edificios, function(key, o) {
+					$(select).append('<option value="'+o.id+'">'+o.nome+'</option>');
+				});
+				if (idSelected !== undefined & idSelected != "") {
+					if (idSelected > 0)
+						$(select).val(idSelected)
+					else
+						$("#"+select.attr('id')+" option").filter(function() {return this.text == idSelected;}).attr('selected', true);
+				}
+
+			}
+			select = selRefe;
+			if (Object.keys(data.referencias).length > 0) {
+				$(select).append("<option></option>");
+				$.each(data.referencias, function(key, o) {
+					$(select).append('<option value="'+o.id+'">'+o.nome+'</option>');
+				});
+				if (idSelected !== undefined & idSelected != "") {
+					if (idSelected > 0)
+						$(select).val(idSelected)
+					else
+						$("#"+select.attr('id')+" option").filter(function() {return this.text == idSelected;}).attr('selected', true);
+				}
+
+			}
+			$.unblockUI();
+		},
+		error: function(data) {
+			$.unblockUI();
 			exibaMensagem("", "Ocorreu o seguinte erro: " + data.getResponseHeader('erro'));
 		}
 	});

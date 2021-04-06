@@ -1,5 +1,13 @@
 $(document).ready(function() {
     $(".cpf").mask("###.###.###-##");
+    $("#idBairro").change(function () {
+        let id = this.value;
+        if (id > 0) {
+            popularRuasCondominiosEdificiosReferencias("#idRua", "#idCondominio", "#idEdificio", "#idPontoReferencia", "getRuasCondominiosEdificiosReferenciasPorBairro", {"bairro.id": id})
+        } else {
+            $("#idRua, #idCondominio, #idEdificio, #idPontoReferencia").empty();
+        }
+    });
     $("#frmPessoaCadastrar").submit(function(e){e.preventDefault();}).validate({
         tooltip_options: {'_all_': { placement: 'top' }},
         rules: {

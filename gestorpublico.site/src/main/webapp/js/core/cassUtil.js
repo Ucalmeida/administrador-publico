@@ -253,6 +253,82 @@ function fecharModulo(idPessoa, modulo) {
 	});
 }
 
+function popularRuasCondominiosEdificiosReferencias(selRua, selCond, selEdif, selRefe, url, dados, idSelected) {
+	$.blockUI();
+	$(selRua).empty();
+	$(selCond).empty();
+	$(selEdif).empty();
+	$(selRefe).empty();
+	$.ajax({
+		url: url,
+		type: 'post',
+		data: dados,
+		success: function(data) {
+			let select = selRua;
+			if (Object.keys(data.ruas).length > 0) {
+				$(select).append("<option></option>");
+				$.each(data.objetos, function(key, o) {
+					$(select).append('<option value="'+o.id+'">'+o.nome+'</option>');
+				});
+				if (idSelected !== undefined & idSelected != "") {
+					if (idSelected > 0)
+						$(select).val(idSelected)
+					else
+						$("#"+select.attr('id')+" option").filter(function() {return this.text == idSelected;}).attr('selected', true);
+				}
+
+			}
+			select = selCond;
+			if (Object.keys(data.condominios).length > 0) {
+				$(select).append("<option></option>");
+				$.each(data.condominios, function(key, o) {
+					$(select).append('<option value="'+o.id+'">'+o.nome+'</option>');
+				});
+				if (idSelected !== undefined & idSelected != "") {
+					if (idSelected > 0)
+						$(select).val(idSelected)
+					else
+						$("#"+select.attr('id')+" option").filter(function() {return this.text == idSelected;}).attr('selected', true);
+				}
+
+			}
+			select = selEdif;
+			if (Object.keys(data.edificios).length > 0) {
+				$(select).append("<option></option>");
+				$.each(data.edificios, function(key, o) {
+					$(select).append('<option value="'+o.id+'">'+o.nome+'</option>');
+				});
+				if (idSelected !== undefined & idSelected != "") {
+					if (idSelected > 0)
+						$(select).val(idSelected)
+					else
+						$("#"+select.attr('id')+" option").filter(function() {return this.text == idSelected;}).attr('selected', true);
+				}
+
+			}
+			select = selRefe;
+			if (Object.keys(data.referencias).length > 0) {
+				$(select).append("<option></option>");
+				$.each(data.referencias, function(key, o) {
+					$(select).append('<option value="'+o.id+'">'+o.nome+'</option>');
+				});
+				if (idSelected !== undefined & idSelected != "") {
+					if (idSelected > 0)
+						$(select).val(idSelected)
+					else
+						$("#"+select.attr('id')+" option").filter(function() {return this.text == idSelected;}).attr('selected', true);
+				}
+
+			}
+			$.unblockUI();
+		},
+		error: function(data) {
+			$.unblockUI();
+			exibaMensagem("", "Ocorreu o seguinte erro: " + data.getResponseHeader('erro'));
+		}
+	});
+}
+
 function popularSelect(select, url, dados, idSelected, mensagem) {
 	aguarde(mensagem);
 	$(select).empty();
@@ -399,7 +475,7 @@ function logarModulo(modulo, idPessoa, idLocalTrabalho) {
 
 function sair() {
 	bootbox.confirm({
-	    title: "Deseja sair do PORTAL?",
+	    title: "Gestão Pública?",
 	    message: " Para sair completamente do sistema clique em \"Sair\".",
 	    buttons: {
 	        cancel: {
