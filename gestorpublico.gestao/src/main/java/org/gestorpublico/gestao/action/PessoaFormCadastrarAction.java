@@ -31,7 +31,7 @@ public class PessoaFormCadastrarAction extends PadraoAction {
 
     @Action(value="cidadao",
         results={
-            @Result(name="ok", location="formNovoPessoa.jsp"),
+            @Result(name="ok", location="pessoaFormCadastro.jsp"),
             @Result(name="erro", type="httpheader", params={"status", "409"})
         }
     )
