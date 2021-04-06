@@ -167,20 +167,24 @@ function popularSelect(select, url, dados, idSelected) {
 		type: 'post',
 		data: dados,
 		success: function(data) {
-			if (Object.keys(data.objetos).length > 0) {
-				$(select).append("<option></option>");
-				$.each(data.objetos, function(key, o) {
-					$(select).append('<option value="'+o.id+'">'+o.nome+'</option>');
-				});
-				if (idSelected !== undefined & idSelected != "") {
-					if (idSelected > 0)
-						$(select).val(idSelected)
-					else
-						$("#"+select.attr('id')+" option").filter(function() {return this.text == idSelected;}).attr('selected', true);
+			try {
+				if (Object.keys(data.objetos).length > 0) {
+					$(select).append("<option></option>");
+					$.each(data.objetos, function (key, o) {
+						$(select).append('<option value="' + o.id + '">' + o.nome + '</option>');
+					});
+					if (idSelected !== undefined & idSelected != "") {
+						if (idSelected > 0)
+							$(select).val(idSelected)
+						else
+							$("#" + select.attr('id') + " option").filter(function () {
+								return this.text == idSelected;
+							}).attr('selected', true);
+					}
 				}
-
+			} finally {
+				$.unblockUI();
 			}
-			$.unblockUI();
 		},
 		error: function(data) {
 			$.unblockUI();
@@ -200,63 +204,74 @@ function popularRuasCondominiosEdificiosReferencias(selRua, selCond, selEdif, se
 		type: 'post',
 		data: dados,
 		success: function(data) {
-			let select = selRua;
-			if (Object.keys(data.ruas).length > 0) {
-				$(select).append("<option></option>");
-				$.each(data.objetos, function(key, o) {
-					$(select).append('<option value="'+o.id+'">'+o.nome+'</option>');
-				});
-				if (idSelected !== undefined & idSelected != "") {
-					if (idSelected > 0)
-						$(select).val(idSelected)
-					else
-						$("#"+select.attr('id')+" option").filter(function() {return this.text == idSelected;}).attr('selected', true);
-				}
+			try {
+				let select = selRua;
+				if (Object.keys(data.ruas).length > 0) {
+					$(select).append("<option></option>");
+					$.each(data.ruas, function (key, o) {
+						$(select).append('<option value="' + o.id + '">' + o.nome + '</option>');
+					});
+					if (idSelected !== undefined & idSelected != "") {
+						if (idSelected > 0)
+							$(select).val(idSelected)
+						else
+							$("#" + select.attr('id') + " option").filter(function () {
+								return this.text == idSelected;
+							}).attr('selected', true);
+					}
 
-			}
-			select = selCond;
-			if (Object.keys(data.condominios).length > 0) {
-				$(select).append("<option></option>");
-				$.each(data.condominios, function(key, o) {
-					$(select).append('<option value="'+o.id+'">'+o.nome+'</option>');
-				});
-				if (idSelected !== undefined & idSelected != "") {
-					if (idSelected > 0)
-						$(select).val(idSelected)
-					else
-						$("#"+select.attr('id')+" option").filter(function() {return this.text == idSelected;}).attr('selected', true);
 				}
+				select = selCond;
+				if (Object.keys(data.condominios).length > 0) {
+					$(select).append("<option></option>");
+					$.each(data.condominios, function (key, o) {
+						$(select).append('<option value="' + o.id + '">' + o.nome + '</option>');
+					});
+					if (idSelected !== undefined & idSelected != "") {
+						if (idSelected > 0)
+							$(select).val(idSelected)
+						else
+							$("#" + select.attr('id') + " option").filter(function () {
+								return this.text == idSelected;
+							}).attr('selected', true);
+					}
 
-			}
-			select = selEdif;
-			if (Object.keys(data.edificios).length > 0) {
-				$(select).append("<option></option>");
-				$.each(data.edificios, function(key, o) {
-					$(select).append('<option value="'+o.id+'">'+o.nome+'</option>');
-				});
-				if (idSelected !== undefined & idSelected != "") {
-					if (idSelected > 0)
-						$(select).val(idSelected)
-					else
-						$("#"+select.attr('id')+" option").filter(function() {return this.text == idSelected;}).attr('selected', true);
 				}
+				select = selEdif;
+				if (Object.keys(data.edificios).length > 0) {
+					$(select).append("<option></option>");
+					$.each(data.edificios, function (key, o) {
+						$(select).append('<option value="' + o.id + '">' + o.nome + '</option>');
+					});
+					if (idSelected !== undefined & idSelected != "") {
+						if (idSelected > 0)
+							$(select).val(idSelected)
+						else
+							$("#" + select.attr('id') + " option").filter(function () {
+								return this.text == idSelected;
+							}).attr('selected', true);
+					}
 
-			}
-			select = selRefe;
-			if (Object.keys(data.referencias).length > 0) {
-				$(select).append("<option></option>");
-				$.each(data.referencias, function(key, o) {
-					$(select).append('<option value="'+o.id+'">'+o.nome+'</option>');
-				});
-				if (idSelected !== undefined & idSelected != "") {
-					if (idSelected > 0)
-						$(select).val(idSelected)
-					else
-						$("#"+select.attr('id')+" option").filter(function() {return this.text == idSelected;}).attr('selected', true);
 				}
+				select = selRefe;
+				if (Object.keys(data.pontosReferencia).length > 0) {
+					$(select).append("<option></option>");
+					$.each(data.pontosReferencia, function (key, o) {
+						$(select).append('<option value="' + o.id + '">' + o.nome + '</option>');
+					});
+					if (idSelected !== undefined & idSelected != "") {
+						if (idSelected > 0)
+							$(select).val(idSelected)
+						else
+							$("#" + select.attr('id') + " option").filter(function () {
+								return this.text == idSelected;
+							}).attr('selected', true);
+					}
 
+				}
+			} catch (e) {
+				$.unblockUI();
 			}
-			$.unblockUI();
 		},
 		error: function(data) {
 			$.unblockUI();

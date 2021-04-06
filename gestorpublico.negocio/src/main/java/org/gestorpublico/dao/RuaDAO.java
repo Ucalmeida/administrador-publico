@@ -66,7 +66,7 @@ public class RuaDAO extends DAO<Rua> {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			return new ArrayList<>();
+			return new ArrayList<Tuple>();
 		}
 	}
 }

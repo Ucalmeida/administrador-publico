@@ -37,6 +37,18 @@
                                         <option value="${o.get('id')}">${o.get('nome')}</option>
                                     </c:forEach></select>
                                 </div>
+                                <div class="form-group col-lg-1 col-md-1">
+                                    <label for="vivo" class="control-label">Vivo</label>
+                                    <select id="vivo" name="pessoa.vivo" class="form-control form-control-select">
+                                        <option></option>
+                                        <option value="true">Sim</option>
+                                        <option value="false">Não</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-lg-2 col-md-2">
+                                    <label for="dataFalecimento" class="control-label">Data de Felecimento</label>
+                                    <input type="date" id="dataFalecimento" disabled name="pessoa.dataFalecimento" class="form-control" />
+                                </div>
                                 <div class="form-group col-lg-3 col-md-3">
                                     <label for="cartaoSus" class="control-label">Cartão do SUS</label>
                                     <input id="cartaoSus" name="pessoa.cartaoSus" class="form-control" />

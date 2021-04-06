@@ -43,40 +43,41 @@ public class GetCondominioEdificioRuaPontoReferenciaPorBairroAction extends Padr
         Session session = getSession();
         try {
             List<Tuple> rs = new RuaDAO(session).listePorBairro(bairro);
-            rs.stream().forEach(tuple -> {
-                Map<String, Object> map = new HashMap<>();
+            Map<String, Object> map;
+            for (Tuple tuple : rs) {
+                map = new HashMap<>();
                 map.put("id", tuple.get("id"));
-                map.put("nomme", tuple.get("nome"));
+                map.put("nome", tuple.get("nome"));
 
                 ruas.add(map);
-            });
+            }
 
             List<Tuple> conds = new CondominioDAO(session).listePorBairro(bairro);
-            conds.stream().forEach(tuple -> {
-                Map<String, Object> map = new HashMap<>();
+            for (Tuple tuple : conds) {
+                map = new HashMap<>();
                 map.put("id", tuple.get("id"));
-                map.put("nomme", tuple.get("nome"));
+                map.put("nome", tuple.get("nome"));
 
                 condominios.add(map);
-            });
+            }
 
             List<Tuple> edifs = new EdificioDAO(session).listePorBairro(bairro);
-            edifs.stream().forEach(tuple -> {
-                Map<String, Object> map = new HashMap<>();
+            for (Tuple tuple : edifs) {
+                map = new HashMap<>();
                 map.put("id", tuple.get("id"));
-                map.put("nomme", tuple.get("nome"));
+                map.put("nome", tuple.get("nome"));
 
                 edificios.add(map);
-            });
+            }
 
             List<Tuple> refes = new Ponto_ReferenciaDAO(session).listePorBairro(bairro);
-            refes.stream().forEach(tuple -> {
-                Map<String, Object> map = new HashMap<>();
+            for (Tuple tuple : refes) {
+                map = new HashMap<>();
                 map.put("id", tuple.get("id"));
-                map.put("nomme", tuple.get("nome"));
+                map.put("nome", tuple.get("nome"));
 
-                edificios.add(map);
-            });
+                pontosReferencia.add(map);
+            }
 
             return "ok";
 

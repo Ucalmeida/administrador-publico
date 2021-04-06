@@ -1,11 +1,32 @@
 $(document).ready(function() {
     $(".cpf").mask("###.###.###-##");
+    $("#vivo").change(function () {
+        if (this.value == "true") {
+            $("#dataFalecimento").prop("disabled", true);
+            $("#dataFalecimento").val("");
+        } else {
+            $("#dataFalecimento").prop("disabled", false);
+        }
+    });
+    $("#idUF").change(function () {
+        $("#idMunicipio, #idBairro, #idRua, #idCondominio, #idEdificio, #idPontoReferencia").empty();
+        let id = this.value;
+        if (id > 0) {
+            popularSelect( "#idMunicipio", "getMunicipiosPorUF", {"uf.id": id})
+        }
+    });
+    $("#idMunicipio").change(function () {
+        $("#idBairro, #idRua, #idCondominio, #idEdificio, #idPontoReferencia").empty();
+        let id = this.value;
+        if (id > 0) {
+            popularSelect( "#idBairro", "getBairrosPorMunicipio", {"municipio.id": id})
+        }
+    });
     $("#idBairro").change(function () {
+        $("#idRua, #idCondominio, #idEdificio, #idPontoReferencia").empty();
         let id = this.value;
         if (id > 0) {
             popularRuasCondominiosEdificiosReferencias("#idRua", "#idCondominio", "#idEdificio", "#idPontoReferencia", "getRuasCondominiosEdificiosReferenciasPorBairro", {"bairro.id": id})
-        } else {
-            $("#idRua, #idCondominio, #idEdificio, #idPontoReferencia").empty();
         }
     });
     $("#frmPessoaCadastrar").submit(function(e){e.preventDefault();}).validate({
