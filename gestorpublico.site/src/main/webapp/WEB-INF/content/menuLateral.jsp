@@ -54,7 +54,7 @@
                 <div class="os-content" style="padding: 0px 8px; height: 100%; width: 100%;">
                     <nav class="mt-2 pb-5">
                         <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview"
-                            role="menu" data-accordion="false">
+                            role="menu" data-accordion="true">
                             <li class="nav-item has-treeview">
                                 <a class="nav-link" href="#" onclick="javascript:void(0)">
                                     <i class="nav-icon fas fa-clinic-medical"></i>
