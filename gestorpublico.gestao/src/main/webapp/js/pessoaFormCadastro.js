@@ -2,7 +2,14 @@ $(document).ready(function() {
     $(".cpf").mask("###.###.###-##");
     $(".telefone").mask("(99)99999-99999");
     $("#mae").blur(function () {
-        this.value == ""
+        if (this.value == "") {
+            $("#idMae").val("");
+        }
+    });
+    $("#pai").blur(function () {
+        if (this.value == "") {
+            $("#idPai").val("");
+        }
     });
     $("#mae").autocomplete({
         minLength: 8,
