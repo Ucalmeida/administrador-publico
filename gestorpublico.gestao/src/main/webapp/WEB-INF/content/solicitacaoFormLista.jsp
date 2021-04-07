@@ -10,57 +10,58 @@
 </head>
 <body>
     <div class="wrapper">
-    <jsp:include page="menuLateral.jsp" />
-    <div class="content-wrapper" style="min-height: 296px;">
-        <section class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h4 class="titulo">Solicitações</h4>
-                    </div>
-                    <div class="row col-lg-12">
-                        <div id="accordion" class="col-lg-12">
-                            <div class="card">
-                                <div class="card-header bg-success" id="headingOne">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link" style="text-align: left; color: white; padding: 0px; width: 100%;" data-toggle="collapse" data-target="#beneficios" aria-expanded="true" aria-controls="beneficios">
-                                            <i class="nav-icon fa fa-handshake"></i> BENEFÍCIOS <span class="badge">${fn:length(beneficios)}</span>
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="beneficios" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                    <div class="col-lg-12 table-responsive mt-1">
-                                        <table id="tbBeneficios" class="table table-striped table-bordered" width="100%"><c:forEach items="${beneficios}" var="o">
-                                            <tr id="ln${o.id}">
-                                                <td>${o.dataHoraCadastroFormatada}</td>
-                                                <td>${o.beneficiado.nome}</td>
-                                                <td>${o.beneficio.nome}</td>
-                                                <td>${o.observacao}</td>
-                                                <td><a onclick="javascript:beneficioDespachar(${o.id})" class="btn btn-default text-nowrap"><i class="fas fa-file-signature"></i> Despachar</a></td>
-                                            </tr></c:forEach>
-                                        </table>
+        <jsp:include page="menuLateral.jsp" />
+        <div class="content-wrapper" style="min-height: 296px;">
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4 class="titulo">Solicitações</h4>
+                        </div>
+                        <div class="row col-lg-12">
+                            <div id="accordion" class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header bg-success" id="headingOne">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link" style="text-align: left; color: white; padding: 0px; width: 100%;" data-toggle="collapse" data-target="#beneficios" aria-expanded="true" aria-controls="beneficios">
+                                                <i class="nav-icon fa fa-handshake"></i> BENEFÍCIOS <span class="badge">${fn:length(beneficios)}</span>
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="beneficios" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                        <div class="col-lg-12 table-responsive mt-1">
+                                            <table id="tbBeneficios" class="table table-striped table-bordered" width="100%"><c:forEach items="${beneficios}" var="o">
+                                                <tr id="ln${o.id}">
+                                                    <td>${o.dataHoraCadastroFormatada}</td>
+                                                    <td>${o.beneficiado.nome}</td>
+                                                    <td>${o.beneficio.nome}</td>
+                                                    <td>${o.observacao}</td>
+                                                    <td><a onclick="javascript:beneficioDespachar(${o.id})" class="btn btn-default text-nowrap"><i class="fas fa-file-signature"></i> Despachar</a></td>
+                                                </tr></c:forEach>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header bg-info" id="headingTwo">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" style="text-align: left; color: white; padding: 0px; width: 100%;" data-toggle="collapse" data-target="#servicos" aria-expanded="false" aria-controls="servicos">
-                                            <i class="nav-icon fas fa-cog"></i> SERVIÇOS <span class="badge">${fn:length(servicos)}</span>
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="servicos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                    <div class="col-lg-12 table-responsive mt-1">
-                                        <table id="tbServicos" class="table table-striped table-bordered" width="100%"><c:forEach items="${servicos}" var="o">
-                                            <tr id="ln${o.id}">
-                                                <td>${o.dataHoraCadastroFormatada}</td>
-                                                <td>${o.solicitante.nome}</td>
-                                                <td>${o.servico.nome}</td>
-                                                <td>${o.observacao}</td>
-                                                <td><a onclick="javascript:servicoDespachar(${o.id})" class="btn btn-default text-nowrap"><i class="fas fa-file-signature"></i> Despachar</a></td>
-                                            </tr></c:forEach>
-                                        </table>
+                                <div class="card">
+                                    <div class="card-header bg-info" id="headingTwo">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link collapsed" style="text-align: left; color: white; padding: 0px; width: 100%;" data-toggle="collapse" data-target="#servicos" aria-expanded="false" aria-controls="servicos">
+                                                <i class="nav-icon fas fa-cog"></i> SERVIÇOS <span class="badge">${fn:length(servicos)}</span>
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="servicos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                        <div class="col-lg-12 table-responsive mt-1">
+                                            <table id="tbServicos" class="table table-striped table-bordered" width="100%"><c:forEach items="${servicos}" var="o">
+                                                <tr id="ln${o.id}">
+                                                    <td>${o.dataHoraCadastroFormatada}</td>
+                                                    <td>${o.solicitante.nome}</td>
+                                                    <td>${o.servico.nome}</td>
+                                                    <td>${o.observacao}</td>
+                                                    <td><a onclick="javascript:servicoDespachar(${o.id})" class="btn btn-default text-nowrap"><i class="fas fa-file-signature"></i> Despachar</a></td>
+                                                </tr></c:forEach>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
