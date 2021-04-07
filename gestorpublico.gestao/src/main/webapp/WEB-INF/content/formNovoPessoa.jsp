@@ -351,7 +351,9 @@
         </section>
     </div>
     <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
-    <script src="plugins/jquery/jquery.dataTables.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables.defaults.js"></script>
     <script type='text/javascript' charset='utf-8' src='js/formNovoPessoa.js'></script>
 </body>
 </html>
