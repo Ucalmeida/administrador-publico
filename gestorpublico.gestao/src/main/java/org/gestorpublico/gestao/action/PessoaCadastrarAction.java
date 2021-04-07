@@ -11,6 +11,7 @@ import org.gestorpublico.entidade.Municipio;
 import org.gestorpublico.entidade.Pessoa;
 import org.gestorpublico.entidade.Pessoa_Endereco;
 import org.gestorpublico.hibernate.HibernateUtil;
+import org.gestorpublico.util.CassUtil;
 import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
@@ -43,14 +44,24 @@ public class PessoaCadastrarAction extends PadraoAction {
             if (p != null) {
                 if (p.getNome().equals(pessoa.getNome())) {
                     addErro("Essa pessoa já está cadastrada.");
-                    return ERRO;
+                    return "erro";
                 }
 
                 addErro("Já exisite uma pessoa cadastrada com esse CPF");
-                return ERRO;
+                return "erro";
             }
 
-            
+            if (!pessoa.isVivo() && pessoa.getDataFalecimento() != null) {
+                addErro("Se a pessoa não está viva, informe a data de falecimento.");
+                return "erro";
+            }
+
+            pessoa.setLogin(pessoa.getCpf());
+            pessoa.setSenha(CassUtil.criptografar(pessoa.getPrimeiroNome()+pessoa.getDataNascimento().getYear()));
+
+            pessoaDAO.salvar(pessoa);
+            pessoaEndereco.setPessoa(pessoa);
+            new Pessoa_EnderecoDAO(session).salvar(pessoaEndereco);
 
             return "ok";
 
