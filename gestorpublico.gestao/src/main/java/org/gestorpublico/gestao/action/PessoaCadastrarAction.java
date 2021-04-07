@@ -6,10 +6,7 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.gestorpublico.dao.*;
-import org.gestorpublico.entidade.Log_Erro_Execucao;
-import org.gestorpublico.entidade.Municipio;
-import org.gestorpublico.entidade.Pessoa;
-import org.gestorpublico.entidade.Pessoa_Endereco;
+import org.gestorpublico.entidade.*;
 import org.gestorpublico.hibernate.HibernateUtil;
 import org.gestorpublico.util.CassUtil;
 import org.gestorpublico.util.PadraoAction;
@@ -62,6 +59,32 @@ public class PessoaCadastrarAction extends PadraoAction {
             pessoaDAO.salvar(pessoa);
             pessoaEndereco.setPessoa(pessoa);
             new Pessoa_EnderecoDAO(session).salvar(pessoaEndereco);
+
+            if(pessoa.isMenorIdade()) {
+                Pessoa_DependenteDAO pessoaDependenteDAO = new Pessoa_DependenteDAO(session);
+                Tipo FILHO = new TipoDAO(session).getTipoPorObjetoNomeTipo("Tipo_Dependente", "Filho");
+
+                Pessoa_Dependente pessoaDependente = new Pessoa_Dependente();
+                pessoaDependente.setTipoDependente(FILHO);
+                pessoaDependente.setAscendente(pessoa.getMae());
+                pessoaDependente.setDependente(pessoa);
+                pessoaDependente.setAtivo(pessoa.isVivo());
+
+                pessoaDependenteDAO.salvar(pessoaDependente);
+
+                if (pessoa.getPai() != null || pessoa.getPai().getId() != null) {
+                    pessoaDependente = new Pessoa_Dependente();
+                    pessoaDependente.setTipoDependente(FILHO);
+                    pessoaDependente.setAscendente(pessoa.getPai());
+                    pessoaDependente.setDependente(pessoa);
+                    pessoaDependente.setAtivo(pessoa.isVivo());
+
+                    pessoaDependenteDAO.salvar(pessoaDependente);
+                }
+            }
+
+            addId(pessoa.getId().toString());
+            addMsg("Pessoa cadastrada com sucesso!");
 
             return "ok";
 
