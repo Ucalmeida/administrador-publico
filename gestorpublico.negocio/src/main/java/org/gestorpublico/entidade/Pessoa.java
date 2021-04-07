@@ -193,4 +193,8 @@ public class Pessoa implements Serializable, Comparable<Pessoa> {
 	public String getPrimeiroNome() {
 		return nome.substring(0, nome.indexOf(" "));
 	}
+
+	public boolean isMenorIdade() {
+		return LocalDate.now().getYear() - dataNascimento.getYear() < 18;
+	}
 }
