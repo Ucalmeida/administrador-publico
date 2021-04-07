@@ -10,26 +10,6 @@
 </head>
 <body>
     <div class="wrapper">
-<<<<<<< Updated upstream
-        <jsp:include page="menuLateral.jsp" />
-        <div class="content-wrapper" style="min-height: 296px;">
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h4 class="titulo">Solicitações</h4>
-                        </div>
-                        <div class="row col-lg-12">
-                            <div id="accordion" class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-header bg-success" id="headingOne">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link" style="text-align: left; color: white; padding: 0px; width: 100%;" data-toggle="collapse" data-target="#beneficios" aria-expanded="true" aria-controls="beneficios">
-                                                <i class="nav-icon fa fa-handshake"></i> BENEFÍCIOS
-                                            </button>
-                                        </h5>
-                                    </div>
-=======
     <jsp:include page="menuLateral.jsp" />
     <div class="content-wrapper" style="min-height: 296px;">
         <section class="content">
@@ -48,45 +28,20 @@
                                         </button>
                                     </h5>
                                 </div>
->>>>>>> Stashed changes
-
-                                    <div id="beneficios" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                        <div class="col-lg-12 table-responsive mt-1">
-                                            <table id="tbBeneficios" class="table table-striped table-bordered" width="100%"><c:forEach items="${beneficios}" var="o">
-                                                <tr id="ln${o.id}">
-                                                    <td>${o.dataHoraCadastroFormatada}</td>
-                                                    <td>${o.beneficiado.nome}</td>
-                                                    <td>${o.beneficio.nome}</td>
-                                                    <td>${o.observacao}</td>
-                                                    <td><a onclick="javascript:beneficioDespachar(${o.id})" class="btn btn-default text-nowrap"><i class="fas fa-file-signature"></i> Despachar</a></td>
-                                                </tr></c:forEach>
-                                            </table>
-                                        </div>
+                                <div id="beneficios" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="col-lg-12 table-responsive mt-1">
+                                        <table id="tbBeneficios" class="table table-striped table-bordered" width="100%"><c:forEach items="${beneficios}" var="o">
+                                            <tr id="ln${o.id}">
+                                                <td>${o.dataHoraCadastroFormatada}</td>
+                                                <td>${o.beneficiado.nome}</td>
+                                                <td>${o.beneficio.nome}</td>
+                                                <td>${o.observacao}</td>
+                                                <td><a onclick="javascript:beneficioDespachar(${o.id})" class="btn btn-default text-nowrap"><i class="fas fa-file-signature"></i> Despachar</a></td>
+                                            </tr></c:forEach>
+                                        </table>
                                     </div>
                                 </div>
-
-<<<<<<< Updated upstream
-                                <div class="card">
-                                    <div class="card-header bg-info" id="headingTwo">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed" style="text-align: left; color: white; padding: 0px; width: 100%;" data-toggle="collapse" data-target="#servicos" aria-expanded="false" aria-controls="servicos">
-                                                <i class="nav-icon fas fa-cog"></i> SERVIÇOS
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id="servicos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                        <div class="col-lg-12 table-responsive mt-1">
-                                            <table id="tbServicos" class="table table-striped table-bordered" width="100%"><c:forEach items="${servicos}" var="o">
-                                                <tr id="ln${o.id}">
-                                                    <td>${o.dataHoraCadastroFormatada}</td>
-                                                    <td>${o.solicitante.nome}</td>
-                                                    <td>${o.servico.nome}</td>
-                                                    <td>${o.observacao}</td>
-                                                    <td><a onclick="javascript:servicoDespachar(${o.id})" class="btn btn-default text-nowrap"><i class="fas fa-file-signature"></i> Despachar</a></td>
-                                                </tr></c:forEach>
-                                            </table>
-                                        </div>
-=======
+                            </div>
                             <div class="card">
                                 <div class="card-header bg-info" id="headingTwo">
                                     <h5 class="mb-0">
@@ -106,7 +61,6 @@
                                                 <td><a onclick="javascript:servicoDespachar(${o.id})" class="btn btn-default text-nowrap"><i class="fas fa-file-signature"></i> Despachar</a></td>
                                             </tr></c:forEach>
                                         </table>
->>>>>>> Stashed changes
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +75,7 @@
     <script type="text/javascript" charset="utf-8" src="plugins/dataTables/jquery.dataTables.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables.defaults.js"></script>
-<%--    <script type="text/javascript" charset="utf-8" src="js/funcoes.js"></script>--%>
+    <script type="text/javascript" charset="utf-8" src="js/funcoes.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/solicitacaoFormLista.js"></script>
 </body>
 </html>

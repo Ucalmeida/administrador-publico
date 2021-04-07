@@ -23,6 +23,7 @@ public class PessoaBeneficioFormModalDespacharAction {
     private HttpServletResponse response = ServletActionContext.getResponse();
 
     private Pessoa_Beneficio pessoaBeneficio;
+    private String msg;
 
     @Action(value="beneficioFormDespachar",
         results={
@@ -36,7 +37,8 @@ public class PessoaBeneficioFormModalDespacharAction {
             pessoaBeneficio = new Pessoa_BeneficioDAO(session).getBeneficio(pessoaBeneficio);
 
             if (pessoaBeneficio == null) {
-                response.setHeader("erro", "Solicitação de Benefício não encontrada");
+                msg = "Solicitação de Benefício não encontrada";
+                response.setHeader("erro", msg);
                 return "erro";
             }
 
@@ -68,5 +70,9 @@ public class PessoaBeneficioFormModalDespacharAction {
 
     public Pessoa_Beneficio getPessoaBeneficio() {
         return pessoaBeneficio;
+    }
+
+    public String getMsg() {
+        return msg;
     }
 }
