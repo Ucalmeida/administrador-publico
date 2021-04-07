@@ -47,7 +47,7 @@ public class GetCondominioEdificioRuaPontoReferenciaPorBairroAction extends Padr
             for (Tuple tuple : rs) {
                 map = new HashMap<>();
                 map.put("id", tuple.get("id"));
-                map.put("nome", tuple.get("nome"));
+                map.put("nome", tuple.get("tipo") + " " + tuple.get("nome"));
 
                 ruas.add(map);
             }

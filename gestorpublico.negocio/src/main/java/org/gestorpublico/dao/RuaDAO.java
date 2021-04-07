@@ -56,7 +56,8 @@ public class RuaDAO extends DAO<Rua> {
 
 			List<Selection<?>> columns = new ArrayList<Selection<?>>();
 			columns.add(rootTuple.<Integer>get("id").alias("id"));
-			columns.add(rootTuple.<String>get("nome").alias("nome"));
+			columns.add(rootTuple.join("tipo").get("nome").alias("tipo"));
+			columns.add(rootTuple.get("nome").alias("nome"));
 
 			return getSession().createQuery(
 					query2.multiselect(columns)
