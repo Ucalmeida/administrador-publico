@@ -1,69 +1,68 @@
 package org.gestorpublico.gestao.action;
 
+import com.opensymphony.xwork2.ActionContext;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.gestorpublico.dao.Log_Erro_ExecucaoDAO;
-import org.gestorpublico.dao.PessoaDAO;
 import org.gestorpublico.dao.Pessoa_BeneficioDAO;
-import org.gestorpublico.dao.Pessoa_ServicoDAO;
 import org.gestorpublico.entidade.Log_Erro_Execucao;
 import org.gestorpublico.entidade.Pessoa_Beneficio;
-import org.gestorpublico.entidade.Pessoa_Servico;
 import org.gestorpublico.hibernate.HibernateUtil;
-import org.gestorpublico.util.PadraoAction;
 import org.hibernate.Session;
 
-import javax.persistence.Tuple;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 @ParentPackage("default")
-public class SolicitacaoFormListarAction extends PadraoAction {
+public class PessoaBeneficioFormModalDespacharAction {
 
     private HttpServletRequest request = ServletActionContext.getRequest();
     private HttpServletResponse response = ServletActionContext.getResponse();
 
-    private List<Pessoa_Beneficio> beneficios;
-    private List<Pessoa_Servico> servicos;
+    private Pessoa_Beneficio pessoaBeneficio;
 
-    @Action(value="solicitacoes",
+    @Action(value="beneficioFormDespachar",
         results={
-            @Result(name="ok", location="solicitacaoFormLista.jsp"),
-            @Result(name="erro", type="httpheader", params={"status", "409"})
+            @Result(name="ok", location="pessoaBeneficioFormModalDespacho.jsp"),
+            @Result(name="erro", location="paginaErroModal.jsp", params={"status", "409"})
         }
     )
     public String execute() {
-        Session session = getSession();
+        Session session = (Session) request.getAttribute("sessao");
         try {
-            beneficios = new Pessoa_BeneficioDAO(session).listarAguardandoDespacho();
-            servicos = new Pessoa_ServicoDAO(session).listarAguardandoDespacho();
+            pessoaBeneficio = new Pessoa_BeneficioDAO(session).getBeneficio(pessoaBeneficio);
+
+            if (pessoaBeneficio == null) {
+                response.setHeader("erro", "Solicitação de Benefício não encontrada");
+                return "erro";
+            }
 
             return "ok";
 
         } catch (Exception e) {
             e.printStackTrace();
+            String action = ActionContext.getContext().getName();
             String erro = e.getMessage() == null ? ExceptionUtils.getRootCauseMessage(e.fillInStackTrace()) : e.getMessage();
 
             response.addHeader("erro", "Ocorreu o seguinte erro: " + erro);
 
-            Session sessao = HibernateUtil.getSession();
-            new Log_Erro_ExecucaoDAO(sessao).salvar(new Log_Erro_Execucao(getActionName(), erro));
-            sessao.close();
+            if (session.getTransaction().isActive()) {
+                Session sessao = HibernateUtil.getSession();
+                new Log_Erro_ExecucaoDAO(sessao).salvar(new Log_Erro_Execucao(action, erro));
+                sessao.close();
+            } else {
+                new Log_Erro_ExecucaoDAO(session).salvar(new Log_Erro_Execucao(action, erro));
+            }
 
             return "erro";
         }
     }
 
     // ****************************** GETs e SETs ******************************
-    public List<Pessoa_Beneficio> getBeneficios() {
-        return beneficios;
-    }
-
-    public List<Pessoa_Servico> getServicos() {
-        return servicos;
+    public void setPessoaBeneficio(Pessoa_Beneficio pessoaBeneficio) {
+        this.pessoaBeneficio = pessoaBeneficio;
     }
 }

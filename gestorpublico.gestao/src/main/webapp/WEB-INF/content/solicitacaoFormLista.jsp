@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html lang='pt-BR'>
 <head>
     <jsp:include page="head.jsp" />
@@ -31,12 +32,12 @@
                                 <div id="beneficios" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                     <div class="col-lg-12 table-responsive mt-1">
                                         <table id="tbBeneficios" class="table table-striped table-bordered" width="100%"><c:forEach items="${beneficios}" var="o">
-                                            <tr id="ln${o.get('id')}">
-                                                <td>${o.get('data')}</td>
-                                                <td>${o.get('beneficiado')}</td>
-                                                <td>${o.get('beneficio')}</td>
-                                                <td>${o.get('observacao')}</td>
-                                                <td><a onclick="javascript:beneficioDespachar(${o.get('id')})" class="btn btn-default"><i class="fas fa-home"></i> Despachar</a></td>
+                                            <tr id="ln${o.id}">
+                                                <td>${o.dataHoraCadastroFormatada}</td>
+                                                <td>${o.beneficiado.nome}</td>
+                                                <td>${o.beneficio.nome}</td>
+                                                <td>${o.observacao}</td>
+                                                <td><a onclick="javascript:beneficioDespachar(${o.id})" class="btn btn-default text-nowrap"><i class="fas fa-file-signature"></i> Despachar</a></td>
                                             </tr></c:forEach>
                                         </table>
                                     </div>
@@ -54,12 +55,12 @@
                                 <div id="servicos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                     <div class="col-lg-12 table-responsive mt-1">
                                         <table id="tbServicos" class="table table-striped table-bordered" width="100%"><c:forEach items="${servicos}" var="o">
-                                            <tr id="ln${o.get('id')}">
-                                                <td>${o.get('data')}</td>
-                                                <td>${o.get('solicitante')}</td>
-                                                <td>${o.get('servico')}</td>
-                                                <td>${o.get('observacao')}</td>
-                                                <td><a onclick="javascript:servicoDespachar(${o.get('id')})" class="btn btn-default"><i class="fas fa-home"></i> Despachar</a></td>
+                                            <tr id="ln${o.id}">
+                                                <td>${o.dataHoraCadastroFormatada}</td>
+                                                <td>${o.solicitante.nome}</td>
+                                                <td>${o.servico.nome}</td>
+                                                <td>${o.observacao}</td>
+                                                <td><a onclick="javascript:servicoDespachar(${o.id})" class="btn btn-default text-nowrap"><i class="fas fa-file-signature"></i> Despachar</a></td>
                                             </tr></c:forEach>
                                         </table>
                                     </div>
@@ -75,6 +76,7 @@
     <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/jquery.dataTables.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/dataTables.bootstrap4.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/funcoes.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/solicitacaoFormLista.js"></script>
 </body>
 </html>

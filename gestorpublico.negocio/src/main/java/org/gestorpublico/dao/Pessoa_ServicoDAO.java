@@ -118,6 +118,22 @@ public class Pessoa_ServicoDAO extends DAO<Pessoa_Servico> {
 		}
 	}
 
+	public List<Pessoa_Servico> listarAguardandoDespacho() {
+		try {
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.isNull(root.get("autorizado")));
+
+			return getSession().createQuery(
+					query.select(root)
+							.where(predicates.toArray(new Predicate[0]))
+							.distinct(true))
+					.getResultList();
+
+		} catch (Exception e) {
+			return new ArrayList<>();
+		}
+	}
+
 	public List<Tuple> listeAguardandoDespacho() {
 		try {
 			List<Predicate> predicates = new ArrayList<Predicate>();

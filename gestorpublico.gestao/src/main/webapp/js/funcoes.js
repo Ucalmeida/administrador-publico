@@ -28,20 +28,44 @@ function alterarSenha() {
 	mdAlterar.bind('shown.bs.modal', function(){mdAlterar.find("form :input:visible:enabled:not([readonly]):first").focus();});
 }
 
-function bilheteVer(id) {
-	bootbox.dialog({
+function beneficioDespachar(id) {
+	let box = bootbox.dialog({
 		message: 'Aguarde...',
-		title: "Bilhete",
+		title: "Despachar Benefício",
 		onEscape: true,
 		buttons: {
+			danger: {
+				label: "Despachar",
+				className: "btn-success",
+			},
 			danger: {
 				label: "Fechar",
 				className: "btn-default",
 			}
 		}
 	});
-	$(".bootbox-body").load('bilhete', {'id': id});
-	$(".modal-content").css("color", "black");
+	box.bind(".bootbox-body").load('beneficioFormDespacho', {'pessoaBeneficio.id': id});
+	box.bind('shown.bs.modal', function(){box.find(".focus").focus();});
+}
+
+function servicoDespachar(id) {
+	bootbox.dialog({
+		message: 'Aguarde...',
+		title: "Despachar Serviço",
+		onEscape: true,
+		buttons: {
+			danger: {
+				label: "Despachar",
+				className: "btn-success",
+			},
+			danger: {
+				label: "Fechar",
+				className: "btn-default",
+			}
+		}
+	});
+	box.bind(".bootbox-body").load('servicoFormDespacho', {'pessoaServico.id': id});
+	box.bind('shown.bs.modal', function(){box.find(".focus").focus();});
 }
 
 function excluir(especie, id, id2, mensagem, force) {
