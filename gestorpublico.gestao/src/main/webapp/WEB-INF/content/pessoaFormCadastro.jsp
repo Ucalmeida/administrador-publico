@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="form-group col-lg-2 col-md-2">
                                         <label for="dataNascimento" class="control-label">Data de Nascimento</label>
-                                        <input type="date" id="dataNascimento" name="pessoa.dataNascimento" class="form-control" />
+                                        <input type="date" id="dataNascimento" name="dataNascimento" class="form-control" />
                                     </div>
                                     <div class="form-group col-lg-2 col-md-2">
                                         <label for="celular" class="control-label">Celular</label>
@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="form-group col-lg-2 col-md-2">
                                         <label for="idSexo" class="control-label">Sexo</label>
-                                        <select id="idSexo" name="pessoa.sexo.id" class="form-control form-control-select">
+                                        <select id="idSexo" name="sexo.id" class="form-control form-control-select">
                                             <option></option></option><c:forEach items="${sexos}" var="o">
                                             <option value="${o.get('id')}">${o.get('nome')}</option>
                                         </c:forEach></select>
@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="form-group col-lg-2 col-md-2">
                                         <label for="dataFalecimento" class="control-label">Data de Felecimento</label>
-                                        <input type="date" id="dataFalecimento" disabled name="pessoa.dataFalecimento" class="form-control" />
+                                        <input type="date" id="dataFalecimento" disabled name="dataFalecimento" class="form-control" />
                                     </div>
                                     <div class="form-group col-lg-3 col-md-3">
                                         <label for="cartaoSus" class="control-label">Cartão do SUS</label>
@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="form-group col-lg-3 col-md-3">
                                         <label for="cartaoNis" class="control-label">Cartão do NIS</label>
-                                        <input id="cartaoNis" name="pessoa.cartaoSus" class="form-control" />
+                                        <input id="cartaoNis" name="pessoa.cartaoNis" class="form-control" />
                                     </div>
                                     <div class="form-group col-lg-2 col-md-2">
                                         <label for="tituloEleitoral" class="control-label">Título Eleitoral</label>
@@ -71,13 +71,13 @@
                                     </div>
                                     <div class="form-group col-lg-4 col-md-4">
                                         <label for="mae" class="control-label">Mãe</label>
-                                        <input id="mae" name="mae" class="form-control" placeholder="Digite o CPF ou nome da mãe" />
-                                        <input hidden id="idMae" name="pessoa.mae.id" />
+                                        <input id="mae" name="nomeMae" class="form-control" placeholder="Digite o CPF ou nome da mãe" />
+                                        <input hidden id="idMae" name="mae.id" />
                                     </div>
                                     <div class="form-group col-lg-4 col-md-4">
                                         <label for="pai" class="control-label">Pai</label>
-                                        <input id="pai" name="pai" class="form-control" placeholder="Digite o CPF ou nome do pai" />
-                                        <input hidden id="idPai" name="pessoa.pai.id" />
+                                        <input id="pai" name="nomePai" class="form-control" placeholder="Digite o CPF ou nome do pai" />
+                                        <input hidden id="idPai" name="pai.id" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="form-group col-lg-4 col-md-4">
                                         <label for="idRua" class="control-label">Rua <a class="btn btn-primary btn-xs text-white" onclick="javascript:novaRua()" title="Nova Rua"><i class="fas fa-plus mr-1"></i>Novo</a></label>
-                                        <select id="idRua" name="pessoaEndereco.rua.id" class="form-control form-control-select"></select>
+                                        <select id="idRua" name="rua.id" class="form-control form-control-select"></select>
                                     </div>
                                     <div class="form-group col-lg-1 col-md-1">
                                         <label for="numero" class="control-label">Nº</label>
@@ -115,15 +115,15 @@
                                     </div>
                                     <div class="form-group col-lg-3 col-md-3">
                                         <label for="idCondominio" class="control-label">Condomínio <a class="btn btn-primary btn-xs text-white" onclick="javascript:novoCondominio()" title="Nova Condomínio"><i class="fas fa-plus mr-1"></i>Novo</a></label>
-                                        <select id="idCondominio" name="pessoaEndereco.condominio.id" class="form-control form-control-select"></select>
+                                        <select id="idCondominio" name="condominio.id" class="form-control form-control-select"></select>
                                     </div>
                                     <div class="form-group col-lg-3 col-md-3">
                                         <label for="idEdificio" class="control-label">Edifício <a class="btn btn-primary btn-xs text-white" onclick="javascript:novaEdificio()" title="Novo Edifício"><i class="fas fa-plus mr-1"></i>Novo</a></label>
-                                        <select id="idEdificio" name="pessoaEndereco.edificio.id" class="form-control form-control-select"></select>
+                                        <select id="idEdificio" name="edificio.id" class="form-control form-control-select"></select>
                                     </div>
                                     <div class="form-group col-lg-3 col-md-3">
                                         <label for="idPontoReferencia" class="control-label">Ponto de referência <a class="btn btn-primary btn-xs text-white" onclick="javascript:novoPontoReferencia()" title="Novo Ponto de Referência"><i class="fas fa-plus mr-1"></i>Novo</a></label>
-                                        <select id="idPontoReferencia" name="pessoaEndereco.pontoReferencia.id" class="form-control form-control-select"></select>
+                                        <select id="idPontoReferencia" name="pontoReferencia.id" class="form-control form-control-select"></select>
                                     </div>
                                     <div class="form-group col-lg-4 col-md-4">
                                         <label for="complemento" class="control-label">Complemento</label>

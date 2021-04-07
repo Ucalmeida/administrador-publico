@@ -81,15 +81,15 @@ $(document).ready(function() {
         rules: {
             'pessoa.cpf': {required: true, cpf: true},
             'pessoa.nome': {required: true, minlength: 10},
-            'pessoa.dataNascimento': {required: true, dateISO: true},
-            'pessoa.sexo.id': {required: true},
+            'dataNascimento': {required: true, dateISO: true},
+            'sexo.id': {required: true},
             'pessoa.vivo': {required: true},
-            'mae': {required: true, haValor: "#idMae"},
-            'pessoa.dataFalecimento': {required: function(){return $("#vivo").val() == "false";}},
+            'nomeMae': {required: true, haValor: "#idMae"},
+            'dataFalecimento': {required: function(){return $("#vivo").val() == "false";}},
             'uf': {required: true},
             'municipio': {required: true},
             'bairro': {required: true},
-            'pessoaEndereco.rua.id': {required: true}
+            'rua.id': {required: true}
         },
         submitHandler: function(form) {
             let result = enviar(form, true, true);

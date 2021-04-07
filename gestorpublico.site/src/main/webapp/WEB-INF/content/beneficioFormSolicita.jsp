@@ -26,7 +26,7 @@
                                             <option value="${o.get('id')}">${o.get('nome')}</option>
                                         </c:forEach></select>
                                     </div>
-                                    <div class="form-group col-lg-4 col-md-4">
+                                    <div class="form-group col-lg-5 col-md-5">
                                         <label for="idBeneficio" class="control-label">Benefício</label>
                                         <select id="idBeneficio" name="beneficio.id" class="focus form-control form-control-select">
                                             <option></option><c:forEach items="${beneficios}" var="o">

@@ -2,12 +2,14 @@ package org.gestorpublico.entidade;
 
 import lombok.*;
 import org.gestorpublico.util.CassUtil;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Entity
 @Table(
@@ -30,7 +32,7 @@ public class Pessoa_Servico implements Serializable, Comparable<Pessoa_Servico> 
     private Integer id;
 
     @Column(name = "dh_cadastro", nullable = false)
-    private LocalDateTime dataHoraCadastro = LocalDateTime.now();
+    private LocalDateTime dataHoraCadastro = LocalDateTime.now(ZoneId.of("America/Fortaleza"));
 
     @Column(name = "dt_inicio")
     private LocalDate dataInicio;
@@ -47,9 +49,11 @@ public class Pessoa_Servico implements Serializable, Comparable<Pessoa_Servico> 
     @Column(name = "bl_autorizado", columnDefinition = "tinyint(1)")
     private Boolean autorizado;
 
+    @Type(type = "text")
     @Column(name = "tx_despacho")
     private String despacho;
 
+    @Type(type = "text")
     @Column(name = "tx_observacao")
     private String observacao;
 

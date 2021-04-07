@@ -7,10 +7,7 @@ import org.gestorpublico.util.CassUtil;
 import org.hibernate.Session;
 
 import javax.persistence.Tuple;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,6 +72,29 @@ public class Pessoa_BeneficioDAO extends DAO<Pessoa_Beneficio> {
 		}
 	}
 
+	public List<Tuple> listeAguardandoDespacho() {
+		try {
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.isNull(rootTuple.get("autorizado")));
+
+			List<Selection<?>> columns = new ArrayList<Selection<?>>();
+			columns.add(rootTuple.<Integer>get("id").alias("id"));
+			columns.add(builder.function("date_format", Long.class, rootTuple.get("dataHoraCadastro"), builder.literal("%d/%m/%Y %H:%i")).alias("data"));
+			columns.add(rootTuple.join("beneficiado").get("nome").alias("beneficiado"));
+			columns.add(rootTuple.join("beneficio").get("nome").alias("beneficio"));
+			columns.add(rootTuple.get("observacao").alias("observacao"));
+
+			return getSession().createQuery(
+					query2.multiselect(columns)
+							.where(predicates.toArray(new Predicate[0]))
+							.distinct(true))
+					.getResultList();
+
+		} catch (Exception e) {
+			return new ArrayList<>();
+		}
+	}
+
 	public List<Pessoa_Beneficio> listarAtivosPorSolicitanteOuBeneficiadoAutorizacao(Pessoa solicitante, Boolean autorizacao) {
 		try {
 			List<Predicate> predicates = new ArrayList<Predicate>();
@@ -125,5 +145,4 @@ public class Pessoa_BeneficioDAO extends DAO<Pessoa_Beneficio> {
 			return null;
 		}
 	}
-
 }

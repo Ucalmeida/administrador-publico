@@ -59,6 +59,49 @@
                             role="menu" data-accordion="true">
                             <li class="nav-item has-treeview">
                                 <a class="nav-link" href="#" onclick="javascript:void(0)">
+                                    <i class="nav-icon fas fa-cogs"></i>
+                                    <p class="">Secretaria|Setor<i class="right fas fa-angle-down"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-target="solicitacoes"
+                                           onclick="javascript:execute('solicitacoes')">
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
+                                            <p class="">Solicitações</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-target="alocar"
+                                           onclick="javascript:execute('alocar')">
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
+                                            <p class="">Alocar Funcionário</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-target="setor"
+                                           onclick="javascript:execute('setor')">
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
+                                            <p class="">Cadastrar</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-target="setorLocalizar"
+                                           onclick="javascript:execute('setorLocalizar')">
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
+                                            <p class="">Localizar</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-target="setorListar"
+                                           onclick="javascript:execute('setorListar')">
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
+                                            <p class="">Listar</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a class="nav-link" href="#" onclick="javascript:void(0)">
                                     <i class="nav-icon fas fa-user-alt"></i>
                                     <p class="">Cidadão<i class="right fas fa-angle-down"></i></p>
                                 </a>
@@ -288,42 +331,6 @@
                                     <li class="nav-item">
                                         <a class="nav-link" data-target="ruaListar"
                                            onclick="javascript:execute('ruaListar')">
-                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
-                                            <p class="">Listar</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item has-treeview">
-                                <a class="nav-link" href="#" onclick="javascript:void(0)">
-                                    <i class="nav-icon fas fa-cogs"></i>
-                                    <p class="">Secretaria|Setor<i class="right fas fa-angle-down"></i></p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-target="alocar"
-                                           onclick="javascript:execute('alocar')">
-                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
-                                            <p class="">Alocar Funcionário</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-target="setor"
-                                           onclick="javascript:execute('setor')">
-                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
-                                            <p class="">Cadastrar</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-target="setorLocalizar"
-                                           onclick="javascript:execute('setorLocalizar')">
-                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
-                                            <p class="">Localizar</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-target="setorListar"
-                                           onclick="javascript:execute('setorListar')">
                                             <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Listar</p>
                                         </a>
