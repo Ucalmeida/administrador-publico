@@ -44,16 +44,16 @@ public class Pessoa_Endereco implements Serializable, Comparable<Pessoa_Endereco
     private Rua rua;
 
     @ManyToOne
-    @JoinColumn(name="fk_pontoReferencia", foreignKey=@ForeignKey(name="FK_Ponto_Referencia_Pessoa_Endereco"))
-    private Ponto_Referencia pontoReferencia;
-
-    @ManyToOne
     @JoinColumn(name="fk_condominio", foreignKey=@ForeignKey(name="FK_Condominio_Pessoa_Endereco"))
     private Condominio condominio;
 
     @ManyToOne
     @JoinColumn(name="fk_edificio", foreignKey=@ForeignKey(name="FK_Edificio_Pessoa_Endereco"))
     private Edificio edificio;
+
+    @ManyToOne
+    @JoinColumn(name="fk_pontoReferencia", foreignKey=@ForeignKey(name="FK_Ponto_Referencia_Pessoa_Endereco"))
+    private Ponto_Referencia pontoReferencia;
 
     // **************************** CONTRUTORES *****************************
 

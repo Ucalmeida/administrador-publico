@@ -71,12 +71,12 @@
                                     </div>
                                     <div class="form-group col-lg-4 col-md-4">
                                         <label for="mae" class="control-label">Mãe</label>
-                                        <input id="mae" name="mae" class="form-control" placeholder="Digite o CPF ou nome" />
+                                        <input id="mae" name="mae" class="form-control" placeholder="Digite o CPF ou nome da mãe" />
                                         <input hidden id="idMae" name="pessoa.mae.id" />
                                     </div>
                                     <div class="form-group col-lg-4 col-md-4">
                                         <label for="pai" class="control-label">Pai</label>
-                                        <input id="pai" name="pai" class="form-control" />
+                                        <input id="pai" name="pai" class="form-control" placeholder="Digite o CPF ou nome do pai" />
                                         <input hidden id="idPai" name="pessoa.pai.id" />
                                     </div>
                                 </div>
@@ -113,10 +113,6 @@
                                         <label for="numero" class="control-label">Nº</label>
                                         <input id="numero" name="pessoaEndereco.numero" maxlength="5" class="form-control" />
                                     </div>
-                                    <div class="form-group col-lg-4 col-md-4">
-                                        <label for="complemento" class="control-label">Complemento</label>
-                                        <input id="complemento" name="pessoaEndereco.complemento" maxlength="5" class="form-control" />
-                                    </div>
                                     <div class="form-group col-lg-3 col-md-3">
                                         <label for="idCondominio" class="control-label">Condomínio <a class="btn btn-primary btn-xs text-white" onclick="javascript:novoCondominio()" title="Nova Condomínio"><i class="fas fa-plus mr-1"></i>Novo</a></label>
                                         <select id="idCondominio" name="pessoaEndereco.condominio.id" class="form-control form-control-select"></select>
@@ -128,6 +124,10 @@
                                     <div class="form-group col-lg-3 col-md-3">
                                         <label for="idPontoReferencia" class="control-label">Ponto de referência <a class="btn btn-primary btn-xs text-white" onclick="javascript:novoPontoReferencia()" title="Novo Ponto de Referência"><i class="fas fa-plus mr-1"></i>Novo</a></label>
                                         <select id="idPontoReferencia" name="pessoaEndereco.pontoReferencia.id" class="form-control form-control-select"></select>
+                                    </div>
+                                    <div class="form-group col-lg-4 col-md-4">
+                                        <label for="complemento" class="control-label">Complemento</label>
+                                        <input id="complemento" name="pessoaEndereco.complemento" maxlength="50" class="form-control" />
                                     </div>
                                     <div class="form-group col-1">
                                         <button type="submit" class="btn-bottom btn btn-success">Salvar</button>

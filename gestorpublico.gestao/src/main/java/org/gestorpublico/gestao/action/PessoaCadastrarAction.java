@@ -52,35 +52,44 @@ public class PessoaCadastrarAction extends PadraoAction {
                 addErro("Se a pessoa não está viva, informe a data de falecimento.");
                 return "erro";
             }
-
+            if (pessoa.getPai() == null || pessoa.getPai().getId() == null) {
+                pessoa.setPai(null);
+            }
             pessoa.setAcessaSistema(pessoa.isVivo());
             pessoa.setLogin(pessoa.getCpf());
             pessoa.setSenha(CassUtil.criptografar(pessoa.getPrimeiroNome()+pessoa.getDataNascimento().getYear()));
 
             pessoaDAO.salvar(pessoa);
             pessoaEndereco.setPessoa(pessoa);
+            if (pessoaEndereco.getCondominio() == null || pessoaEndereco.getCondominio().getId() == null) pessoaEndereco.setCondominio(null);
+            if (pessoaEndereco.getEdificio() == null || pessoaEndereco.getEdificio().getId() == null) pessoaEndereco.setEdificio(null);
+            if (pessoaEndereco.getPontoReferencia() == null || pessoaEndereco.getPontoReferencia().getId() == null) pessoaEndereco.setPontoReferencia(null);
             new Pessoa_EnderecoDAO(session).salvar(pessoaEndereco);
 
             if(pessoa.isMenorIdade()) {
                 Pessoa_DependenteDAO pessoaDependenteDAO = new Pessoa_DependenteDAO(session);
                 Tipo FILHO = new TipoDAO(session).getTipoPorObjetoNomeTipo("Tipo_Dependente", "Filho");
-
                 Pessoa_Dependente pessoaDependente = new Pessoa_Dependente();
-                pessoaDependente.setTipoDependente(FILHO);
-                pessoaDependente.setAscendente(pessoa.getMae());
-                pessoaDependente.setDependente(pessoa);
-                pessoaDependente.setAtivo(pessoa.isVivo());
 
-                pessoaDependenteDAO.salvar(pessoaDependente);
-
-                if (pessoa.getPai() != null || pessoa.getPai().getId() != null) {
-                    pessoaDependente = new Pessoa_Dependente();
+                if (!pessoa.getMae().getNome().equalsIgnoreCase("Não Informado")) {
                     pessoaDependente.setTipoDependente(FILHO);
-                    pessoaDependente.setAscendente(pessoa.getPai());
+                    pessoaDependente.setAscendente(pessoa.getMae());
                     pessoaDependente.setDependente(pessoa);
                     pessoaDependente.setAtivo(pessoa.isVivo());
 
                     pessoaDependenteDAO.salvar(pessoaDependente);
+                }
+
+                if (pessoa.getPai() != null || pessoa.getPai().getId() != null) {
+                    if (!pessoa.getPai().getNome().equalsIgnoreCase("Não Informado")) {
+                        pessoaDependente = new Pessoa_Dependente();
+                        pessoaDependente.setTipoDependente(FILHO);
+                        pessoaDependente.setAscendente(pessoa.getPai());
+                        pessoaDependente.setDependente(pessoa);
+                        pessoaDependente.setAtivo(pessoa.isVivo());
+
+                        pessoaDependenteDAO.salvar(pessoaDependente);
+                    }
                 }
             }
 

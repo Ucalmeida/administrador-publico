@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $(".cpf").mask("###.###.###-##");
-    $(".telefone").mask("(99)99999-99999");
+    $(".telefone").mask("(99)99999-9999");
     $("#mae").blur(function () {
         if (this.value == "") {
             $("#idMae").val("");
