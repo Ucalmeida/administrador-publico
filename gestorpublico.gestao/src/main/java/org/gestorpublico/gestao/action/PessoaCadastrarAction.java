@@ -53,6 +53,7 @@ public class PessoaCadastrarAction extends PadraoAction {
                 return "erro";
             }
 
+            pessoa.setAcessaSistema(pessoa.isVivo());
             pessoa.setLogin(pessoa.getCpf());
             pessoa.setSenha(CassUtil.criptografar(pessoa.getPrimeiroNome()+pessoa.getDataNascimento().getYear()));
 
