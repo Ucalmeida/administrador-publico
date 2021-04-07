@@ -69,6 +69,16 @@
                                         <label for="zonaEleitoral" class="control-label">Zona</label>
                                         <input id="zonaEleitoral" name="pessoa.zonaEleitoral" class="form-control" />
                                     </div>
+                                    <div class="form-group col-lg-4 col-md-4">
+                                        <label for="mae" class="control-label">Mãe</label>
+                                        <input id="mae" name="mae" class="form-control" placeholder="Digite o CPF ou nome" />
+                                        <input hidden id="idMae" name="pessoa.mae.id" />
+                                    </div>
+                                    <div class="form-group col-lg-4 col-md-4">
+                                        <label for="pai" class="control-label">Pai</label>
+                                        <input id="pai" name="pai" class="form-control" />
+                                        <input hidden id="idPai" name="pessoa.pai.id" />
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <label class="divisor control-label">ENDEREÇO</label>

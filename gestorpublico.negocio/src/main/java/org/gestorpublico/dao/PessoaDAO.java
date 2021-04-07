@@ -82,7 +82,24 @@ public class PessoaDAO extends DAO<Pessoa> {
 		}
 	}
 
-    public Tuple getPessoaTuple(Pessoa pessoa) {
+	public Tuple getPessoaTuplePorCPF(String cpf) {
+		try {
+			List<Selection<?>> columns = new ArrayList<Selection<?>>();
+			columns.add(rootTuple.<Integer>get("id").alias("id"));
+			columns.add(rootTuple.<String>get("nome").alias("nome"));
+			columns.add(rootTuple.get("cpf").alias("cpf"));
+
+			return getSession().createQuery(
+					query2.multiselect(columns)
+							.where(builder.equal(rootTuple.get("cpf"), cpf)))
+					.getSingleResult();
+
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	public Tuple getPessoaTuple(Pessoa pessoa) {
 		try {
 			List<Selection<?>> columns = new ArrayList<Selection<?>>();
 			columns.add(rootTuple.<Integer>get("id").alias("id"));
@@ -115,6 +132,23 @@ public class PessoaDAO extends DAO<Pessoa> {
 			return new ArrayList<>();
 		}
 	}
+
+    public List<Tuple> litePessoasPorNome(String nome) {
+		try {
+			List<Selection<?>> columns = new ArrayList<Selection<?>>();
+			columns.add(rootTuple.<Integer>get("id").alias("id"));
+			columns.add(rootTuple.<String>get("nome").alias("nome"));
+			columns.add(rootTuple.get("cpf").alias("cpf"));
+
+			return getSession().createQuery(
+					query2.multiselect(columns)
+							.where(builder.like(rootTuple.get("nome"), "%"+nome+"%")))
+					.getResultList();
+
+		} catch (Exception e) {
+			return new ArrayList<>();
+		}
+    }
 
 //	public List<Tuple> listePessoasPorAtivo(boolean ativo) {
 //		try {

@@ -1,6 +1,45 @@
 $(document).ready(function() {
     $(".cpf").mask("###.###.###-##");
     $(".telefone").mask("(99)99999-99999");
+    $("#mae").blur(function () {
+        this.value == ""
+    });
+    $("#mae").autocomplete({
+        minLength: 8,
+        source: function(request, response) {
+            let action = isNaN(request.term.substr(0,1)) ? "getPessoaPorNome" : "getPessoaPorCPF";
+            $.ajax({async: false, cache: false, type: "post", dataType: "json", url: action, data: {cpf: request.term, nome: request.term},
+                success: function(data) {response(data.objetos);}
+            });
+        },
+        response: function(event, ui) {
+            if (!ui.content.length) {let naoEncontrado = {label:"NÃO ENCONTRADO"};ui.content.push(naoEncontrado);}
+        },
+        select: function(event, ui) {
+            if (ui.item.label != "NÃO ENCONTRADO") {
+                $("#idMae").val(ui.item.id);
+                $("#mae").val(ui.item.nome);
+            }
+        }
+    });
+    $("#pai").autocomplete({
+        minLength: 8,
+        source: function(request, response) {
+            let action = isNaN(request.term.substr(0,1)) ? "getPessoaPorNome" : "getPessoaPorCPF";
+            $.ajax({async: false, cache: false, type: "post", dataType: "json", url: action, data: {cpf: request.term, nome: request.term},
+                success: function(data) {response(data.objetos);}
+            });
+        },
+        response: function(event, ui) {
+            if (!ui.content.length) {let naoEncontrado = {label:"NÃO ENCONTRADO"};ui.content.push(naoEncontrado);}
+        },
+        select: function(event, ui) {
+            if (ui.item.label != "NÃO ENCONTRADO") {
+                $("#idPai").val(ui.item.id);
+                $("#pae").val(ui.item.nome);
+            }
+        }
+    });
     $("#vivo").change(function () {
         if (this.value == "true") {
             $("#dataFalecimento").prop("disabled", true);
@@ -38,6 +77,7 @@ $(document).ready(function() {
             'pessoa.dataNascimento': {required: true, dateISO: true},
             'pessoa.sexo.id': {required: true},
             'pessoa.vivo': {required: true},
+            'mae': {required: true, haValor: "#idMae"},
             'pessoa.dataFalecimento': {required: function(){return $("#vivo").val() == "false";}},
             'uf': {required: true},
             'municipio': {required: true},
