@@ -65,4 +65,8 @@ public class PessoaBeneficioFormModalDespacharAction {
     public void setPessoaBeneficio(Pessoa_Beneficio pessoaBeneficio) {
         this.pessoaBeneficio = pessoaBeneficio;
     }
+
+    public Pessoa_Beneficio getPessoaBeneficio() {
+        return pessoaBeneficio;
+    }
 }

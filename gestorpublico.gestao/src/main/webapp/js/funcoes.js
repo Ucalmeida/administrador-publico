@@ -34,9 +34,13 @@ function beneficioDespachar(id) {
 		title: "Despachar Benefício",
 		onEscape: true,
 		buttons: {
-			danger: {
+			success: {
 				label: "Despachar",
 				className: "btn-success",
+				callback: function() {
+					$("#frmBeneficioDespachar").submit();
+					return false;
+				}
 			},
 			danger: {
 				label: "Fechar",
@@ -44,17 +48,17 @@ function beneficioDespachar(id) {
 			}
 		}
 	});
-	box.bind(".bootbox-body").load('beneficioFormDespacho', {'pessoaBeneficio.id': id});
+	$(".bootbox-body").load('beneficioFormDespachar', {'pessoaBeneficio.id': id});
 	box.bind('shown.bs.modal', function(){box.find(".focus").focus();});
 }
 
 function servicoDespachar(id) {
-	bootbox.dialog({
+	let box = bootbox.dialog({
 		message: 'Aguarde...',
 		title: "Despachar Serviço",
 		onEscape: true,
 		buttons: {
-			danger: {
+			success: {
 				label: "Despachar",
 				className: "btn-success",
 			},
@@ -64,7 +68,7 @@ function servicoDespachar(id) {
 			}
 		}
 	});
-	box.bind(".bootbox-body").load('servicoFormDespacho', {'pessoaServico.id': id});
+	$(".bootbox-body").load('servicoFormDespacho', {'pessoaServico.id': id});
 	box.bind('shown.bs.modal', function(){box.find(".focus").focus();});
 }
 

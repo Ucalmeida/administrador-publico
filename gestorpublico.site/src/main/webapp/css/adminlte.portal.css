@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+span.badge {
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    font-family: cursive;
+}
+
 .divisor {
     background-color: #f398008a;
     color: white;
