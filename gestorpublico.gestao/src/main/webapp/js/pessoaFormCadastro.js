@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $(".cpf").mask("###.###.###-##");
+    $(".telefone").mask("(99)99999-99999");
     $("#vivo").change(function () {
         if (this.value == "true") {
             $("#dataFalecimento").prop("disabled", true);

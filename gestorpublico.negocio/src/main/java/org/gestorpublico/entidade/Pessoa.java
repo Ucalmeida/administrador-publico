@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -153,6 +154,14 @@ public class Pessoa implements Serializable, Comparable<Pessoa> {
 		return substring.toUpperCase()+in.substring(1);
 	}
 
+	public void setCpf(String cpf) {
+		this.cpf = CassUtil.removerMascara(cpf);
+	}
+
+	public String getCpfFormatado() {
+		return CassUtil.getCPFFormatado(cpf);
+	}
+
 	public String getDataNascimentoFormatada() {
 		return CassUtil.getDataFormatada(dataNascimento);
 	}
@@ -171,5 +180,17 @@ public class Pessoa implements Serializable, Comparable<Pessoa> {
 
 	public void setDataFalecimento(String dataFalecimento) {
 		this.dataFalecimento = CassUtil.converterDataStringParaLocalDate(dataFalecimento);
+	}
+
+	public String getCelularFormatado() {
+		return CassUtil.getCepFormatado(celular);
+	}
+
+	public void setCelular(String celular) {
+		this.celular = CassUtil.removerMascara(celular);
+	}
+
+	public String getPrimeiroNome() {
+		return nome.substring(0, nome.indexOf(" "));
 	}
 }

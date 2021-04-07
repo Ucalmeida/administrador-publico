@@ -630,10 +630,15 @@ public class CassUtil {
 		return data == null ? "" : sdf.format(data.getTime()); 
 	}
 
+	public static String getDataSoNumero(LocalDate data) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyy");
+		return data == null ? "" : data.format(formatter);
+	}
+
 	public static String getDataSoNumero(Calendar data) {
 		SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
-		
-		return data == null ? "" : sdf.format(data.getTime()); 
+
+		return data == null ? "" : sdf.format(data.getTime());
 	}
 
 	public static String getDataHoraUSASoNumero(Calendar data) {
