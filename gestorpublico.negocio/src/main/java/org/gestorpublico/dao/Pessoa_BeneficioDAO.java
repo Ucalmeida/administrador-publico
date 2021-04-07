@@ -111,6 +111,25 @@ public class Pessoa_BeneficioDAO extends DAO<Pessoa_Beneficio> {
 		}
 	}
 
+	public List<Pessoa_Beneficio> listarPorSolicitanteOuBeneficiadoAutorizacao(Pessoa solicitante, int quantidade) {
+		try {
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.or(
+					builder.equal(root.get("solicitante"), solicitante),
+					builder.equal(root.get("beneficiado"), solicitante)));
+
+			return getSession().createQuery(
+					query.select(root)
+							.where(predicates.toArray(new Predicate[0]))
+							.distinct(true))
+					.setMaxResults(quantidade)
+					.getResultList();
+
+		} catch (Exception e) {
+			return new ArrayList<>();
+		}
+	}
+
 	public List<Pessoa_Beneficio> listarAtivosPorSolicitanteOuBeneficiadoAutorizacao(Pessoa solicitante, Boolean autorizacao) {
 		try {
 			List<Predicate> predicates = new ArrayList<Predicate>();

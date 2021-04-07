@@ -24,7 +24,7 @@ public class BeneficioFormListarAction extends PadraoAction {
     public String execute() {
         try {
             Session session = getSession();
-            beneficios = new Pessoa_BeneficioDAO(session).listarAtivosPorSolicitanteOuBeneficiadoAutorizacao(getPessoaLogada(), null);
+            beneficios = new Pessoa_BeneficioDAO(session).listarPorSolicitanteOuBeneficiadoAutorizacao(getPessoaLogada(), 30);
 
             return "ok";
 
