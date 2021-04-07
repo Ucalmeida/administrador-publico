@@ -68,7 +68,7 @@ function aguarde(mensagem) {
 	return bootbox.dialog({
 		closeButton: false,
 		size: "small",
-		message: '<span id="aguardeAlert" class="glyphicon glyphicon-refresh glyphicon-refresh-animate" style:"font-size=20px"></span><span id="msgAguarde">'+mensagem+'</span>',
+		message: '<span id="msgAguarde"><i class="fa fa-spinner fa-spin"></i> '+mensagem+'</span>',
 	});
 }
 
@@ -191,7 +191,7 @@ function popularSelect(select, url, dados, idSelected) {
 
 function execute(parametro) {
 	if (typeof parametro === 'string') {
-		var ag = aguarde();
+		let ag = aguarde();
 		$.ajax({
 			url: parametro,
 			success: function(data, textStatus, XMLHttpRequest) {

@@ -79,7 +79,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" data-target="pessoaFormLista"
-                                           onclick="javascript:execute('pessoaListar')">
+                                           onclick="javascript:execute('cidadaos')">
                                             <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Listar</p>
                                         </a>

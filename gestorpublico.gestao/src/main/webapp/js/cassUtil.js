@@ -282,7 +282,7 @@ function popularRuasCondominiosEdificiosReferencias(selRua, selCond, selEdif, se
 
 function execute(parametro) {
 	if (typeof parametro === 'string') {
-		var ag = aguarde();
+		let ag = aguarde();
 		$.ajax({
 			url: parametro,
 			success: function(data, textStatus, XMLHttpRequest) {

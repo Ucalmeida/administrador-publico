@@ -341,63 +341,71 @@ function popularRuasCondominiosEdificiosReferencias(selRua, selCond, selEdif, se
 }
 
 function popularSelect(select, url, dados, idSelected, mensagem) {
-	aguarde(mensagem);
+	$.blockUI();
 	$(select).empty();
 	$.ajax({
 		url: url,
 		type: 'post',
 		data: dados,
 		success: function(data) {
-			fecharAguarde();
-			var objetos = data.objetos;
-			if (objetos != undefined && Object.keys(objetos).length > 0) {
-				$(select).append("<option></option>");
-				$.each(data.objetos, function(key, o) {
-					$(select).append('<option value="'+o.id+'">'+o.nome+'</option>');
-				});
-				if (idSelected !== undefined & idSelected != "") {
-					if (idSelected > 0)
-						$(select).val(idSelected);
-					else
-						$("#"+select.attr('id')+" option").filter(function() {return this.text == idSelected;}).attr('selected', true);
+			try {
+				let objetos = data.objetos;
+				if (objetos != undefined && Object.keys(objetos).length > 0) {
+					$(select).append("<option></option>");
+					$.each(data.objetos, function (key, o) {
+						$(select).append('<option value="' + o.id + '">' + o.nome + '</option>');
+					});
+					if (idSelected !== undefined & idSelected != "") {
+						if (idSelected > 0)
+							$(select).val(idSelected);
+						else
+							$("#" + select.attr('id') + " option").filter(function () {
+								return this.text == idSelected;
+							}).attr('selected', true);
+					}
 				}
-
+			} finally {
+				$.unblockUI();
 			}
 		},
 		error: function(data) {
-			fecharAguarde();
+			$.unblockUI();
 			exibaMensagem("", "Ocorreu o seguinte erro: " + data.getResponseHeader('erro'));
 		}
 	});
 }
 
 function popularSelect2(selectPai, select, url, dados, idSelected) {
+	$.unblockUI();
 	$(select).empty();
 	if ($(selectPai).val() > 0) {
-		aguarde();
 		$.ajax({
 			url: url,
 			type: 'post',
 			data: dados,
 			success: function(data) {
-				fecharAguarde();
-				var objetos = data.objetos;
-				if (objetos != undefined && Object.keys(objetos).length > 0) {
-					$(select).append("<option></option>");
-					$.each(data.objetos, function(key, o) {
-						$(select).append('<option value="'+o.id+'">'+o.nome+'</option>');
-					});
-					if (idSelected !== undefined & idSelected != "") {
-						if (idSelected > 0)
-							$(select).val(idSelected);
-						else
-							$("#"+select.attr('id')+" option").filter(function() {return this.text == idSelected;}).attr('selected', true);
+				try {
+					let objetos = data.objetos;
+					if (objetos != undefined && Object.keys(objetos).length > 0) {
+						$(select).append("<option></option>");
+						$.each(data.objetos, function (key, o) {
+							$(select).append('<option value="' + o.id + '">' + o.nome + '</option>');
+						});
+						if (idSelected !== undefined & idSelected != "") {
+							if (idSelected > 0)
+								$(select).val(idSelected);
+							else
+								$("#" + select.attr('id') + " option").filter(function () {
+									return this.text == idSelected;
+								}).attr('selected', true);
+						}
 					}
-
+				} finally {
+					$.unblockUI();
 				}
 			},
 			error: function(data) {
-				fecharAguarde();
+				$.unblockUI();
 				exibaMensagem("", "Ocorreu o seguinte erro: " + data.getResponseHeader('erro'));
 			}
 		});

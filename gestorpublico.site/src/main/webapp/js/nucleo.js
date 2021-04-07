@@ -10,6 +10,8 @@ document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="j
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="js/core/adminlte.min.js"%3E%3C/script%3E'));
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="plugins/overlayScrollbars/jquery.overlayScrollbars.min.js"%3E%3C/script%3E'));
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="js/core/cassUtil.js"%3E%3C/script%3E'));
+document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="js/dataBR.js"%3E%3C/script%3E'));
+document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="js/dataHoraBR.js"%3E%3C/script%3E'));
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="js/core/menu.js"%3E%3C/script%3E'));
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="js/core/scripts.js"%3E%3C/script%3E'));
 document.write(unescape('%3Cscript type="text/javascript" charset="utf-8" src="js/funcoes.js"%3E%3C/script%3E'));

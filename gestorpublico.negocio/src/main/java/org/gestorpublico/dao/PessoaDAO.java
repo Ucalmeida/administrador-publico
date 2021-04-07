@@ -1,5 +1,6 @@
 package org.gestorpublico.dao;
 
+import org.gestorpublico.entidade.Municipio;
 import org.gestorpublico.entidade.Pessoa_Dependente;
 import org.gestorpublico.entidade.Poder_Setor;
 import org.gestorpublico.entidade.Pessoa;
@@ -96,6 +97,24 @@ public class PessoaDAO extends DAO<Pessoa> {
 			return null;
 		}
     }
+
+	public List<Tuple> liste() {
+		try {
+			List<Selection<?>> columns = new ArrayList<Selection<?>>();
+			columns.add(rootTuple.<Integer>get("id").alias("id"));
+			columns.add(rootTuple.<String>get("nome").alias("nome"));
+			columns.add(rootTuple.get("cpf").alias("cpf"));
+			columns.add(builder.function("date_format", Long.class, rootTuple.get("dataNascimento"), builder.literal("%d/%m/%Y")).alias("dataNascimento"));
+			columns.add(rootTuple.get("celular").alias("celular"));
+
+			return getSession().createQuery(
+					query2.multiselect(columns))
+					.getResultList();
+
+		} catch (Exception e) {
+			return new ArrayList<>();
+		}
+	}
 
 //	public List<Tuple> listePessoasPorAtivo(boolean ativo) {
 //		try {

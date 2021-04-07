@@ -45,7 +45,7 @@ public class Pessoa_Endereco implements Serializable, Comparable<Pessoa_Endereco
 
     @ManyToOne
     @JoinColumn(name="fk_pontoReferencia", foreignKey=@ForeignKey(name="FK_Ponto_Referencia_Pessoa_Endereco"))
-    private Ponto_Referencia pontoreferencia;
+    private Ponto_Referencia pontoReferencia;
 
     @ManyToOne
     @JoinColumn(name="fk_condominio", foreignKey=@ForeignKey(name="FK_Condominio_Pessoa_Endereco"))
@@ -62,7 +62,7 @@ public class Pessoa_Endereco implements Serializable, Comparable<Pessoa_Endereco
     public int compareTo(Pessoa_Endereco o) {
         int compare = this.pessoa.compareTo(o.getPessoa());
         compare = compare != 0 ? compare : rua.compareTo(o.getRua());
-        compare = compare != 0 ? compare : (pontoreferencia == null ? 0 : pontoreferencia.getId().compareTo(o.getPontoreferencia().getId()));
+        compare = compare != 0 ? compare : (pontoReferencia == null ? 0 : pontoReferencia.getId().compareTo(o.getPontoReferencia().getId()));
         compare = compare != 0 ? compare : (condominio == null ? 0 : condominio.getId().compareTo(o.getCondominio().getId()));
         compare = compare != 0 ? compare : (edificio == null ? 0 : edificio.getId().compareTo(o.getEdificio().getId()));
         return compare != 0 ? compare : numero.compareTo(o.getNumero());

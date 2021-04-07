@@ -112,7 +112,7 @@
 		// override these in your code to change the default behavior and style
 		$.blockUI.defaults = {
 			// message displayed when blocking (use null for no message)
-			message:  '<h3><i class="fa fa-spinner fa-spin" style="font-size:26px"></i> Aguarde...</h3>',
+			message:  '<h3><i class="fa fa-spinner fa-spin" style="font-size:20px"></i> Aguarde...</h3>',
 
 			title: null,		// title string; only used when theme == true
 			draggable: true,	// only used when theme == true (requires jquery-ui.js to be loaded)
