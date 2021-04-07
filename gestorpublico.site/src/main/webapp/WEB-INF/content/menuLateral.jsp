@@ -62,14 +62,14 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a class="nav-link" data-target="consultaFormAgenda"
+                                        <a class="nav-link" data-target="consulta"
                                            onclick="javascript:execute('consulta')">
                                             <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Agendar consulta</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-target="consultaFormLista"
+                                        <a class="nav-link" data-target="consultas"
                                            onclick="javascript:execute('consultas')">
                                             <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Minhas consultas</p>
@@ -84,21 +84,21 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a class="nav-link" data-target="pessoaFormSolicita"
+                                        <a class="nav-link" data-target="servico"
                                            onclick="javascript:execute('servico')">
                                             <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Solicitar</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-target="servicoFormLocaliza"
+                                        <a class="nav-link" data-target="servicoFormLocalizar"
                                            onclick="javascript:execute('servicoLocalizar')">
                                             <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Localizar</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-target="servicoFormLista"
+                                        <a class="nav-link" data-target="servicos"
                                            onclick="javascript:execute('servicos')">
                                             <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Minhas solicitações</p>
@@ -113,14 +113,14 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a class="nav-link" data-target="beneficioNovoFormCadastro"
+                                        <a class="nav-link" data-target="beneficio"
                                            onclick="javascript:execute('beneficio')">
                                             <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Solicitar</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-target="beneficioFormLista"
+                                        <a class="nav-link" data-target="beneficios"
                                            onclick="javascript:execute('beneficios')">
                                             <i class="nav-icon mr-1 fas fa-caret-right"></i>
                                             <p class="">Meus benefícios</p>
@@ -129,7 +129,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-target="dependenteLista"
+                                <a class="nav-link" data-target="dependentes"
                                    onclick="javascript:execute('dependentes')">
                                     <i class="nav-icon fas fa-users"></i>
                                     <p class="">Dependentes</p>
