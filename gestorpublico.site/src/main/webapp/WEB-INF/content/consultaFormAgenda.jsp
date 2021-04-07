@@ -80,8 +80,9 @@
     </div>
     <jsp:include page="rodape.jsp" />
     <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/datatables.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/dataTables.bootstrap4.js"></script>
+    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables.defaults.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/consultaFormAgenda.js"></script>
 </body>
 </html>
