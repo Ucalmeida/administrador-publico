@@ -7,7 +7,10 @@
             'autorizacao': {required: true},
         },
         submitHandler: function(form) {
-            enviar(form, false);
+            let result = enviar(form, false);
+            if (result[0] == true) {
+                removerLinhaDaTabela(result[1])
+            }
             return false;
         }
     });
