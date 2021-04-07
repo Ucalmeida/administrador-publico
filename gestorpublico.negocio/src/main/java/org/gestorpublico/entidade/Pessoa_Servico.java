@@ -34,6 +34,9 @@ public class Pessoa_Servico implements Serializable, Comparable<Pessoa_Servico> 
     @Column(name = "dh_cadastro", nullable = false)
     private LocalDateTime dataHoraCadastro = LocalDateTime.now(ZoneId.of("America/Fortaleza"));
 
+    @Column(name = "dh_despacho")
+    private LocalDateTime dataHoraDespacho;
+
     @Column(name = "dt_inicio")
     private LocalDate dataInicio;
 
@@ -65,6 +68,10 @@ public class Pessoa_Servico implements Serializable, Comparable<Pessoa_Servico> 
     @ManyToOne
     @JoinColumn(name="fk_servico", nullable=false, foreignKey=@ForeignKey(name="FK_Servico_Pessoa_Servico"))
     private Servico servico;
+
+    @ManyToOne
+    @JoinColumn(name="fk_responsavel", foreignKey=@ForeignKey(name="FK_Pessoa_Pessoa_Servico_responsavel"))
+    private Pessoa responsavel;
 
     // **************************** CONTRUTORES *****************************
 

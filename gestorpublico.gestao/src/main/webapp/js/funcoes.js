@@ -31,7 +31,7 @@ function alterarSenha() {
 function beneficioDespachar(id) {
 	let box = bootbox.dialog({
 		message: 'Aguarde...',
-		title: "Despachar Benefício",
+		title: "Benefício: Despachar solicitação",
 		onEscape: true,
 		buttons: {
 			success: {
@@ -55,12 +55,20 @@ function beneficioDespachar(id) {
 function servicoDespachar(id) {
 	let box = bootbox.dialog({
 		message: 'Aguarde...',
-		title: "Despachar Serviço",
+		title: "Serviço: Despachar Solicitação",
 		onEscape: true,
 		buttons: {
 			success: {
 				label: "Despachar",
 				className: "btn-success",
+				success: {
+					label: "Despachar",
+					className: "btn-success",
+					callback: function() {
+						$("#frmServicoDespachar").submit();
+						return false;
+					}
+				},
 			},
 			danger: {
 				label: "Fechar",
@@ -68,7 +76,7 @@ function servicoDespachar(id) {
 			}
 		}
 	});
-	$(".bootbox-body").load('servicoFormDespacho', {'pessoaServico.id': id});
+	$(".bootbox-body").load('servicoFormDespachar', {'pessoaServico.id': id});
 	box.bind('shown.bs.modal', function(){box.find(".focus").focus();});
 }
 

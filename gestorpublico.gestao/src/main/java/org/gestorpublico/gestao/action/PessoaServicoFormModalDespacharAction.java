@@ -8,57 +8,41 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.gestorpublico.dao.Log_Erro_ExecucaoDAO;
 import org.gestorpublico.dao.Pessoa_BeneficioDAO;
+import org.gestorpublico.dao.Pessoa_ServicoDAO;
 import org.gestorpublico.entidade.Log_Erro_Execucao;
-import org.gestorpublico.entidade.Pessoa;
 import org.gestorpublico.entidade.Pessoa_Beneficio;
+import org.gestorpublico.entidade.Pessoa_Servico;
 import org.gestorpublico.hibernate.HibernateUtil;
 import org.hibernate.Session;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.time.LocalDate;
 
 @ParentPackage("default")
-public class PessoaBeneficioDespacharAction {
+public class PessoaServicoFormModalDespacharAction {
 
     private HttpServletRequest request = ServletActionContext.getRequest();
     private HttpServletResponse response = ServletActionContext.getResponse();
 
-    private Pessoa_Beneficio pessoaBeneficio;
-    private boolean autorizacao;
-    private String despacho;
+    private Pessoa_Servico pessoaServico;
+    private String msg;
 
-    @Action(value="beneficioDespachar",
+    @Action(value="servicoFormDespachar",
         results={
-            @Result(name="ok", type="httpheader", params={"status", "200"}),
-            @Result(name="erro", type="httpheader", params={"status", "409"})
+            @Result(name="ok", location="pessoaServicoFormModalDespacho.jsp"),
+            @Result(name="erro", location="paginaErroModal.jsp", params={"status", "409"})
         }
     )
     public String execute() {
         Session session = (Session) request.getAttribute("sessao");
         try {
-            Pessoa pessoaLogada = (Pessoa) ActionContext.getContext().getSession().get("pessoaLogada");
-            Pessoa_BeneficioDAO pessoaBeneficioDAO = new Pessoa_BeneficioDAO(session);
-            pessoaBeneficio = pessoaBeneficioDAO.getBeneficio(pessoaBeneficio);
+            pessoaServico = new Pessoa_ServicoDAO(session).getServico(pessoaServico);
 
-            if (pessoaBeneficio == null) {
-                response.setHeader("erro","Benefício não encontrado.");
+            if (pessoaServico == null) {
+                msg = "Solicitação de Serviço não encontrada.";
+                response.setHeader("erro", msg);
                 return "erro";
             }
-
-            if (despacho == null || despacho.trim().isEmpty()) {
-                despacho = autorizacao ? "Autorizado." : "Não autorizado";
-            }
-
-            pessoaBeneficio.setDataConcessao(LocalDate.now());
-            pessoaBeneficio.setAutorizado(autorizacao);
-            pessoaBeneficio.setDespacho(despacho);
-            pessoaBeneficio.setResponsavel(pessoaLogada);
-
-            pessoaBeneficioDAO.atualizar(pessoaBeneficio);
-
-            response.addHeader("id", pessoaBeneficio.getId().toString());
-            response.addHeader("msg", "Despacho realizado com sucesso!");
 
             return "ok";
 
@@ -82,15 +66,15 @@ public class PessoaBeneficioDespacharAction {
     }
 
     // ****************************** GETs e SETs ******************************
-    public void setPessoaBeneficio(Pessoa_Beneficio pessoaBeneficio) {
-        this.pessoaBeneficio = pessoaBeneficio;
+    public void setPessoaServico(Pessoa_Servico pessoaServico) {
+        this.pessoaServico = pessoaServico;
     }
 
-    public void setAutorizacao(boolean autorizacao) {
-        this.autorizacao = autorizacao;
+    public Pessoa_Servico getPessoaServico() {
+        return pessoaServico;
     }
 
-    public void setDespacho(String despacho) {
-        this.despacho = despacho == null || despacho.trim().isEmpty() ? null : despacho.trim();
+    public String getMsg() {
+        return msg;
     }
 }
