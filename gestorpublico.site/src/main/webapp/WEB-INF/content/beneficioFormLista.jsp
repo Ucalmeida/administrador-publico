@@ -1,22 +1,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
+<%@ taglib prefix="gep" uri="gepTags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html lang='pt-BR'>
-<head>
-    <jsp:include page="head.jsp" />
+<%--<!DOCTYPE html>--%>
+<%--<html lang='pt-BR'>--%>
+<%--<head>--%>
+<%--    <jsp:include page="head.jsp" />--%>
 
-    <title>Benefício Solicitado</title>
-</head>
-<body>
-    <div class="wrapper">
-        <jsp:include page="menuLateral.jsp" />
-        <div class="content-wrapper" style="min-height: 296px;">
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h4 class="titulo">Benefícios solicitados</h4>
-                        </div>
+<%--    <title>Benefício Solicitado</title>--%>
+<%--</head>--%>
+<%--<body>--%>
+<%--    <div class="wrapper">--%>
+<%--        <jsp:include page="menuLateral.jsp" />--%>
+    <gep:pagina titulo="Benefícios Solicitados" js="beneficioFormLista" tabela="true" link="painel">
+<%--        <div class="content-wrapper" style="min-height: 296px;">--%>
+<%--            <section class="content">--%>
+<%--                <div class="container-fluid">--%>
+<%--                    <div class="row">--%>
+<%--                        <div class="col-lg-12">--%>
+<%--                            <h4 class="titulo">Benefícios solicitados</h4>--%>
+<%--                        </div>--%>
                         <div class="col-lg-12 table-responsive">
                             <table id="tbBeneficios" class="table table-striped table-bordered" width="100%"><c:forEach items="${beneficios}" var="o">
                                 <tr id="ln${o.id}">
@@ -30,16 +32,17 @@
                                 </tr></c:forEach>
                             </table>
                         </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </section>--%>
+<%--        </div>--%>
+    </gep:pagina>
     <jsp:include page="rodape.jsp" />
-    </div>
-    <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
-    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables.defaults.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/beneficioFormLista.js"></script>
-</body>
-</html>
+<%--    </div>--%>
+<%--    <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>--%>
+<%--    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/jquery.dataTables.min.js"></script>--%>
+<%--    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>--%>
+<%--    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables.defaults.js"></script>--%>
+<%--    <script type="text/javascript" charset="utf-8" src="js/beneficioFormLista.js"></script>--%>
+<%--</body>--%>
+<%--</html>--%>

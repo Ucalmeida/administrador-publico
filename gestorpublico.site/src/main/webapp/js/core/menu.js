@@ -1,12 +1,12 @@
 $(document).ready( function () {
 
 // ativação dos links da pagina em exibição
-    var url = document.location.href;
-    var urlSeparada = url.split('/');
-    var uri = urlSeparada[urlSeparada.length-1];
+    let url = document.location.href;
+    let urlSeparada = url.split('/');
+    let uri = urlSeparada[urlSeparada.length-1];
     $el = $('a[data-target="'+uri+'"]');
 
-    if (uri == "gestao" || uri == "") { //Interface Gestão
+    if (uri == "gestao" || uri == "/") { //Interface Gestão
         $('#tituloIcone').html('<i class="fas fa-home mr-2"></i>');
     } else {
         if ($el.attr('data-target') === undefined) {
@@ -18,7 +18,7 @@ $(document).ready( function () {
 
         $el.addClass('active');
         $el.has('img').find('img').addClass('active')//Caso ícone do menu lateral seja svg
-        var $parent = $el.parent().parent().parent().get(0);
+        let $parent = $el.parent().parent().parent().get(0);
         if ($parent != undefined && $parent.tagName !== undefined && $parent.tagName != 'NAV') {
             $elSuperior = $el.parent().parent().parent();
             $elSuperior.addClass('menu-open');
@@ -39,7 +39,7 @@ $(document).ready( function () {
 
 //Icone do Título da página.
 function getIcone(elemento) {
-    var iconeTitulo = null;
+    let iconeTitulo = null;
     if (elemento.has('img').length) { //Caso ícone do menu lateral seja svg
         iconeTitulo = elemento.find('img').first().clone();
         iconeTitulo.addClass('icon-header')
@@ -54,7 +54,7 @@ function getIcone(elemento) {
 
 //Maximiza ou minimiza automaticamente o menu
 window.onload = function () {
-    var corpo = $('body');
+    let corpo = $('body');
     // Setar o menu
     corpo.addClass(sessionStorage.getItem('ajustarMenu'));
     sessionStorage.setItem('menuCollapse', document.body.classList.contains('sidebar-collapse'))

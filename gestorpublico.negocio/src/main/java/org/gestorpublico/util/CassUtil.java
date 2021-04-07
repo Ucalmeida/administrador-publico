@@ -1,12 +1,18 @@
 package org.gestorpublico.util;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
+import org.gestorpublico.dao.Log_Erro_ExecucaoDAO;
+import org.gestorpublico.dao.SequencialDAO;
+import org.gestorpublico.entidade.Log_Erro_Execucao;
+import org.gestorpublico.entidade.Modulo_Acao;
+import org.gestorpublico.entidade.Sequencial;
+import org.gestorpublico.hibernate.HibernateUtil;
+import org.hibernate.Session;
+import org.json.JSONObject;
+
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.io.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.net.HttpURLConnection;
@@ -17,43 +23,13 @@ import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.Normalizer;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.text.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Pattern;
-
-import javax.mail.Address;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-
-import org.gestorpublico.dao.Log_Erro_ExecucaoDAO;
-import org.gestorpublico.dao.SequencialDAO;
-import org.gestorpublico.entidade.Log_Erro_Execucao;
-import org.gestorpublico.entidade.Sequencial;
-import org.gestorpublico.hibernate.HibernateUtil;
-import org.hibernate.Session;
-import org.json.JSONObject;
 
 public class CassUtil {
 	
@@ -1645,4 +1621,147 @@ public class CassUtil {
 //		}
 //		return;
 //	}
+	/**
+	 * Gera o menu com base na lista de Modulo_Acao.
+	 * @param acoes, List<Modulo_Acao>, é a lista de ações que a pessoa pode executar.
+	 * @return um String com o menu criado.
+	 */
+	public static String gerarMenu(List<Modulo_Acao> acoes) {
+		Collections.sort(acoes);
+		String menu = "";
+
+		for (Modulo_Acao ma : acoes) {
+//			if (ma.getAcaoPai() != null || !ma.isMenu()) continue;
+			if (ma.getLink() != null) {
+				if (menu.contains(ma.getLink())) continue;
+			} else {
+				if (menu.contentEquals(ma.getNome())) continue;
+			}
+//			if (ma.getTemLink()) {
+//				if (ma.isIconeImagem()) {
+//					menu += "<li class=\"has-sub\"><a onclick=\"javascript:execute('"+ma.getLink()+"')\"><i><img src=\"images/"+ma.getIcone()+"\" height=\"16px\"></i> "+ma.getNome()+"</a></li>";
+//				} else {
+//					menu += "<li class=\"has-sub\"><a onclick=\"javascript:execute('"+ma.getLink()+"')\"><i class=\""+ma.getIcone()+"\"></i> "+ma.getNome()+"</a></li>";
+//				}
+//			} else {
+//				if (ma.isIconeImagem()) {
+//					menu += "<li class=\"has-sub\"><a onclick=\"javascript:void(0)\"><i><img src=\"images/"+ma.getIcone()+"\" height=\"16px\"></i> "+ma.getNome()+"<i class=\"mais glyphicon glyphicon-plus right plus\"></i></a><ul>";
+//				} else {
+//					menu += "<li class=\"has-sub\">"
+//							+ "<a onclick=\"javascript:void(0)\">"
+//							+ "<i class=\""+ma.getIcone()+"\"></i> "+ma.getNome()+"<i class=\"mais glyphicon glyphicon-plus right plus\"></i></a><ul>";
+//				}
+//				if (ma.getAcoesFilhos().size() > 0)
+//					menu += gerarSubmenu(acoes, ma.getAcoesFilhos());
+//				menu += "</ul></li>";
+			}
+//		}
+
+		return menu;
+	}
+
+	//	Menu temporário para transição do layout novo
+	public static String gerarMenuNovo(List<Modulo_Acao> acoes) {
+		Collections.sort(acoes);
+		StringBuilder menu = new StringBuilder();
+		String iconeCss;
+
+		for (Modulo_Acao ma : acoes) {
+//			if (ma.getAcaoPai() != null || !ma.isMenu()) continue;
+			if (ma.getLink() != null) {
+				if (menu.toString().contains(ma.getLink())) continue;
+			} else {
+				if (menu.toString().contentEquals(ma.getNome())) continue;
+			}
+
+//			if (ma.getTemLink()) {
+//				if (ma.getIcone() != null && ma.isIconeImg()) {
+//					if (ma.getIcone().endsWith(".svg")) iconeCss = "nav-icon-svg"; else iconeCss = "";
+//					String[] dir = ma.getIcone().split("\\.");
+//					menu.append("<li class=\"nav-item\">" +
+//							"<a class=\"nav-link\" href=\"#\" role=\"button\" data-target=\""+ma.getLink()+"\" onclick=\"javascript:execute('"+ma.getLink()+"')\">" +
+//							"<img class=\"nav-icon-img "+iconeCss+" mr-1\" src=\"/portal/images/icons/"+dir[1]+"/"+ma.getIcone()+"\" />");
+//					if (ma.getNome().length() >= 19) {
+//						menu.append(
+//								"<p class='text-sm d-inline-flex'>"+ma.getNome() + "</p>"
+//						);
+//					} else {
+//						menu.append(
+//								"<p class=''>"+ma.getNome() + "</p>"
+//						);
+//					}
+//					menu.append("</a> </li>");
+//				} else {
+//					menu.append("<li class=\"nav-item\">"
+//							+ "<a class=\"nav-link\" href=\"#\" role=\"button\" data-target='"+ma.getLink()+"' onclick=\"javascript:execute('"+ma.getLink()+"')\">"
+//							+ "<i class=\"nav-icon "+ma.getIcone()+"\"></i>");
+//					if (ma.getNome().length() >= 19) {
+//						menu.append( "<p class='text-sm d-inline-flex'>"+ma.getNome() + "</p>" );
+//					} else {
+//						menu.append( "<p class=''>"+ma.getNome() + "</p>"	);
+//					}
+//					menu.append("</a> </li>");
+//				}
+//			} else {
+//				if (ma.getIcone() != null && ma.isIconeImg()) {
+//					if (ma.getIcone().endsWith(".svg")) iconeCss = "nav-icon-svg"; else iconeCss = "";
+//					String[] dir = ma.getIcone().split("\\.");
+//					menu.append("<li class=\"nav-item has-treeview\">" +
+//							"<a class=\"nav-link\">" +
+//							"<img class=\"nav-icon-img "+iconeCss+" mr-1\" src=\"/portal/images/icons/"+dir[1]+"/"+ma.getIcone()+"\" />");
+//					if (ma.getNome().length() >= 19) {
+//						menu.append( "<p class='text-sm d-inline-flex'>"+ma.getNome() );
+//					} else {
+//						menu.append( "<p class=''>"+ma.getNome() );
+//					}
+//					menu.append("<i class=\"right fas fa-angle-down\"></i></p></a>");
+//				} else {
+//					menu.append(
+//							"<li class=\"nav-item has-treeview\">" +
+//									"<a class=\"nav-link\" href=\"#\" onclick=\"javascript:void(0)\">" +
+//									"<i class=\"nav-icon "+ma.getIcone()+"\"></i> ");
+//					if (ma.getNome().length() >= 19) {
+//						menu.append( "<p class='text-sm d-inline-flex'>"+ma.getNome() );
+//					} else {
+//						menu.append( "<p class=''>"+ma.getNome() );
+//					}
+//					menu.append("<i class=\"right fas fa-angle-down\"></i></p></a>");
+//				}
+//				if (ma.getAcoesFilhos().size() > 0) menu.append(gerarSubmenuNovo(acoes, ma.getAcoesFilhos()) + "</li>");
+//			}
+		}
+		return menu.toString();
+	}
+
+	/**
+	 * Auxiliar na criação do menu, criando os subsmenus.
+	 * @param acoes, List<Modulo_Acao>, é a lista de ações que a pessoa pode executar.
+	 * @return um String com o submenu criado.
+	 */
+	private static String gerarSubmenu(List<Modulo_Acao> acoes, List<Modulo_Acao> subacoes) {
+		String submenu = "";
+
+		for (Modulo_Acao ma : subacoes) {
+			if (!ma.isMenu()) continue;
+			if (!acoes.contains(ma)) continue;
+//			if (ma.getTemLink()) {
+//				if (ma.isIconeImagem()) {
+//					submenu += "<li class=\"has-sub\"><a onclick=\"javascript:execute('"+ma.getLink()+"')\"><i><img src=\"images/"+ma.getIcone()+"\" height=\"16px\"></i> "+ma.getNome()+"</a></li>";
+//				} else {
+//					submenu += "<li class=\"has-sub\"><a onclick=\"javascript:execute('"+ma.getLink()+"')\"><i class=\""+ma.getIcone()+"\"></i> "+ma.getNome()+"</a></li>";
+//				}
+//			} else {
+//				if (ma.isIconeImagem()) {
+//					submenu += "<li class=\"has-sub\"><a onclick=\"javascript:void(0)\"><i><img src=\"images/"+ma.getIcone()+"\" height=\"16px\"></i> "+ma.getNome()+"<i class=\"mais glyphicon glyphicon-plus right plus\"></i></a><ul>";
+//				} else {
+//					submenu += "<li class=\"has-sub\"><a onclick=\"javascript:void(0)\"><i class=\""+ma.getIcone()+"\"></i> "+ma.getNome()+"<i class=\"mais glyphicon glyphicon-plus right plus\"></i></a><ul>";
+//				}
+//				if (ma.getAcoesFilhos().size() > 0)
+//					submenu += gerarSubmenu(acoes, ma.getAcoesFilhos());
+//				submenu += "</ul></li>";
+//			}
+		}
+
+		return submenu;
+	}
 }
