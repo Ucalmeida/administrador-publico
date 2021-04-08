@@ -24,11 +24,11 @@
                                     <div class="card-header bg-success" id="headingOne">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link" style="text-align: left; color: white; padding: 0px; width: 100%;" data-toggle="collapse" data-target="#beneficios" aria-expanded="true" aria-controls="beneficios">
-                                                <i class="nav-icon fa fa-handshake"></i> BENEFÍCIOS <span class="badge">${fn:length(beneficios)}</span>
+                                                <i class="nav-icon fa fa-handshake"></i> BENEFÍCIOS <span id="badgeBeneficios" class="badge">${fn:length(beneficios)}</span>
                                             </button>
                                         </h5>
                                     </div>
-                                    <div id="beneficios" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div id="beneficios" class="collapse ${fn:length(beneficios) > 0 ? 'show' : ''}" aria-labelledby="headingOne" data-parent="#accordion">
                                         <div class="col-lg-12 table-responsive mt-1">
                                             <table id="tbBeneficios" class="table table-striped table-bordered" width="100%"><c:forEach items="${beneficios}" var="o">
                                                 <tr id="ln${o.id}">
@@ -46,11 +46,11 @@
                                     <div class="card-header bg-info" id="headingTwo">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed" style="text-align: left; color: white; padding: 0px; width: 100%;" data-toggle="collapse" data-target="#servicos" aria-expanded="false" aria-controls="servicos">
-                                                <i class="nav-icon fas fa-cog"></i> SERVIÇOS <span class="badge">${fn:length(servicos)}</span>
+                                                <i class="nav-icon fas fa-cog"></i> SERVIÇOS <span id="badgeServicos" class="badge">${fn:length(servicos)}</span>
                                             </button>
                                         </h5>
                                     </div>
-                                    <div id="servicos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                    <div id="servicos" class="collapse ${fn:length(beneficios) eq 0 && fn:length(servicos) gt 0 ? 'show' : ''}" aria-labelledby="headingTwo" data-parent="#accordion">
                                         <div class="col-lg-12 table-responsive mt-1">
                                             <table id="tbServicos" class="table table-striped table-bordered" width="100%"><c:forEach items="${servicos}" var="o">
                                                 <tr id="ln${o.id}">

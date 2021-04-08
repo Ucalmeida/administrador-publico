@@ -56,7 +56,7 @@
 	</c:if>
 	${mensagem}
 
-	<div class="card card-outline card-danger">
+	<div class="card card-outline card-orange">
 		<div class="card-body login-card-body">
 			<p class="text-center" style="margin-bottom: 0px;">Bem-vindo ao</p>
 			<p class="login-box-msg"><span class="font-weight-bold text-verdepetroleo">GESTÃO PÚBLICA</span></p>

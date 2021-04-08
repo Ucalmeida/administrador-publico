@@ -64,6 +64,13 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
+                                        <a class="nav-link" data-target="beneficio"
+                                           onclick="javascript:execute('beneficio')">
+                                            <i class="nav-icon mr-1 fas fa-caret-right"></i>
+                                            <p class="">Conceder Benefício</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" data-target="solicitacoes"
                                            onclick="javascript:execute('solicitacoes')">
                                             <i class="nav-icon mr-1 fas fa-caret-right"></i>

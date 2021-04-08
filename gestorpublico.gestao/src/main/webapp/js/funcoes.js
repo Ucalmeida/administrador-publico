@@ -55,20 +55,16 @@ function beneficioDespachar(id) {
 function servicoDespachar(id) {
 	let box = bootbox.dialog({
 		message: 'Aguarde...',
-		title: "Serviço: Despachar Solicitação",
+		title: "Serviço: Despachar solicitação",
 		onEscape: true,
 		buttons: {
 			success: {
 				label: "Despachar",
 				className: "btn-success",
-				success: {
-					label: "Despachar",
-					className: "btn-success",
-					callback: function() {
-						$("#frmServicoDespachar").submit();
-						return false;
-					}
-				},
+				callback: function() {
+					$("#formServicoDespachar").submit();
+					return false;
+				}
 			},
 			danger: {
 				label: "Fechar",

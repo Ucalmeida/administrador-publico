@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <script type="text/javascript">
     $('[data-toggle="popover"]').popover();
-    $("#frmServicoDespachar").submit(function(e){e.preventDefault();}).validate({
+    $("#formServicoDespachar").submit(function(e){e.preventDefault();}).validate({
         tooltip_options: {'_all_': { placement: 'top' }},
         rules: {
             'autorizacao': {required: true},
@@ -10,13 +10,14 @@
             let result = enviar(form, false);
             if (result[0] == true) {
                 removerLinhaDaTabela(result[1])
+                $("#badgeServicos").text(oTableServicos.rows().count());
             }
             return false;
         }
     });
 </script>
 <div style="display: inline-block; width: 100%">
-    <form id="frmServicoDespachar" action="servicoDespachar" method="post" class="form" role="form">
+    <form id="formServicoDespachar" action="servicoDespachar" method="post" class="form" role="form">
         <input hidden id="idPessoaServico" name="pessoaServico.id" value="${pessoaServico.id}" />
         <div class="row">
             <div class="form-group col-lg-12 col-md-12 padding-align">

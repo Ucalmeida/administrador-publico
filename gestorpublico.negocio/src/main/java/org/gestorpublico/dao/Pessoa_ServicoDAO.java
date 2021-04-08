@@ -90,6 +90,22 @@ public class Pessoa_ServicoDAO extends DAO<Pessoa_Servico> {
 		}
 	}
 
+	public List<Pessoa_Servico> listarPorSolicitanteAutorizacao(Pessoa solicitante, int quantidade) {
+		try {
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.equal(root.get("solicitante"), solicitante));
+
+			return getSession().createQuery(
+					query.select(root)
+							.where(predicates.toArray(new Predicate[0])))
+					.setMaxResults(quantidade)
+					.getResultList();
+
+		} catch (Exception e) {
+			return new ArrayList<>();
+		}
+	}
+
 	public List<Pessoa_Servico> listarPorSolicitantePeriodo(Pessoa solicitante, LocalDate inicio, LocalDate termino) {
 		try {
 			List<Predicate> predicates = new ArrayList<Predicate>();
