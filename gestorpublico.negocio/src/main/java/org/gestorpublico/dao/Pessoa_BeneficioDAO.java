@@ -180,4 +180,26 @@ public class Pessoa_BeneficioDAO extends DAO<Pessoa_Beneficio> {
 			return null;
 		}
 	}
+
+    public List<Tuple> listePorPessoa(Pessoa pessoa) {
+		try {
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.equal(rootTuple.get("beneficiado"), pessoa));
+
+			List<Selection<?>> columns = new ArrayList<Selection<?>>();
+			columns.add(rootTuple.<Integer>get("id").alias("id"));
+			columns.add(builder.function("date_format", Long.class, rootTuple.get("dataHoraCadastro"), builder.literal("%d/%m/%Y %H:%i")).alias("data"));
+			columns.add(rootTuple.join("beneficio").get("nome").alias("beneficio"));
+			columns.add(rootTuple.get("observacao").alias("observacao"));
+
+			return getSession().createQuery(
+					query2.multiselect(columns)
+							.where(predicates.toArray(new Predicate[0]))
+							.distinct(true))
+					.getResultList();
+
+		} catch (Exception e) {
+			return new ArrayList<>();
+		}
+    }
 }
