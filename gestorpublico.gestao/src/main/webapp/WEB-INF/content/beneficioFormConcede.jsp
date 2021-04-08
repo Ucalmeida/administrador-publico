@@ -15,10 +15,10 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h4 class="titulo">Cidadãos</h4>
+                            <h4 class="titulo">Conceder Benefício</h4>
                         </div>
                         <div class="col-lg-12 table-responsive">
-                            <table id="tbCidadaos" class="table table-striped table-bordered" width="100%"><c:forEach items="${pessoas}" var="o">
+                            <table id="tbConcessoes" class="table table-striped table-bordered" width="100%"><c:forEach items="${pessoas}" var="o">
                                 <tr id="ln${o.get('id')}">
                                     <td>${o.get('nome')}</td>
                                     <td><span data-mask="000.000.000-00">${o.get('cpf')}</span></td>
@@ -36,9 +36,6 @@
     </div>
     <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/tabelaGestorPublico.js"></script>
-<%--    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/jquery.dataTables.min.js"></script>--%>
-<%--    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>--%>
-<%--    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables.defaults.js"></script>--%>
     <script type="text/javascript" charset="utf-8" src="js/beneficioFormConcede.js"></script>
 </body>
 </html>
