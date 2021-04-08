@@ -25,7 +25,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-12" style="text-align: center; top: 25px;">
-                                <img alt="USUARIO" height="480px" src="images/brasoes/brasao_riachuelo_se_100_100.png">
+                                <img alt="Logomarca" src="images/brasoes/brasao_riachuelo_se_100_100.png">
                             </div>
                         </div>
                     </div>

@@ -113,7 +113,7 @@ public class PessoaCadastrarAction {
                     pessoaDependenteDAO.salvar(pessoaDependente);
                 }
 
-                if (pessoa.getPai() != null || pessoa.getPai().getId() != null) {
+                if (pai != null || pai.getId() != null) {
                     pai = pessoaDAO.getPessoa(pai);
                     if (!pai.getNome().equalsIgnoreCase("Não Informado")) {
                         pessoaDependente = new Pessoa_Dependente();
