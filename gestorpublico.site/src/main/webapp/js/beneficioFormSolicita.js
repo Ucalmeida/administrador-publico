@@ -1,12 +1,12 @@
 $(document).ready(function() {
     let oTable = $("#tbBeneficios").DataTable({
-        "bPaginate" : true,
-        "iDisplayLength": 10,
-        "aoColumns": [
-            {"sTitle": "Benefíciado"},
-            {"sTitle": "Benefício"},
-            {"sTitle": "Observação"},
-            {"sTitle": "Ação"}]
+        paging: true,
+        iDisplayLength: 10,
+        columns: [
+            {title: "Beneficiado"},
+            {title: "Benefício"},
+            {title: "Observação"},
+            {title: "Ação"}]
     });
     $("#frmBeneficioSolicitar").submit(function(e){e.preventDefault();}).validate({
         tooltip_options: {'_all_': { placement: 'top' }},

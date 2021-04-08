@@ -73,9 +73,10 @@
         <jsp:include page="rodape.jsp" />
     </div>
     <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
-    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables.defaults.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/tabelaGestorPublico.js"></script>
+<%--    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/jquery.dataTables.min.js"></script>--%>
+<%--    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>--%>
+<%--    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables.defaults.js"></script>--%>
     <script type="text/javascript" charset="utf-8" src="js/funcoes.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/solicitacaoFormLista.js"></script>
 </body>

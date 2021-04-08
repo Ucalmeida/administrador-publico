@@ -32,7 +32,7 @@
     </div>
     <jsp:include page="rodape.jsp" />
     <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/tabela.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/tabelaGestorPublico.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/dependenteLista.js"></script>
 </body>
 </html>

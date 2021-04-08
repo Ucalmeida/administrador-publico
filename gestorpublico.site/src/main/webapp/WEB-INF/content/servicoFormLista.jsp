@@ -36,7 +36,7 @@
         <jsp:include page="rodape.jsp" />
     </div>
     <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/tabela.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/tabelaGestorPublico.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/servicoFormLista.js"></script>
 </body>
 </html>

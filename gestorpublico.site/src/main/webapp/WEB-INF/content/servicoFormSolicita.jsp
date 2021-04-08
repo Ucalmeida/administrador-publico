@@ -47,9 +47,17 @@
         <jsp:include page="rodape.jsp" />
     </div>
     <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
-    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables.defaults.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/tabelaGestorPublico.js"></script>
+<%--    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>--%>
+<%--    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables.defaults.js"></script>--%>
+<%--    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables-buttons/js/dataTables.buttons.min.js"></script>--%>
+<%--    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables-buttons/js/buttons.bootstrap4.js"></script>--%>
+<%--    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables-buttons/js/buttons.print.js"></script>--%>
+<%--    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables-buttons/js/buttons.colVis.min.js"></script>--%>
+<%--    <script type="text/javascript" charset="utf-8" src="plugins/dataTables/datatables-buttons/js/buttons.html5.min.js"></script>--%>
+<%--    <script type="text/javascript" charset="utf-8" src="plugins/pdfmake/pdfmake.min.js"></script> // Gerar PDF--%>
+<%--    <script type="text/javascript" charset="utf-8" src="plugins/pdfmake/vfs_fonts.js"></script> // Gerar PDF--%>
+<%--    <script type="text/javascript" charset="utf-8" src="plugins/jszip/jszip.min.js"></script> // Gerar Excel--%>
     <script type="text/javascript" charset="utf-8" src="js/servicoFormSolicita.js"></script>
 </body>
 </html>
