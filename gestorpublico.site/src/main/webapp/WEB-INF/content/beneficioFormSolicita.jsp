@@ -59,6 +59,6 @@
 <%--    <script type="text/javascript" charset="utf-8" src="../plugins/dataTables/jquery.dataTables.min.js"></script>--%>
 <%--    <script type="text/javascript" charset="utf-8" src="../plugins/dataTables/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>--%>
 <%--    <script type="text/javascript" charset="utf-8" src="../plugins/dataTables/datatables.defaults.js"></script>--%>
-    <script type="text/javascript" charset="utf-8" src="js/beneficioFormSolicita.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/beneficioFormConcede.js"></script>
 </body>
 </html>
