@@ -4,8 +4,8 @@ $(document).ready(function() {
         "iDisplayLength": 10,
         "order": [[0, 'asc' ]],
         "aoColumns": [
-            {"sTitle": "Beneficiado"},
-            {"sTitle": "Benefício"},
+            {"sTitle": "Solicitante"},
+            {"sTitle": "Serviço"},
             {"sTitle": "Observação"},
             {"sTitle": "Ação"}],
         columnDefs: [
@@ -25,25 +25,25 @@ $(document).ready(function() {
         },
         select: function(event, ui) {
             if (ui.item.label != "NÃO ENCONTRADO") {
-                $("#idBeneficiado").val(ui.item.id);
+                $("#idSolicitante").val(ui.item.id);
                 $("#nome").val(ui.item.nome);
             }
         }
     });
-    $("#frmBeneficioConceder").submit(function(e){e.preventDefault();}).validate({
+    $("#frmServicoConceder").submit(function(e){e.preventDefault();}).validate({
         tooltip_options: {'_all_': { placement: 'top' }},
         rules: {
-            'nome': {required: true, haValor: "#idBeneficiado"},
-            'beneficio.id': {required: true}
+            'nome': {required: true, haValor: "#idSolicitante"},
+            'servico.id': {required: true}
         },
         submitHandler: function(form) {
             let result = enviar(form, false);
             if (result[0] == true) {
                 let id = result[1];
                 let aData = {"0": $("#nome").val(),
-                    "1": $("#idBeneficio option:selected").text(),
+                    "1": $("#idServico option:selected").text(),
                     "2": $("#observacao").val(),
-                    "3": '<a onclick="javascript:excluir(\'pessoaBeneficio\','+id+')" class="btn btn-default"><i class="red fa fa-trash"></i> Excluir</a>',
+                    "3": '<a onclick="javascript:excluir(\'pessoaServico\','+id+')" class="btn btn-default"><i class="red fa fa-trash"></i> Excluir</a>',
                     "DT_RowId": "ln"+id};
                 oTable.rows.add([aData]).draw();
                 $(form)[0].reset();

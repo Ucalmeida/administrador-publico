@@ -5,7 +5,7 @@
 <head>
     <jsp:include page="head.jsp" />
 
-    <title>Cidadãos</title>
+    <title>Serviço Concessão</title>
 </head>
 <body>
     <div class="wrapper">
@@ -15,25 +15,25 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h4 class="titulo">Conceder Benefício</h4>
+                            <h4 class="titulo">Conceder Serviço</h4>
                         </div>
                         <div class="col-lg-12">
-                            <form id="frmBeneficioConceder" action="pessoaBeneficioConceder" method="post" class="form" role="form">
+                            <form id="frmServicoConceder" action="pessoaServicoConceder" method="post" class="form" role="form">
                                 <div class="row">
                                     <div class="form-group col-lg-4 col-md-4">
-                                        <label for="nome" class="control-label">Beneficiado</label>
-                                        <input id="nome" name="nome" class="focus form-control" placeholder="Digite o CPF ou nome do Beneficiado" />
-                                        <input hidden id="idBeneficiado" name="beneficiado.id" />
+                                        <label for="nome" class="control-label">Solicitante</label>
+                                        <input id="nome" name="nome" class="focus form-control" placeholder="Digite o CPF ou nome do Solicitante" />
+                                        <input hidden id="idSolicitante" name="solicitante.id" />
                                     </div>
                                     <div class="form-group col-lg-5 col-md-5">
-                                        <label for="idBeneficio" class="control-label">Benefício</label>
-                                        <select id="idBeneficio" name="beneficio.id" class="form-control form-control-select">
-                                            <option></option><c:forEach items="${beneficios}" var="o">
+                                        <label for="idServico" class="control-label">Serviço</label>
+                                        <select id="idServico" name="servico.id" class="form-control form-control-select">
+                                            <option></option><c:forEach items="${servicos}" var="o">
                                             <option value="${o.get('id')}" title="${o.get('setor')}">${o.get('nome')}</option>
                                         </c:forEach></select>
                                     </div>
                                     <div class="form-group col-1">
-                                        <button type="submit" class="btn-bottom btn btn-primary">Solicitar</button>
+                                        <button type="submit" class="btn-bottom btn btn-primary">Conceder</button>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -45,15 +45,7 @@
                             </form>
                         </div>
                         <div class="col-lg-12 table-responsive">
-                            <table id="tbConcessoes" class="table table-striped table-bordered" width="100%"><c:forEach items="${pessoas}" var="o">
-                                <tr id="ln${o.get('id')}">
-                                    <td>${o.get('nome')}</td>
-                                    <td><span data-mask="000.000.000-00">${o.get('cpf')}</span></td>
-                                    <td>${o.get('dataNascimento')}</td>
-                                    <td><span data-mask="(00)00000-0000">${o.get('celular')}</span></td>
-                                    <td><a onclick="javascript:void()" class="btn btn-default"><i class="fas fa-home"></i> Endereço</a></td>
-                                </tr></c:forEach>
-                            </table>
+                            <table id="tbConcessoes" class="table table-striped table-bordered" width="100%"></table>
                         </div>
                     </div>
                 </div>
@@ -63,6 +55,6 @@
     </div>
     <script type="text/javascript" charset="utf-8" src="js/nucleo.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/tabelaGestorPublico.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/beneficioFormConcede.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/servicoFormConcede.js"></script>
 </body>
 </html>
