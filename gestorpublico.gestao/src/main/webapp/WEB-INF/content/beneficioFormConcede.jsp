@@ -16,8 +16,6 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h4 class="titulo">Conceder Benefício</h4>
-                        </div>
-                        <div>
                             <form id="frmBeneficioConceder" action="pessoaBeneficioConceder" method="post" class="form" role="form">
                                 <div class="row">
                                     <div class="form-group col-lg-4 col-md-4">
